@@ -129,6 +129,9 @@ if (empty($_SESSION['sess_user'])) {
 						<li> 
 							<a class="waves-effect waves-dark" href="index.php?page=view_pegawai" aria-expanded="false"><i class="fa fa-users"></i><span class="hide-menu"> Master Pegawai</span></a>
 						</li>
+						<li> 
+							<a class="waves-effect waves-dark" href="index.php?page=view_jenis_surat" aria-expanded="false"><i class="fa fa-tags"></i><span class="hide-menu"> Master Jenis Surat</span></a>
+						</li>
 					<?php elseif($auth->isTU()): ?>
 						<li> 
 							<a class="waves-effect waves-darkenvelope-open" href="index.php?page=#" aria-expanded="false"><i class="fa fa-envelope-open"></i><span class="hide-menu"> Surat Masuk</span></a>
@@ -180,6 +183,8 @@ if (empty($_SESSION['sess_user'])) {
 						include "dashbord/view.php";
 
 					// menu admin
+
+					// m_pegawai
 					}else if($page == "view_pegawai"){
 						include "m_pegawai/view.php";
 					}else if($page == "add_pegawai"){
@@ -189,6 +194,20 @@ if (empty($_SESSION['sess_user'])) {
 					}else if($page == "delete"){
 						include "m_pegawai/delete.php";
 					}
+					//end m_pegawai
+
+					// m_jenis_surat
+					else if($page == "view_jenis_surat"){
+						include "m_jenis_surat/view.php";		
+					}else if($page == "add_jenis_surat"){
+						include "m_jenis_surat/add_form.php";
+					}else if($page == "edit_jenis_surat"){
+						include "m_jenis_surat/edit_form.php";
+					}else if($page == "delete_jenis_surat"){
+						include "m_jenis_surat/delete.php";
+					}
+					// end m_jenis_surat
+
 					// end admin
 
 				}else{
