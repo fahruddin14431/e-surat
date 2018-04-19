@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: 09 Apr 2018 pada 12.33
+-- Generation Time: 19 Apr 2018 pada 08.48
 -- Versi Server: 10.1.26-MariaDB
 -- PHP Version: 7.1.9
 
@@ -42,6 +42,26 @@ INSERT INTO `tb_jabatan` (`id_jabatan`, `jabatan`) VALUES
 (2, 'Sekretaris'),
 (3, 'Kabid MUTASI DAN PENGEMBANGAN PEGAWAI'),
 (4, 'STAFF');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `tb_jenis_surat`
+--
+
+CREATE TABLE `tb_jenis_surat` (
+  `id_jenis_surat` int(11) NOT NULL,
+  `jenis_surat` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `tb_jenis_surat`
+--
+
+INSERT INTO `tb_jenis_surat` (`id_jenis_surat`, `jenis_surat`) VALUES
+(1, 'Dinas'),
+(2, 'Perintah'),
+(4, 'Biasa');
 
 -- --------------------------------------------------------
 
@@ -101,6 +121,12 @@ ALTER TABLE `tb_jabatan`
   ADD PRIMARY KEY (`id_jabatan`);
 
 --
+-- Indexes for table `tb_jenis_surat`
+--
+ALTER TABLE `tb_jenis_surat`
+  ADD PRIMARY KEY (`id_jenis_surat`);
+
+--
 -- Indexes for table `tb_login`
 --
 ALTER TABLE `tb_login`
@@ -125,10 +151,16 @@ ALTER TABLE `tb_jabatan`
   MODIFY `id_jabatan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
+-- AUTO_INCREMENT for table `tb_jenis_surat`
+--
+ALTER TABLE `tb_jenis_surat`
+  MODIFY `id_jenis_surat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
 -- AUTO_INCREMENT for table `tb_login`
 --
 ALTER TABLE `tb_login`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
