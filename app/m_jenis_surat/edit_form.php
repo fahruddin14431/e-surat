@@ -15,16 +15,21 @@ $result         = $crud->view(" SELECT * FROM tb_jenis_surat WHERE id_jenis_sura
 
                 <form action="m_jenis_surat/edit.php" method="POST">
 
-                <div class="form-group">
-                    <h5>Jenis Surat</h5>
-                    <input required type="text" value="<?= $result['jenis_surat'] ?>" name="jenis_surat" class="form-control" placeholder="Jenis Surat"/> 
-                </div>
+                    <div class="form-group">
+                        <h5>No Surat</h5>
+                        <input required type="text" value="<?= $result['no_surat'] ?>" name="no_surat" class="form-control" placeholder="No Surat"/> 
+                    </div>
 
-                <div class="form-group">                                    
-                    <button type="submit" name="id_jenis_surat" value="<?= $result['id_jenis_surat'] ?>"  class="btn btn-success">
-                        SIMPAN
-                    </button>
-                </div>         
+                    <div class="form-group">
+                        <h5>Jenis Surat</h5>
+                        <input required type="text" value="<?= $result['jenis_surat'] ?>" name="jenis_surat" class="form-control" placeholder="Jenis Surat"/> 
+                    </div>
+
+                    <div class="form-group">                                    
+                        <button type="submit" name="id_jenis_surat" value="<?= $result['id_jenis_surat'] ?>"  class="btn btn-success">
+                            SIMPAN
+                        </button>
+                    </div>         
 
                 </form>
 

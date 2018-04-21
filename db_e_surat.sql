@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: 19 Apr 2018 pada 08.48
+-- Generation Time: 21 Apr 2018 pada 02.59
 -- Versi Server: 10.1.26-MariaDB
 -- PHP Version: 7.1.9
 
@@ -51,6 +51,7 @@ INSERT INTO `tb_jabatan` (`id_jabatan`, `jabatan`) VALUES
 
 CREATE TABLE `tb_jenis_surat` (
   `id_jenis_surat` int(11) NOT NULL,
+  `no_surat` varchar(20) NOT NULL,
   `jenis_surat` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -58,10 +59,10 @@ CREATE TABLE `tb_jenis_surat` (
 -- Dumping data untuk tabel `tb_jenis_surat`
 --
 
-INSERT INTO `tb_jenis_surat` (`id_jenis_surat`, `jenis_surat`) VALUES
-(1, 'Dinas'),
-(2, 'Perintah'),
-(4, 'Biasa');
+INSERT INTO `tb_jenis_surat` (`id_jenis_surat`, `no_surat`, `jenis_surat`) VALUES
+(1, 'NO SRT 1001', 'Dinas'),
+(2, 'NO SRT 1002', 'Perintah'),
+(4, 'NO SRT 1003', 'Biasa');
 
 -- --------------------------------------------------------
 

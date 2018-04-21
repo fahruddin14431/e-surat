@@ -13,6 +13,7 @@
                     <thead>
                         <tr>
                             <th>No</th>
+                            <th>No Surat</th>
                             <th>Jenis Surat</th>
                             <th>Aksi</th>
                         </tr>
@@ -27,6 +28,7 @@
                         ?>
                         <tr>
                             <td><?= $no++."." ?></td>
+                            <td><?= $value['no_surat'] ?></td>
                             <td><?= $value['jenis_surat'] ?></td>
                             <td>
                                 <a href="index.php?page=edit_jenis_surat&id_jenis_surat=<?= $value['id_jenis_surat'] ?>" class="btn btn-warning">Ubah</a>

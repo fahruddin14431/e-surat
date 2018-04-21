@@ -9,6 +9,11 @@
                 <form action="m_jenis_surat/add.php" method="POST">                
 
                     <div class="form-group">
+                        <h5>No Surat</h5>
+                        <input required type="text" name="no_surat" class="form-control" placeholder="No Surat"/> 
+                    </div>
+
+                    <div class="form-group">
                         <h5>Jenis Surat</h5>
                         <input required type="text" name="jenis_surat" class="form-control" placeholder="Jenis Surat"/> 
                     </div>

@@ -5,6 +5,7 @@ include "../helper/crud.php";
 $crud = new Crud();
 
 $data = array(
+    'no_surat' => $_POST['no_surat'],
     'jenis_surat' => $_POST['jenis_surat']
 );
 
