@@ -29,7 +29,7 @@
 				<div class="row">
 					<div class="col-md-2"></div>
 					<div class="login100-pic js-tilt col-md-4" data-tilt>
-						<img src="assets/images/img-01.png" alt="IMG">
+						<img src="assets/images/logo.png" width="280" height="300" alt="IMG">
 					</div>
 
 					<form class="login100-form validate-form col-md-4" action="login.php" method="POST">
