@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: 21 Apr 2018 pada 02.59
+-- Generation Time: 22 Apr 2018 pada 04.19
 -- Versi Server: 10.1.26-MariaDB
 -- PHP Version: 7.1.9
 
@@ -21,6 +21,25 @@ SET time_zone = "+00:00";
 --
 -- Database: `db_e_surat`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `tb_format_surat`
+--
+
+CREATE TABLE `tb_format_surat` (
+  `id_format_surat` int(11) NOT NULL,
+  `kop_surat` varchar(255) NOT NULL,
+  `logo` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `tb_format_surat`
+--
+
+INSERT INTO `tb_format_surat` (`id_format_surat`, `kop_surat`, `logo`) VALUES
+(1, '<h2>PEMERINTAH KEBUPATEN MANGGARAI BARAT BADANG KEPEGAWAIAN PENDIDIKAN DAN PELATAHIAN DAERAH Jln. Frans Sales Lega Labuhan Bajo NTT, email:bkdmabar@gmail.com</h2>', 'logo.png');
 
 -- --------------------------------------------------------
 
@@ -116,6 +135,12 @@ INSERT INTO `tb_pegawai` (`id_pegawai`, `nip`, `nama`, `id_jabatan`) VALUES
 --
 
 --
+-- Indexes for table `tb_format_surat`
+--
+ALTER TABLE `tb_format_surat`
+  ADD PRIMARY KEY (`id_format_surat`);
+
+--
 -- Indexes for table `tb_jabatan`
 --
 ALTER TABLE `tb_jabatan`
@@ -144,6 +169,12 @@ ALTER TABLE `tb_pegawai`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `tb_format_surat`
+--
+ALTER TABLE `tb_format_surat`
+  MODIFY `id_format_surat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `tb_jabatan`
