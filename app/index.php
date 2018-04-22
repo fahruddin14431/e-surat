@@ -45,6 +45,8 @@ if (empty($_SESSION['sess_user'])) {
 		line-height: 1.428;
 	}
 	</style>
+	<!-- ckeditorr -->
+	<script src="https://cdn.ckeditor.com/ckeditor5/1.0.0-beta.3/classic/ckeditor.js"></script>
 </head>
 
 <body class="fix-header fix-sidebar card-no-border">
@@ -132,6 +134,9 @@ if (empty($_SESSION['sess_user'])) {
 						<li> 
 							<a class="waves-effect waves-dark" href="index.php?page=view_jenis_surat" aria-expanded="false"><i class="fa fa-tags"></i><span class="hide-menu"> Master Jenis Surat</span></a>
 						</li>
+						<li> 
+							<a class="waves-effect waves-dark" href="index.php?page=view_format_surat" aria-expanded="false"><i class="fa fa-tags"></i><span class="hide-menu"> Master Format Surat</span></a>
+						</li>
 					<?php elseif($auth->isTU()): ?>
 						<li> 
 							<a class="waves-effect waves-darkenvelope-open" href="index.php?page=#" aria-expanded="false"><i class="fa fa-envelope-open"></i><span class="hide-menu"> Surat Masuk</span></a>
@@ -208,6 +213,10 @@ if (empty($_SESSION['sess_user'])) {
 					}
 					// end m_jenis_surat
 
+					else if($page == "view_format_surat"){
+						include "m_format_surat/view.php";		
+					}
+
 					// end admin
 
 				}else{
@@ -258,6 +267,6 @@ if (empty($_SESSION['sess_user'])) {
 	$(document).ready(function() {
 		$('#data_table').DataTable();
 	});
-</script>
+	</script>
 </body>
 </html>
