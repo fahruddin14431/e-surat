@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: 22 Apr 2018 pada 04.19
+-- Generation Time: 22 Apr 2018 pada 05.30
 -- Versi Server: 10.1.26-MariaDB
 -- PHP Version: 7.1.9
 
@@ -60,7 +60,8 @@ INSERT INTO `tb_jabatan` (`id_jabatan`, `jabatan`) VALUES
 (1, 'KEPALA BKPPD'),
 (2, 'Sekretaris'),
 (3, 'Kabid MUTASI DAN PENGEMBANGAN PEGAWAI'),
-(4, 'STAFF');
+(4, 'STAFF'),
+(5, 'Dinas');
 
 -- --------------------------------------------------------
 
@@ -94,7 +95,7 @@ CREATE TABLE `tb_login` (
   `nama_pengguna` varchar(20) NOT NULL,
   `kata_sandi` varchar(50) NOT NULL,
   `id_pegawai` varchar(11) NOT NULL,
-  `status` enum('ADMIN','TU','DINAS','KEPALA BADAN') NOT NULL
+  `status` enum('ADMIN','TU','DINAS','KEPALA BADAN','PEGAWAI') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -105,7 +106,7 @@ INSERT INTO `tb_login` (`id`, `nama_pengguna`, `kata_sandi`, `id_pegawai`, `stat
 (1, 'kepala', 'kepala', 'PEG1001', 'KEPALA BADAN'),
 (2, 'admin', 'admin', 'PEG1002', 'ADMIN'),
 (3, 'tu', 'tu', 'PEG1003', 'TU'),
-(4, 'dinas', 'dinas', 'PEG1004', 'DINAS');
+(8, 'dispen', 'dispen', 'DIN1005', 'DINAS');
 
 -- --------------------------------------------------------
 
@@ -125,6 +126,7 @@ CREATE TABLE `tb_pegawai` (
 --
 
 INSERT INTO `tb_pegawai` (`id_pegawai`, `nip`, `nama`, `id_jabatan`) VALUES
+('DIN1005', '', 'Dinas Pendidikan', 5),
 ('PEG1001', '196508041997031002', 'IR. SEBASTIANUS WATUNG', 1),
 ('PEG1002', '198705292014021002', 'MAKSIMUS E. APEN, SE', 4),
 ('PEG1003', '198301302010012017', 'MARIA P.ERNI, A.MD', 4),
@@ -180,7 +182,7 @@ ALTER TABLE `tb_format_surat`
 -- AUTO_INCREMENT for table `tb_jabatan`
 --
 ALTER TABLE `tb_jabatan`
-  MODIFY `id_jabatan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_jabatan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `tb_jenis_surat`
@@ -192,7 +194,7 @@ ALTER TABLE `tb_jenis_surat`
 -- AUTO_INCREMENT for table `tb_login`
 --
 ALTER TABLE `tb_login`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
