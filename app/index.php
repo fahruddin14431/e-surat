@@ -135,7 +135,10 @@ if (empty($_SESSION['sess_user'])) {
 							<a class="waves-effect waves-dark" href="index.php?page=view_jenis_surat" aria-expanded="false"><i class="fa fa-tags"></i><span class="hide-menu"> Master Jenis Surat</span></a>
 						</li>
 						<li> 
-							<a class="waves-effect waves-dark" href="index.php?page=view_format_surat" aria-expanded="false"><i class="fa fa-tags"></i><span class="hide-menu"> Master Format Surat</span></a>
+							<a class="waves-effect waves-dark" href="index.php?page=view_format_surat" aria-expanded="false"><i class="fa fa-file"></i><span class="hide-menu"> Master Format Surat</span></a>
+						</li>
+						<li> 
+							<a class="waves-effect waves-dark" href="index.php?page=view_dinas" aria-expanded="false"><i class="fa fa-user-circle"></i><span class="hide-menu"> Master Dinas</span></a>
 						</li>
 					<?php elseif($auth->isTU()): ?>
 						<li> 
@@ -145,6 +148,7 @@ if (empty($_SESSION['sess_user'])) {
 							<a class="waves-effect waves-dark" href="index.php?page=#" aria-expanded="false"><i class="fa fa-envelope"></i><span class="hide-menu"> Surat Keluar</span></a>
 						</li>
 					<?php elseif($auth->isDinas()): ?>
+					<?php elseif($auth->isPegawai()): ?>
 					<?php endif ?>
 					
 					<!-- global menu -->
@@ -216,6 +220,18 @@ if (empty($_SESSION['sess_user'])) {
 					else if($page == "view_format_surat"){
 						include "m_format_surat/view.php";		
 					}
+
+					// m_dinas
+					else if($page == "view_dinas"){
+						include "m_dinas/view.php";		
+					}else if($page == "add_dinas"){
+						include "m_dinas/add_form.php";	
+					}else if($page == "edit_dinas"){
+						include "m_dinas/edit_form.php";
+					}else if($page == "delete_dinas"){
+						include "m_dinas/delete.php";
+					}
+					// end m_dinas
 
 					// end admin
 
