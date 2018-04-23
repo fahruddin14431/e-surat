@@ -4,7 +4,7 @@
 include "../helper/crud.php";
 $crud = new Crud();
 
-$id_pegawai = $crud->makeId("tb_pegawai", "id_pegawai", "DIN");
+$id_pegawai = $crud->makeId("tb_pegawai", "id_pegawai", "PEG");
 
 // insert pegawai
 $data = array(

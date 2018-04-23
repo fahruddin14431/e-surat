@@ -27,9 +27,9 @@ if (empty($_SESSION['sess_user'])) {
 	<!-- Bootstrap Core CSS -->
 	<link href="../assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 	<!-- chartist CSS -->
-	<link href="../assets/plugins/chartist-js/dist/chartist.min.css" rel="stylesheet">
+	<!-- <link href="../assets/plugins/chartist-js/dist/chartist.min.css" rel="stylesheet">
 	<link href="../assets/plugins/chartist-js/dist/chartist-init.css" rel="stylesheet">
-	<link href="../assets/plugins/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.css" rel="stylesheet">
+	<link href="../assets/plugins/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.css" rel="stylesheet"> -->
 	<!--This page css - Morris CSS -->
 	<link href="../assets/plugins/c3-master/c3.min.css" rel="stylesheet">
 	<!-- Custom CSS -->
@@ -45,9 +45,14 @@ if (empty($_SESSION['sess_user'])) {
 		line-height: 1.428;
 	}
 	</style>
-	<!-- ckeditorr -->
-	<script src="https://cdn.ckeditor.com/ckeditor5/1.0.0-beta.3/classic/ckeditor.js"></script>
+	<!-- All Jquery -->
+	<script src="../assets/plugins/jquery/jquery.min.js"></script>
+	<!-- select2 -->
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
 </head>
+	<!-- ckeditorr -->
+	<script src="//cdn.ckeditor.com/4.9.2/full-all/ckeditor.js"></script>
 
 <body class="fix-header fix-sidebar card-no-border">
    
@@ -140,14 +145,14 @@ if (empty($_SESSION['sess_user'])) {
 						<li> 
 							<a class="waves-effect waves-dark" href="index.php?page=view_dinas" aria-expanded="false"><i class="fa fa-user-circle"></i><span class="hide-menu"> Master Dinas</span></a>
 						</li>
-					<?php elseif($auth->isTU()): ?>
+					<?php elseif($auth->isTU()): ?>						
 						<li> 
-							<a class="waves-effect waves-darkenvelope-open" href="index.php?page=#" aria-expanded="false"><i class="fa fa-envelope-open"></i><span class="hide-menu"> Surat Masuk</span></a>
-						</li>
-						<li> 
-							<a class="waves-effect waves-dark" href="index.php?page=#" aria-expanded="false"><i class="fa fa-envelope"></i><span class="hide-menu"> Surat Keluar</span></a>
+							<a class="waves-effect waves-dark" href="index.php?page=view_surat_keluar" aria-expanded="false"><i class="fa fa-envelope"></i><span class="hide-menu"> Surat Keluar</span></a>
 						</li>
 					<?php elseif($auth->isDinas()): ?>
+						<!-- <li> 
+							<a class="waves-effect waves-darkenvelope-open" href="index.php?page=#" aria-expanded="false"><i class="fa fa-envelope-open"></i><span class="hide-menu"> Surat Masuk</span></a>
+						</li> -->
 					<?php elseif($auth->isPegawai()): ?>
 					<?php endif ?>
 					
@@ -235,6 +240,18 @@ if (empty($_SESSION['sess_user'])) {
 
 					// end admin
 
+					// dinas
+
+					// surat keluar
+					else if($page == "view_surat_keluar"){
+						include "surat_keluar/view.php";
+					}else if($page == "add_surat_keluar"){
+						include "surat_keluar/add_form.php";
+					}
+					// end surat keluar
+
+					// end dinas
+
 				}else{
 					include "dashbord/view.php";
 				}
@@ -252,8 +269,6 @@ if (empty($_SESSION['sess_user'])) {
 	</div>
 	<!-- End Wrapper -->
 	
-	<!-- All Jquery -->
-	<script src="../assets/plugins/jquery/jquery.min.js"></script>
 	<!-- Bootstrap tether Core JavaScript -->
 	<script src="../assets/plugins/bootstrap/js/tether.min.js"></script>
 	<script src="../assets/plugins/bootstrap/js/bootstrap.min.js"></script>

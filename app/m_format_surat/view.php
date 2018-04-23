@@ -1,6 +1,6 @@
 <div class="row">
     <!-- Column -->
-    <div class="col-lg-8">
+    <div class="col-lg-10">
         <div class="card">
             <div class="card-block">
 
@@ -21,7 +21,7 @@
                     <div class="form-group">
                         <h5>Logo</h5>
                         <img src="../assets/images/<?= $result['logo']?>" alt="" width="25%" height="25%">
-                        <input required type="file" value="<?= $result['logo'] ?>" name="logo" class="form-control" placeholder="Logo"/> 
+                        <input  type="file" name="logo" class="form-control" placeholder="Logo"/> 
                     </div>
 
                     <div class="form-group">                                    
@@ -37,15 +37,9 @@
         </div>
     </div>
 </div> 
-
 <!-- config ckeditor -->
 <script>
-ClassicEditor
-    .create( document.querySelector( '#editor' ) )
-    .then( editor => {
-        console.log( editor );
-    } )
-    .catch( error => {
-        console.error( error );
-    } );
+CKEDITOR.replace( 'editor', {
+    height: 200
+});
 </script>

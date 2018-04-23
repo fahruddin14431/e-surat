@@ -5,11 +5,11 @@ include "../helper/crud.php";
 $crud = new Crud();
 
 $id_format_surat = $_POST['id_format_surat'];
-$logo            = $_FILES['logo'];
+$logo            = $_FILES['logo']["tmp_name"];
 
-if(isset($logo)){
+if(!empty($logo)){
     $target_file = "../../assets/images/" . basename($_FILES["logo"]["name"]);
-    if (move_uploaded_file($_FILES["logo"]["tmp_name"], $target_file)) {
+    if (move_uploaded_file($logo, $target_file)) {
         $data = array(
             'kop_surat' => $_POST['kop_surat'],
             'logo'      => basename( $_FILES["logo"]["name"])
