@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: 23 Apr 2018 pada 15.32
+-- Generation Time: 24 Apr 2018 pada 03.55
 -- Versi Server: 10.1.26-MariaDB
 -- PHP Version: 7.1.9
 
@@ -163,6 +163,7 @@ INSERT INTO `tb_pegawai` (`id_pegawai`, `nip`, `nama`, `id_jabatan`) VALUES
 CREATE TABLE `tb_surat_keluar` (
   `id_surat_keluar` varchar(11) NOT NULL,
   `id_jenis_surat` int(11) NOT NULL,
+  `tanggal` date NOT NULL,
   `file_surat` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -170,9 +171,9 @@ CREATE TABLE `tb_surat_keluar` (
 -- Dumping data untuk tabel `tb_surat_keluar`
 --
 
-INSERT INTO `tb_surat_keluar` (`id_surat_keluar`, `id_jenis_surat`, `file_surat`) VALUES
-('SUK1001', 5, 'SUK1001.pdf'),
-('SUK1002', 5, 'SUK1002.pdf');
+INSERT INTO `tb_surat_keluar` (`id_surat_keluar`, `id_jenis_surat`, `tanggal`, `file_surat`) VALUES
+('SUK1001', 5, '2018-04-24', 'SUK1001.pdf'),
+('SUK1002', 5, '2018-04-24', 'SUK1002.pdf');
 
 --
 -- Indexes for dumped tables
