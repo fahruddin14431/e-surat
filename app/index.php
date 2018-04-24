@@ -150,9 +150,9 @@ if (empty($_SESSION['sess_user'])) {
 							<a class="waves-effect waves-dark" href="index.php?page=view_surat_keluar" aria-expanded="false"><i class="fa fa-envelope"></i><span class="hide-menu"> Surat Keluar</span></a>
 						</li>
 					<?php elseif($auth->isDinas()): ?>
-						<!-- <li> 
-							<a class="waves-effect waves-darkenvelope-open" href="index.php?page=#" aria-expanded="false"><i class="fa fa-envelope-open"></i><span class="hide-menu"> Surat Masuk</span></a>
-						</li> -->
+						<li> 
+							<a class="waves-effect waves-darkenvelope-open" href="index.php?page=view_surat_masuk" aria-expanded="false"><i class="fa fa-envelope-open"></i><span class="hide-menu"> Surat Masuk</span></a>
+						</li>
 					<?php elseif($auth->isPegawai()): ?>
 					<?php endif ?>
 					
@@ -240,7 +240,7 @@ if (empty($_SESSION['sess_user'])) {
 
 					// end admin
 
-					// dinas
+					// TU
 
 					// surat keluar
 					else if($page == "view_surat_keluar"){
@@ -249,6 +249,14 @@ if (empty($_SESSION['sess_user'])) {
 						include "surat_keluar/add_form.php";
 					}
 					// end surat keluar
+
+					// end TU
+
+					// dinas
+
+					else if($page == "view_surat_masuk"){
+						include "surat_masuk/view.php";
+					}
 
 					// end dinas
 
