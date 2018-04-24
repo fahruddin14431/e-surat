@@ -1,6 +1,6 @@
 <div class="row">
     <!-- Column -->
-    <div class="col-lg-8">
+    <div class="col-lg-12">
         <div class="card">
             <div class="card-block">
 
@@ -15,6 +15,7 @@
                             <th>No</th>
                             <th>No Surat</th>
                             <th>Jenis Surat</th>
+                            <th>Isi Surat</th>
                             <th>Aksi</th>
                         </tr>
                     </thead>
@@ -30,6 +31,7 @@
                             <td><?= $no++."." ?></td>
                             <td><?= $value['no_surat'] ?></td>
                             <td><?= $value['jenis_surat'] ?></td>
+                            <td><?= $value['isi_surat'] ?></td>
                             <td>
                                 <a href="index.php?page=edit_jenis_surat&id_jenis_surat=<?= $value['id_jenis_surat'] ?>" class="btn btn-warning">Ubah</a>
                                 <a href="index.php?page=delete_jenis_surat&id_jenis_surat=<?= $value['id_jenis_surat'] ?>" onClick="return confirm('Data Akan Dihapus !')" class="btn btn-danger">Hapus</a>

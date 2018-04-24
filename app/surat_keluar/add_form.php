@@ -29,7 +29,7 @@
                     <div class="form-group">
                         <h5>Jenis Surat</h5>
 
-                        <select required name="id_jenis_surat" class="form-control">
+                        <select required name="id_jenis_surat" id="id_jenis_surat" class="form-control">
                             <option value=""> -- Pilih Jenis Surat -- </option>
                             <?php 
                                 $crud   = new Crud();
@@ -58,17 +58,39 @@
     </div>
 </div> 
 <script>
+
 // config ckeditor
 CKEDITOR.replace( 'editor', {
     height: 400
 });
 
-// select2
+
 $(document).ready(function() {
+
+    // ajax change isi surat
+    $("#id_jenis_surat").change(function(){
+        $.ajax({
+            type : "POST",
+            url  : "../app/surat_keluar/get_isi_surat.php",
+            data : {id_jenis_surat : $("#id_jenis_surat").val()},
+            dataType : "json",
+            success: function(data){
+                CKEDITOR.instances["editor"].setData(data.data);
+                
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert(thrownError); 
+            }
+        });
+    });
+
+    // select2
     $('.js-example-basic-multiple').select2({
         placeholder:"-- Pilih Dinas Tujuan --",
         width: '100%'
     });
+
+
 });
 </script>
 

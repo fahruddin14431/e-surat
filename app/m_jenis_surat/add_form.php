@@ -1,6 +1,6 @@
 <div class="row">
     <!-- Column -->
-    <div class="col-lg-6">
+    <div class="col-lg-10">
         <div class="card">
             <div class="card-block">
 
@@ -17,9 +17,14 @@
                         <h5>Jenis Surat</h5>
                         <input required type="text" name="jenis_surat" class="form-control" placeholder="Jenis Surat"/> 
                     </div>
+
+                    <div class="form-group">
+                        <h5>Isi Surat</h5>
+                        <textarea required name="isi_surat" id="editor" cols="30" rows="10" class="form-control"></textarea>
+                    </div>
         
                     <div class="form-group">                    
-                        <input required type="submit" class="btn btn-success form-control"/> 
+                        <input required type="submit" value="SIMPAN" class="btn btn-success form-control"/> 
                     </div>         
 
                 </form>
@@ -28,3 +33,10 @@
         </div>
     </div>
 </div> 
+
+<script>
+// config ckeditor
+CKEDITOR.replace( 'editor', {
+    height: 400
+});
+</script>

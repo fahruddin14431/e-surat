@@ -7,7 +7,7 @@ $result         = $crud->view(" SELECT * FROM tb_jenis_surat WHERE id_jenis_sura
 
 <div class="row">
     <!-- Column -->
-    <div class="col-lg-6">
+    <div class="col-lg-10">
         <div class="card">
             <div class="card-block">
 
@@ -25,6 +25,11 @@ $result         = $crud->view(" SELECT * FROM tb_jenis_surat WHERE id_jenis_sura
                         <input required type="text" value="<?= $result['jenis_surat'] ?>" name="jenis_surat" class="form-control" placeholder="Jenis Surat"/> 
                     </div>
 
+                    <div class="form-group">
+                        <h5>Isi Surat</h5>
+                        <textarea required name="isi_surat" id="editor" cols="30" rows="10" class="form-control"><?= $result['isi_surat'] ?></textarea>
+                    </div>
+
                     <div class="form-group">                                    
                         <button type="submit" name="id_jenis_surat" value="<?= $result['id_jenis_surat'] ?>"  class="btn btn-success">
                             SIMPAN
@@ -37,3 +42,10 @@ $result         = $crud->view(" SELECT * FROM tb_jenis_surat WHERE id_jenis_sura
         </div>
     </div>
 </div> 
+
+<script>
+// config ckeditor
+CKEDITOR.replace( 'editor', {
+    height: 400
+});
+</script>
