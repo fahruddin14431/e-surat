@@ -102,6 +102,7 @@ $mpdf->Output($post_file,"F");
 $data = array(
     'id_surat_keluar' => $id_surat_keluar,
     'id_jenis_surat'  => $id_jenis_surat,
+    'tanggal'         => date("Y-m-d"),
     'file_surat'      => $id_surat_keluar.".pdf"
 );
 

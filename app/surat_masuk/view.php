@@ -11,6 +11,7 @@
                         <tr>
                             <th>No</th>
                             <th>Jenis</th>
+                            <th>Tanggal</th>
                             <th>Aksi</th>
                         </tr>
                     </thead>
@@ -30,6 +31,7 @@
                         <tr>
                             <td><?= $no++."." ?></td>
                             <td><?= $value['jenis_surat'] ?></td>
+                            <td><?= $value['tanggal'] ?></td>
                             <td>
                                 <a href="../file/<?= $value['file_surat'] ?>" class="btn btn-info">Unduh</a>
                             </td>

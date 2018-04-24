@@ -1,21 +1,12 @@
 <div class="row">
-	<!-- Column -->
-	<!-- <div class="col-lg-8 col-md-7">
-		<div class="card">
-			<div class="card-block">
-				<h1>Dahsbord</h1>
-				<?php //print_r ($_SESSION['sess_user'])?>
-			</div>
-		</div>
-	</div> -->
 
-	<div class="col-lg-3 col-xs-6">
-		<div class="small-box box-primary">
+	<div class="col-lg-8 col-xs-12">
+		<div class="box box-danger">
 			<div class="inner">
 				<h3 class="white-text strong">
-					<?php // $count_kriteria ?>
+					Deskripsi Sistem
 				</h3>
-				<p>Kriteria</p>
+				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero debitis ipsum illum eligendi repellat sunt sed voluptas exercitationem in nostrum. Officiis ab alias enim molestias saepe animi dolore ducimus dolorum! </p>
 				<br>
 			</div>
 			<div class="icon">
