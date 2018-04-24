@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: 24 Apr 2018 pada 03.55
+-- Generation Time: 24 Apr 2018 pada 17.09
 -- Versi Server: 10.1.26-MariaDB
 -- PHP Version: 7.1.9
 
@@ -92,15 +92,17 @@ INSERT INTO `tb_jabatan` (`id_jabatan`, `jabatan`) VALUES
 CREATE TABLE `tb_jenis_surat` (
   `id_jenis_surat` int(11) NOT NULL,
   `no_surat` varchar(50) NOT NULL,
-  `jenis_surat` varchar(50) NOT NULL
+  `jenis_surat` varchar(50) NOT NULL,
+  `isi_surat` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `tb_jenis_surat`
 --
 
-INSERT INTO `tb_jenis_surat` (`id_jenis_surat`, `no_surat`, `jenis_surat`) VALUES
-(5, 'BKPPD.890/182/VII/2017', 'Pengambilan Sertifikat Diklat');
+INSERT INTO `tb_jenis_surat` (`id_jenis_surat`, `no_surat`, `jenis_surat`, `isi_surat`) VALUES
+(5, 'BKPPD.890/182/VII/2017', 'Pengambilan Sertifikat Diklat', '<p style=\"text-align:justify\">&nbsp; &nbsp; &nbsp; &nbsp;Sesuai perihal surat diatas, maka dengna ini disampaikan bahwa&nbsp;Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellat totam ipsum iure accusamus officia quod veniam laborum. Rerum libero consequatur quo laborum reiciendis officia id? Aperiam similique dicta quod vitae.&nbsp;Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellat totam ipsum iure accusamus officia quod veniam laborum. Rerum libero consequatur quo laborum reiciendis officia id? Aperiam similique dicta quod vitae.&nbsp;Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellat totam ipsum iure accusamus officia quod veniam laborum. Rerum libero consequatur quo laborum reiciendis officia id? Aperiam similique dicta quod vitae.</p>\r\n\r\n<p style=\"text-align:justify\">Demikian untuk maklum dan atas kerjasamanya diucapkan terima kasih.</p>\r\n'),
+(7, 'asdf', 'asdf', '<p>sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;</p>\r\n');
 
 -- --------------------------------------------------------
 
@@ -173,7 +175,7 @@ CREATE TABLE `tb_surat_keluar` (
 
 INSERT INTO `tb_surat_keluar` (`id_surat_keluar`, `id_jenis_surat`, `tanggal`, `file_surat`) VALUES
 ('SUK1001', 5, '2018-04-24', 'SUK1001.pdf'),
-('SUK1002', 5, '2018-04-24', 'SUK1002.pdf');
+('SUK1002', 7, '2018-04-24', 'SUK1002.pdf');
 
 --
 -- Indexes for dumped tables
@@ -245,7 +247,7 @@ ALTER TABLE `tb_jabatan`
 -- AUTO_INCREMENT for table `tb_jenis_surat`
 --
 ALTER TABLE `tb_jenis_surat`
-  MODIFY `id_jenis_surat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_jenis_surat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `tb_login`
