@@ -147,6 +147,9 @@ if (empty($_SESSION['sess_user'])) {
 						</li>
 					<?php elseif($auth->isTU()): ?>						
 						<li> 
+							<a class="waves-effect waves-darkenvelope-open" href="index.php?page=view_surat_masuk_tu" aria-expanded="false"><i class="fa fa-envelope-open"></i><span class="hide-menu"> Surat Masuk</span></a>
+						</li>
+						<li> 
 							<a class="waves-effect waves-dark" href="index.php?page=view_surat_keluar" aria-expanded="false"><i class="fa fa-envelope"></i><span class="hide-menu"> Surat Keluar</span></a>
 						</li>
 					<?php elseif($auth->isDinas()): ?>
@@ -249,6 +252,14 @@ if (empty($_SESSION['sess_user'])) {
 						include "surat_keluar/add_form.php";
 					}
 					// end surat keluar
+
+					// surat masuk
+					else if($page == "view_surat_masuk_tu"){
+						include "surat_masuk_tu/view.php";
+					}else if($page == "add_surat_masuk"){
+						include "surat_masuk_tu/add_form.php";
+					}
+					// end  surat masuk
 
 					// end TU
 

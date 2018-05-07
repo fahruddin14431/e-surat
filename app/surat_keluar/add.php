@@ -94,7 +94,7 @@ $stylesheet = file_get_contents('../../assets/plugins/bootstrap/css/bootstrap.mi
 $mpdf->WriteHTML($stylesheet,1);
 $mpdf->WriteHTML($html,2);
 
-$post_file = "../../file/".$id_surat_keluar.".pdf";
+$post_file = "../../file/surat_keluar/".$id_surat_keluar.".pdf";
 
 $mpdf->Output($post_file,"F");
 
