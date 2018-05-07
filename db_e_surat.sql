@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: 24 Apr 2018 pada 17.09
+-- Generation Time: 08 Mei 2018 pada 01.57
 -- Versi Server: 10.1.26-MariaDB
 -- PHP Version: 7.1.9
 
@@ -177,6 +177,25 @@ INSERT INTO `tb_surat_keluar` (`id_surat_keluar`, `id_jenis_surat`, `tanggal`, `
 ('SUK1001', 5, '2018-04-24', 'SUK1001.pdf'),
 ('SUK1002', 7, '2018-04-24', 'SUK1002.pdf');
 
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `tb_surat_masuk`
+--
+
+CREATE TABLE `tb_surat_masuk` (
+  `id_surat_masuk` int(11) NOT NULL,
+  `tanggal` date NOT NULL,
+  `file_surat` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `tb_surat_masuk`
+--
+
+INSERT INTO `tb_surat_masuk` (`id_surat_masuk`, `tanggal`, `file_surat`) VALUES
+(1, '2018-05-08', 'foto_rumah_3505110405740006.jpg');
+
 --
 -- Indexes for dumped tables
 --
@@ -228,6 +247,12 @@ ALTER TABLE `tb_surat_keluar`
   ADD KEY `id_jenis_surat` (`id_jenis_surat`);
 
 --
+-- Indexes for table `tb_surat_masuk`
+--
+ALTER TABLE `tb_surat_masuk`
+  ADD PRIMARY KEY (`id_surat_masuk`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -254,6 +279,12 @@ ALTER TABLE `tb_jenis_surat`
 --
 ALTER TABLE `tb_login`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
+-- AUTO_INCREMENT for table `tb_surat_masuk`
+--
+ALTER TABLE `tb_surat_masuk`
+  MODIFY `id_surat_masuk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
