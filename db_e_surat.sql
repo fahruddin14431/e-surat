@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: 08 Mei 2018 pada 01.57
+-- Generation Time: 10 Mei 2018 pada 14.18
 -- Versi Server: 10.1.26-MariaDB
 -- PHP Version: 7.1.9
 
@@ -185,16 +185,13 @@ INSERT INTO `tb_surat_keluar` (`id_surat_keluar`, `id_jenis_surat`, `tanggal`, `
 
 CREATE TABLE `tb_surat_masuk` (
   `id_surat_masuk` int(11) NOT NULL,
-  `tanggal` date NOT NULL,
-  `file_surat` varchar(100) NOT NULL
+  `no_surat` varchar(50) NOT NULL,
+  `perihal` varchar(100) NOT NULL,
+  `tanggal_surat` date NOT NULL,
+  `tanggal_surat_penerimaan` date NOT NULL,
+  `file_surat` varchar(100) NOT NULL,
+  `id_jabatan` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data untuk tabel `tb_surat_masuk`
---
-
-INSERT INTO `tb_surat_masuk` (`id_surat_masuk`, `tanggal`, `file_surat`) VALUES
-(1, '2018-05-08', 'foto_rumah_3505110405740006.jpg');
 
 --
 -- Indexes for dumped tables
@@ -250,7 +247,8 @@ ALTER TABLE `tb_surat_keluar`
 -- Indexes for table `tb_surat_masuk`
 --
 ALTER TABLE `tb_surat_masuk`
-  ADD PRIMARY KEY (`id_surat_masuk`);
+  ADD PRIMARY KEY (`id_surat_masuk`),
+  ADD KEY `id_jabatan` (`id_jabatan`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -284,7 +282,7 @@ ALTER TABLE `tb_login`
 -- AUTO_INCREMENT for table `tb_surat_masuk`
 --
 ALTER TABLE `tb_surat_masuk`
-  MODIFY `id_surat_masuk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_surat_masuk` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
@@ -314,6 +312,12 @@ ALTER TABLE `tb_pegawai`
 --
 ALTER TABLE `tb_surat_keluar`
   ADD CONSTRAINT `tb_surat_keluar_ibfk_1` FOREIGN KEY (`id_jenis_surat`) REFERENCES `tb_jenis_surat` (`id_jenis_surat`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Ketidakleluasaan untuk tabel `tb_surat_masuk`
+--
+ALTER TABLE `tb_surat_masuk`
+  ADD CONSTRAINT `tb_surat_masuk_ibfk_1` FOREIGN KEY (`id_jabatan`) REFERENCES `tb_jabatan` (`id_jabatan`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
