@@ -50,10 +50,12 @@
                             <option value=""> -- Ditunjukan Kepada -- </option>
                             <?php 
                                 $crud   = new Crud();
-                                $result = $crud->view("SELECT * FROM tb_pegawai WHERE id_jabatan != '5'");          
+                                $result = $crud->view(" SELECT * FROM tb_pegawai INNER JOIN tb_jabatan 
+                                                        ON tb_pegawai.id_jabatan = tb_jabatan.id_jabatan 
+                                                        WHERE tb_jabatan.id_jabatan != '5'");          
                                 foreach ($result as  $value):
                             ?>
-                            <option value="<?= $value['id_jabatan'] ?>"><?= $value['nama'] ?></option>
+                            <option value="<?= $value['id_jabatan'] ?>"><?= $value['jabatan'] ?></option>
                             <?php endforeach ?>
                         </select>
                     </div>
