@@ -50,8 +50,7 @@
                             <option value=""> -- Ditunjukan Kepada -- </option>
                             <?php 
                                 $crud   = new Crud();
-                                $result = $crud->view(" SELECT * FROM tb_pegawai INNER JOIN tb_jabatan 
-                                                        ON tb_pegawai.id_jabatan = tb_jabatan.id_jabatan 
+                                $result = $crud->view(" SELECT * FROM tb_jabatan
                                                         WHERE tb_jabatan.id_jabatan != '5'");          
                                 foreach ($result as  $value):
                             ?>
