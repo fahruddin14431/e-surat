@@ -11,7 +11,7 @@
                     <div class="form-group">
                         <h5>Asal Surat Surat</h5>
 
-                        <select required name="asal_surat" class="form-control">
+                        <select required name="id_pegawai" class="form-control">
                             <option value=""> -- Asal Surat -- </option>
                             <?php 
                                 $crud   = new Crud();
@@ -51,7 +51,7 @@
                             <?php 
                                 $crud   = new Crud();
                                 $result = $crud->view(" SELECT * FROM tb_jabatan
-                                                        WHERE tb_jabatan.id_jabatan != '5'");          
+                                                        WHERE id_jabatan NOT IN(4,5)");          
                                 foreach ($result as  $value):
                             ?>
                             <option value="<?= $value['id_jabatan'] ?>"><?= $value['jabatan'] ?></option>

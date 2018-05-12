@@ -317,6 +317,25 @@ if (empty($_SESSION['sess_user'])) {
 	$(document).ready(function() {
 		$('#data_table').DataTable();
 	});
+
+	$.fn.dataTable.ext.search.push(
+    function( settings, data, dataIndex ) {
+        var filter_dinas = $('#filter_dinas').val();
+		if(filter_dinas == data[1] || filter_dinas == ""){
+			return true;
+		}
+		return false
+		
+	});
+
+	$(document).ready(function() {
+		var table = $('#data_table_filter').DataTable();
+
+		$('select').on('change', function() {
+			table.draw();    
+		});
+
+	});
 	</script>
 </body>
 </html>

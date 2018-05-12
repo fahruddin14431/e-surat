@@ -4,15 +4,38 @@
         <div class="card">
             <div class="card-block">
 
-                <h3>
-                    Surat Masuk
-                    <a href="index.php?page=add_surat_masuk" class="btn btn-success">Tambah</a>
-                </h3>
+            <div class="row">
+                <div class="col-md-6">
+                    <h3>
+                        Surat Masuk
+                        <a href="index.php?page=add_surat_masuk" class="btn btn-success">Tambah</a>
+                    </h3>
+                </div>
+                <!-- <div class="col-md-3"></div> -->
+                <!-- filter -->
+                <div class="col-md-6">
+                    <div class="form-inline pull-right">
+                        <label><b>Filter : &ensp;</b></label>
+                        <select id="filter_dinas" class="form-control">
+                            <option value=""> -- Semua Dinas -- </option>
+                            <?php 
+                                $crud   = new Crud();
+                                $result = $crud->view("SELECT * FROM tb_pegawai WHERE id_jabatan = '5'");          
+                                foreach ($result as  $value):
+                            ?>
+                            <option value="<?= $value['nama'] ?>"><?= $value['nama'] ?></option>
+                            <?php endforeach ?>
+                        </select>                        
+                    </div>
+                </div>
+                <!-- end filter -->
+            </div>
 
-                <table class="table table-stripped table-bordered" id="data_table">
+                <table class="table table-stripped table-bordered" id="data_table_filter">
                     <thead>
                         <tr>
                             <th>No</th>
+                            <th>Asal Surat</th>
                             <th>No Surat</th>
                             <th>Perihal</th>
                             <th>Tanggal Surat Penerimaan</th>
@@ -25,12 +48,16 @@
                     <tbody>
                         <?php 
                             $crud   = new Crud();
-                            $result = $crud->view(" SELECT * FROM tb_surat_masuk INNER JOIN tb_jabatan ON tb_surat_masuk.id_jabatan = tb_jabatan.id_jabatan");            
+                            $result = $crud->view(" SELECT * FROM tb_surat_masuk
+                                                    INNER JOIN tb_jabatan ON tb_surat_masuk.id_jabatan = tb_jabatan.id_jabatan 
+                                                    INNER JOIN tb_pegawai ON tb_surat_masuk.id_pegawai = tb_pegawai.id_pegawai"
+                                                 );            
                             $no = 1;
                             foreach ($result as $value):
                         ?>
                         <tr>
                             <td><?= $no++."." ?></td>
+                            <td><?= $value['nama'] ?></td>
                             <td><?= $value['no_surat'] ?></td>
                             <td><?= $value['perihal'] ?></td>
                             <td><?= $value['tanggal_surat'] ?></td>
