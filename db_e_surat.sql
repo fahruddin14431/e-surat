@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: 10 Mei 2018 pada 14.18
+-- Generation Time: 12 Mei 2018 pada 08.55
 -- Versi Server: 10.1.26-MariaDB
 -- PHP Version: 7.1.9
 
@@ -77,11 +77,16 @@ CREATE TABLE `tb_jabatan` (
 --
 
 INSERT INTO `tb_jabatan` (`id_jabatan`, `jabatan`) VALUES
-(1, 'KEPALA BKPPD'),
+(1, 'Kepala BKPPD'),
 (2, 'Sekretaris'),
 (3, 'Kabid MUTASI DAN PENGEMBANGAN PEGAWAI'),
 (4, 'STAFF'),
-(5, 'Dinas');
+(5, 'Dinas'),
+(6, 'Kasubag Umum, Kepegawaian dan Perlengkapan'),
+(7, 'Kasubag Keuangan dan Pelaporan'),
+(8, 'Kepala BidangINKA & Pemeberhentian PNS'),
+(9, 'Kepala Bidang Mutasi & Pengembangan Pegawai'),
+(10, 'Kepala Bidang Perencanaan & Diklat');
 
 -- --------------------------------------------------------
 
@@ -185,6 +190,7 @@ INSERT INTO `tb_surat_keluar` (`id_surat_keluar`, `id_jenis_surat`, `tanggal`, `
 
 CREATE TABLE `tb_surat_masuk` (
   `id_surat_masuk` int(11) NOT NULL,
+  `id_pegawai` varchar(11) NOT NULL,
   `no_surat` varchar(50) NOT NULL,
   `perihal` varchar(100) NOT NULL,
   `tanggal_surat` date NOT NULL,
@@ -192,6 +198,14 @@ CREATE TABLE `tb_surat_masuk` (
   `file_surat` varchar(100) NOT NULL,
   `id_jabatan` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `tb_surat_masuk`
+--
+
+INSERT INTO `tb_surat_masuk` (`id_surat_masuk`, `id_pegawai`, `no_surat`, `perihal`, `tanggal_surat`, `tanggal_surat_penerimaan`, `file_surat`, `id_jabatan`) VALUES
+(1, 'PEG1006', '1', '1', '2018-05-12', '2018-05-11', 'Screenshot from 2018-05-03 14-24-59.png', 1),
+(2, 'PEG1007', '1', '1', '2018-05-11', '2018-05-11', '2a4b49db-52c8-45c9-9d96-551500c7c9e1.jpeg', 2);
 
 --
 -- Indexes for dumped tables
@@ -248,7 +262,8 @@ ALTER TABLE `tb_surat_keluar`
 --
 ALTER TABLE `tb_surat_masuk`
   ADD PRIMARY KEY (`id_surat_masuk`),
-  ADD KEY `id_jabatan` (`id_jabatan`);
+  ADD KEY `id_jabatan` (`id_jabatan`),
+  ADD KEY `id_pegawai` (`id_pegawai`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -264,7 +279,7 @@ ALTER TABLE `tb_format_surat`
 -- AUTO_INCREMENT for table `tb_jabatan`
 --
 ALTER TABLE `tb_jabatan`
-  MODIFY `id_jabatan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_jabatan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `tb_jenis_surat`
@@ -282,7 +297,7 @@ ALTER TABLE `tb_login`
 -- AUTO_INCREMENT for table `tb_surat_masuk`
 --
 ALTER TABLE `tb_surat_masuk`
-  MODIFY `id_surat_masuk` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_surat_masuk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
@@ -317,7 +332,8 @@ ALTER TABLE `tb_surat_keluar`
 -- Ketidakleluasaan untuk tabel `tb_surat_masuk`
 --
 ALTER TABLE `tb_surat_masuk`
-  ADD CONSTRAINT `tb_surat_masuk_ibfk_1` FOREIGN KEY (`id_jabatan`) REFERENCES `tb_jabatan` (`id_jabatan`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `tb_surat_masuk_ibfk_1` FOREIGN KEY (`id_jabatan`) REFERENCES `tb_jabatan` (`id_jabatan`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `tb_surat_masuk_ibfk_2` FOREIGN KEY (`id_pegawai`) REFERENCES `tb_pegawai` (`id_pegawai`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
