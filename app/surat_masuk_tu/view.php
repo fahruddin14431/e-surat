@@ -76,3 +76,20 @@
         </div>
     </div>
 </div> 
+<script>
+$.fn.dataTable.ext.search.push(
+    function( settings, data, dataIndex ) {
+        var filter_dinas = $('#filter_dinas').val();
+        if(filter_dinas == data[1] || filter_dinas == ""){
+            return true;
+        }
+        return false
+        
+    });
+
+    var table = $('#data_table_filter').DataTable();
+
+    $('select').on('change', function() {
+        table.draw();    
+});
+</script>

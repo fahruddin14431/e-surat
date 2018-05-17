@@ -50,6 +50,9 @@ if (empty($_SESSION['sess_user'])) {
 	<!-- select2 -->
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+	<!-- data table -->
+	<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+	<script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js"></script>
 </head>
 	<!-- ckeditorr -->
 	<script src="//cdn.ckeditor.com/4.9.2/full-all/ckeditor.js"></script>
@@ -310,31 +313,11 @@ if (empty($_SESSION['sess_user'])) {
 	<script src="../assets/plugins/c3-master/c3.min.js"></script>
 	<!-- Chart JS -->
 	<script src="../assets/js/dashboard1.js"></script>
-	<!-- data table -->
-	<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
-	<script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js"></script>
+	
 	<script>
+
 	$(document).ready(function() {
 		$('#data_table').DataTable();
-	});
-
-	$.fn.dataTable.ext.search.push(
-    function( settings, data, dataIndex ) {
-        var filter_dinas = $('#filter_dinas').val();
-		if(filter_dinas == data[1] || filter_dinas == ""){
-			return true;
-		}
-		return false
-		
-	});
-
-	$(document).ready(function() {
-		var table = $('#data_table_filter').DataTable();
-
-		$('select').on('change', function() {
-			table.draw();    
-		});
-
 	});
 	</script>
 </body>
