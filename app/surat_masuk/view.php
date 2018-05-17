@@ -33,7 +33,7 @@
                             <td><?= $value['jenis_surat'] ?></td>
                             <td><?= $value['tanggal'] ?></td>
                             <td>
-                                <a href="../file/<?= $value['file_surat'] ?>" class="btn btn-info">Unduh</a>
+                                <a href="../file/surat_keluar/<?= $value['file_surat'] ?>" class="btn btn-info">Unduh</a>
                             </td>
                         </tr>
                         <?php endforeach ?>
