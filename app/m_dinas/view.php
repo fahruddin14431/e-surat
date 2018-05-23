@@ -5,7 +5,7 @@
             <div class="card-block">
 
                 <h3>
-                    Master Dinas
+                    Master Instansi
                     <a href="index.php?page=add_dinas" class="btn btn-success">Tambah</a>
                 </h3>
 

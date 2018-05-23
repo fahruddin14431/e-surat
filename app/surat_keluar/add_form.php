@@ -48,7 +48,7 @@
                     </div>
 
                     <div class="form-group">                    
-                        <input required type="submit" class="btn btn-success form-control"/> 
+                        <input required type="submit" value="SIMPAN" class="btn btn-success form-control"/> 
                     </div>         
 
                 </form>

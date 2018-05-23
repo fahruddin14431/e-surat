@@ -29,6 +29,11 @@
                     </div>
 
                     <div class="form-group">
+                        <h5>No Agenda</h5>
+                        <input type="text" name="no_agenda" required class="form-control" placeholder="No Agenda">
+                    </div>
+
+                    <div class="form-group">
                         <h5>Perihal</h5>
                         <input type="text" name="perihal" required class="form-control" placeholder="Perihal">
                     </div>
@@ -65,7 +70,7 @@
                     </div>
 
                     <div class="form-group">                    
-                        <input required type="submit" class="btn btn-success form-control"/> 
+                        <input required type="submit" value="SIMPAN" class="btn btn-success form-control"/> 
                     </div>         
 
                 </form>

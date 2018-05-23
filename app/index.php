@@ -134,7 +134,9 @@ if (empty($_SESSION['sess_user'])) {
 						<a class="waves-effect waves-dark" href="index.php?page=view_dashbord" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu"> Dashboard</span></a>
 					</li>				
 					<?php if($auth->isKepalaBadan()): ?>
-
+						<li> 
+							<a class="waves-effect waves-darkenvelope-open" href="index.php?page=view_surat_masuk_tu" aria-expanded="false"><i class="fa fa-envelope-square"></i><span class="hide-menu"> Disposisi</span></a>
+						</li>
 					<?php elseif($auth->isAdmin()): ?>
 						<li> 
 							<a class="waves-effect waves-dark" href="index.php?page=view_pegawai" aria-expanded="false"><i class="fa fa-users"></i><span class="hide-menu"> Master Pegawai</span></a>
@@ -146,7 +148,7 @@ if (empty($_SESSION['sess_user'])) {
 							<a class="waves-effect waves-dark" href="index.php?page=view_format_surat" aria-expanded="false"><i class="fa fa-file"></i><span class="hide-menu"> Master Format Surat</span></a>
 						</li>
 						<li> 
-							<a class="waves-effect waves-dark" href="index.php?page=view_dinas" aria-expanded="false"><i class="fa fa-user-circle"></i><span class="hide-menu"> Master Dinas</span></a>
+							<a class="waves-effect waves-dark" href="index.php?page=view_dinas" aria-expanded="false"><i class="fa fa-user-circle"></i><span class="hide-menu"> Master Instansi</span></a>
 						</li>
 					<?php elseif($auth->isTU()): ?>						
 						<li> 
@@ -160,6 +162,9 @@ if (empty($_SESSION['sess_user'])) {
 							<a class="waves-effect waves-darkenvelope-open" href="index.php?page=view_surat_masuk" aria-expanded="false"><i class="fa fa-envelope-open"></i><span class="hide-menu"> Surat Masuk</span></a>
 						</li>
 					<?php elseif($auth->isPegawai()): ?>
+						<li> 
+							<a class="waves-effect waves-darkenvelope-open" href="index.php?page=view_surat_masuk_tu" aria-expanded="false"><i class="fa fa-envelope-open"></i><span class="hide-menu"> Surat Masuk</span></a>
+						</li>
 					<?php endif ?>
 					
 					<!-- global menu -->
@@ -274,6 +279,12 @@ if (empty($_SESSION['sess_user'])) {
 
 					// end dinas
 
+					// kepala dinas
+					else if($page == "disposisi"){
+						include "surat_masuk_tu/disposisi.php";
+					}
+					// end kepala dinas
+
 				}else{
 					include "dashbord/view.php";
 				}
@@ -317,7 +328,9 @@ if (empty($_SESSION['sess_user'])) {
 	<script>
 
 	$(document).ready(function() {
-		$('#data_table').DataTable();
+		$('#data_table').DataTable({
+			responsive: true
+		});
 	});
 	</script>
 </body>

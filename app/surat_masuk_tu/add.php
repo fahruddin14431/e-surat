@@ -14,6 +14,7 @@ if (move_uploaded_file($scan_surat, $target_file)) {
         'id_surat_masuk'            => $id_surat_masuk,
         'id_pegawai'                => $_POST['id_pegawai'],
         'no_surat'                  => $_POST['no_surat'],
+        'no_agenda'                 => $_POST['no_agenda'],
         'perihal'                   => $_POST['perihal'],
         'tanggal_surat_penerimaan'  => $_POST['tgl_penerimaan'],
         'tanggal_surat'             => $_POST['tgl_surat'],        

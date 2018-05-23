@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: 12 Mei 2018 pada 08.55
+-- Generation Time: 23 Mei 2018 pada 09.43
 -- Versi Server: 10.1.26-MariaDB
 -- PHP Version: 7.1.9
 
@@ -39,8 +39,7 @@ CREATE TABLE `tb_detail_surat_keluar` (
 
 INSERT INTO `tb_detail_surat_keluar` (`id_surat_keluar`, `id_pegawai`) VALUES
 ('SUK1001', 'PEG1006'),
-('SUK1001', 'PEG1007'),
-('SUK1002', 'PEG1006');
+('SUK1001', 'PEG1007');
 
 -- --------------------------------------------------------
 
@@ -79,7 +78,6 @@ CREATE TABLE `tb_jabatan` (
 INSERT INTO `tb_jabatan` (`id_jabatan`, `jabatan`) VALUES
 (1, 'Kepala BKPPD'),
 (2, 'Sekretaris'),
-(3, 'Kabid MUTASI DAN PENGEMBANGAN PEGAWAI'),
 (4, 'STAFF'),
 (5, 'Dinas'),
 (6, 'Kasubag Umum, Kepegawaian dan Perlengkapan'),
@@ -106,8 +104,7 @@ CREATE TABLE `tb_jenis_surat` (
 --
 
 INSERT INTO `tb_jenis_surat` (`id_jenis_surat`, `no_surat`, `jenis_surat`, `isi_surat`) VALUES
-(5, 'BKPPD.890/182/VII/2017', 'Pengambilan Sertifikat Diklat', '<p style=\"text-align:justify\">&nbsp; &nbsp; &nbsp; &nbsp;Sesuai perihal surat diatas, maka dengna ini disampaikan bahwa&nbsp;Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellat totam ipsum iure accusamus officia quod veniam laborum. Rerum libero consequatur quo laborum reiciendis officia id? Aperiam similique dicta quod vitae.&nbsp;Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellat totam ipsum iure accusamus officia quod veniam laborum. Rerum libero consequatur quo laborum reiciendis officia id? Aperiam similique dicta quod vitae.&nbsp;Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellat totam ipsum iure accusamus officia quod veniam laborum. Rerum libero consequatur quo laborum reiciendis officia id? Aperiam similique dicta quod vitae.</p>\r\n\r\n<p style=\"text-align:justify\">Demikian untuk maklum dan atas kerjasamanya diucapkan terima kasih.</p>\r\n'),
-(7, 'asdf', 'asdf', '<p>sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;sembaran&nbsp;</p>\r\n');
+(5, 'BKPPD.890/182/VII/2017', 'Pengambilan Sertifikat Diklat', '<p style=\"text-align:justify\">&nbsp; &nbsp; &nbsp; &nbsp;Sesuai perihal surat diatas, maka dengna ini disampaikan bahwa&nbsp;Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellat totam ipsum iure accusamus officia quod veniam laborum. Rerum libero consequatur quo laborum reiciendis officia id? Aperiam similique dicta quod vitae.&nbsp;Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellat totam ipsum iure accusamus officia quod veniam laborum. Rerum libero consequatur quo laborum reiciendis officia id? Aperiam similique dicta quod vitae.&nbsp;Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellat totam ipsum iure accusamus officia quod veniam laborum. Rerum libero consequatur quo laborum reiciendis officia id? Aperiam similique dicta quod vitae.</p>\r\n\r\n<p style=\"text-align:justify\">Demikian untuk maklum dan atas kerjasamanya diucapkan terima kasih.</p>\r\n');
 
 -- --------------------------------------------------------
 
@@ -133,7 +130,9 @@ INSERT INTO `tb_login` (`id`, `nama_pengguna`, `kata_sandi`, `id_pegawai`, `stat
 (3, 'tu', 'tu', 'PEG1003', 'TU'),
 (10, 'dinbinmar', 'dinbinmar', 'PEG1005', 'DINAS'),
 (11, 'dispen', 'dispen', 'PEG1006', 'DINAS'),
-(12, 'dispenduk', 'dispenduk', 'PEG1007', 'DINAS');
+(12, 'dispenduk', 'dispenduk', 'PEG1007', 'DINAS'),
+(13, 'seker', 'seker', 'PEG1008', 'PEGAWAI'),
+(14, 'kabidmutasi', 'kabidmutasi', 'PEG1009', 'PEGAWAI');
 
 -- --------------------------------------------------------
 
@@ -159,7 +158,9 @@ INSERT INTO `tb_pegawai` (`id_pegawai`, `nip`, `nama`, `id_jabatan`) VALUES
 ('PEG1004', '198506262006041005', 'WILHELMINA O. JAMI', 4),
 ('PEG1005', '', 'dinas bina marga', 5),
 ('PEG1006', '', 'Dinas Pendidikan', 5),
-('PEG1007', '', 'Dinas Kependudukan', 5);
+('PEG1007', '', 'Dinas Kependudukan', 5),
+('PEG1008', '198506262006041005', 'NAMA SEKRETARIS', 2),
+('PEG1009', '198506262006041005', 'NAMA KABID MUTASI', 9);
 
 -- --------------------------------------------------------
 
@@ -179,8 +180,7 @@ CREATE TABLE `tb_surat_keluar` (
 --
 
 INSERT INTO `tb_surat_keluar` (`id_surat_keluar`, `id_jenis_surat`, `tanggal`, `file_surat`) VALUES
-('SUK1001', 5, '2018-04-24', 'SUK1001.pdf'),
-('SUK1002', 7, '2018-04-24', 'SUK1002.pdf');
+('SUK1001', 5, '2018-04-24', 'SUK1001.pdf');
 
 -- --------------------------------------------------------
 
@@ -192,20 +192,23 @@ CREATE TABLE `tb_surat_masuk` (
   `id_surat_masuk` int(11) NOT NULL,
   `id_pegawai` varchar(11) NOT NULL,
   `no_surat` varchar(50) NOT NULL,
+  `no_agenda` varchar(50) NOT NULL,
   `perihal` varchar(100) NOT NULL,
   `tanggal_surat` date NOT NULL,
   `tanggal_surat_penerimaan` date NOT NULL,
   `file_surat` varchar(100) NOT NULL,
-  `id_jabatan` int(11) NOT NULL
+  `id_jabatan` int(11) NOT NULL,
+  `status` int(11) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `tb_surat_masuk`
 --
 
-INSERT INTO `tb_surat_masuk` (`id_surat_masuk`, `id_pegawai`, `no_surat`, `perihal`, `tanggal_surat`, `tanggal_surat_penerimaan`, `file_surat`, `id_jabatan`) VALUES
-(1, 'PEG1006', '1', '1', '2018-05-12', '2018-05-11', 'Screenshot from 2018-05-03 14-24-59.png', 1),
-(2, 'PEG1007', '1', '1', '2018-05-11', '2018-05-11', '2a4b49db-52c8-45c9-9d96-551500c7c9e1.jpeg', 2);
+INSERT INTO `tb_surat_masuk` (`id_surat_masuk`, `id_pegawai`, `no_surat`, `no_agenda`, `perihal`, `tanggal_surat`, `tanggal_surat_penerimaan`, `file_surat`, `id_jabatan`, `status`) VALUES
+(1, 'PEG1006', '1', '1', '1', '2018-05-12', '2018-05-11', 'Screenshot from 2018-05-03 14-24-59.png', 1, 0),
+(2, 'PEG1007', '1_sek', '1', '1', '2018-05-11', '2018-05-11', '2a4b49db-52c8-45c9-9d96-551500c7c9e1.jpeg', 2, 1),
+(3, 'PEG1006', '1_kab', '1', '1', '2018-05-23', '0001-01-01', 'Screenshot from 2017-11-21 15-53-14.png', 9, 1);
 
 --
 -- Indexes for dumped tables
@@ -285,19 +288,19 @@ ALTER TABLE `tb_jabatan`
 -- AUTO_INCREMENT for table `tb_jenis_surat`
 --
 ALTER TABLE `tb_jenis_surat`
-  MODIFY `id_jenis_surat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_jenis_surat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `tb_login`
 --
 ALTER TABLE `tb_login`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `tb_surat_masuk`
 --
 ALTER TABLE `tb_surat_masuk`
-  MODIFY `id_surat_masuk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_surat_masuk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)

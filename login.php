@@ -23,7 +23,7 @@ if ($check) {
     );
     header("location:app/index.php?page=view_dashbord");
 }else{
-    header("location:../e-surat");
+    echo "<script>alert('Login Gagal'); window.location = '../e-surat';</script>";
 }
 
 
