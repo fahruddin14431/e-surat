@@ -65,6 +65,10 @@
                                         INNER JOIN tb_jabatan ON tb_surat_masuk.id_jabatan = tb_jabatan.id_jabatan 
                                         INNER JOIN tb_pegawai ON tb_surat_masuk.id_pegawai = tb_pegawai.id_pegawai
                                         WHERE tb_surat_masuk.status = '1' AND tb_surat_masuk.id_jabatan = '$id_jabatan' ";
+                            elseif($auth->isTU()):
+                                $sql = "SELECT * FROM tb_surat_masuk
+                                        INNER JOIN tb_jabatan ON tb_surat_masuk.id_jabatan = tb_jabatan.id_jabatan 
+                                        INNER JOIN tb_pegawai ON tb_surat_masuk.id_pegawai = tb_pegawai.id_pegawai";
                             else:
                                 $sql = "SELECT * FROM tb_surat_masuk
                                         INNER JOIN tb_jabatan ON tb_surat_masuk.id_jabatan = tb_jabatan.id_jabatan 

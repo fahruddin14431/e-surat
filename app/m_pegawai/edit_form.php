@@ -13,7 +13,7 @@ $result     = $crud->view(" SELECT * FROM tb_pegawai INNER JOIN tb_login
         <div class="card">
             <div class="card-block">
 
-                <h3>Ubah Data Pegawai</h3>
+                <h3>Ubah Data User</h3>
 
                 <form action="m_pegawai/edit.php" method="POST">
 

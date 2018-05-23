@@ -4,7 +4,7 @@
         <div class="card">
             <div class="card-block">
 
-                <h3>Tambah Data Pegawai</h3>
+                <h3>Tambah Data User</h3>
 
                 <form action="m_pegawai/add.php" method="POST">
 
@@ -49,7 +49,7 @@
                     <select required name="status" class="form-control">
                         <option value=""> -- Pilih Status -- </option>
                         <?php 
-                            $result = array('KEPALA BADAN', 'ADMIN', 'TU');
+                            $result = array('KEPALA BADAN', 'ADMIN', 'TU', 'PEGAWAI');
                             foreach ($result as  $value):
                         ?>
                         <option value="<?= $value ?>"><?= $value ?></option>
