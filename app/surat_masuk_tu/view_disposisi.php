@@ -9,7 +9,7 @@
                     <h3>
                         Disposisi Surat
                         <?php if($auth->isTu()): ?>
-                            <a href="index.php?page=add_surat_masuk" class="btn btn-success">Tambah</a>
+                            <a href="index.php?page=add_form_disposisi" class="btn btn-success">Tambah</a>
                         <?php endif ?>
                     </h3>
                 </div>
@@ -39,10 +39,8 @@
                         <tr>
                             <th>No</th>
                             <th>Asal Surat</th>
-                            <th>No Surat</th>
                             <th>No Agenda</th>
                             <th>Perihal</th>
-                            <th>Tanggal Surat Penerimaan</th>
                             <th>Tanggal Surat</th>
                             <th>Aksi</th>
                         </tr>
@@ -63,15 +61,14 @@
                         <tr>
                             <td><?= $no++."." ?></td>
                             <td><?= $value['nama'] ?></td>
-                            <td><?= $value['no_surat'] ?></td>
                             <td><?= $value['no_agenda'] ?></td>
                             <td><?= $value['perihal'] ?></td>
                             <td><?= $value['tanggal_surat'] ?></td>
-                            <td><?= $value['tanggal_surat_penerimaan'] ?></td>
                             <td>
                                 <a href="../file/surat_masuk/<?= $value['file_surat'] ?>" class="btn btn-info">Unduh</a>
-                            
+                                <?php if($auth->isKepalaBadan()): ?>
                                 <a href="index.php?page=add_disposisi&id_surat=<?= $value['id_surat_masuk'] ?>" class="btn btn-primary">Disposisi</a>
+                                <?php endif ?>
                             </td>                            
                         </tr>
                         <?php endforeach ?>

@@ -274,8 +274,8 @@ if (empty($_SESSION['sess_user'])) {
 
 					else if($page == "view_disposisi"){
 						include "surat_masuk_tu/view_disposisi.php";
-					}else if($page == "add_disposisi"){
-						include "surat_masuk_tu/add_disposisi.php";
+					}else if($page == "add_form_disposisi"){
+						include "surat_masuk_tu/add_form_disposisi.php";
 					}
 
 					// end TU
@@ -291,6 +291,8 @@ if (empty($_SESSION['sess_user'])) {
 					// kepala dinas
 					else if($page == "view_disposisi"){
 						include "surat_masuk_tu/view_disposisi.php";
+					}else if($page == "add_disposisi"){
+						include "surat_masuk_tu/add_disposisi.php";
 					}
 					// end kepala dinas
 

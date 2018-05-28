@@ -52,8 +52,14 @@
 								<i class="fa fa-lock" aria-hidden="true"></i>
 							</span>
 						</div>
+
+						<div class="container-login100-form-btn">							
+							<button type="reset" class="login100-form-btn">
+								Batal
+							</button>
+						</div>
 						
-						<div class="container-login100-form-btn">
+						<div class="container-login100-form-btn">							
 							<button class="login100-form-btn">
 								Login
 							</button>
