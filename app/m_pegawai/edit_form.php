@@ -1,10 +1,10 @@
 <?php 
 
-$id_pegawai = $_GET['id_pegawai'];
+$id_user = $_GET['id_user'];
 $crud       = new Crud();
-$result     = $crud->view(" SELECT * FROM tb_pegawai INNER JOIN tb_login 
-                            ON tb_pegawai.id_pegawai = tb_login.id_pegawai
-                            WHERE tb_pegawai.id_pegawai = '$id_pegawai'")[0];
+$result     = $crud->view(" SELECT * FROM tb_user INNER JOIN tb_login 
+                            ON tb_user.id_user = tb_login.id_user
+                            WHERE tb_user.id_user = '$id_user'")[0];
 ?>
 
 <div class="row">
@@ -67,7 +67,7 @@ $result     = $crud->view(" SELECT * FROM tb_pegawai INNER JOIN tb_login
                 </div>
 
                 <div class="form-group">                                    
-                    <button type="submit" name="id_pegawai" value="<?= $result['id_pegawai'] ?>"  class="btn btn-success">
+                    <button type="submit" name="id_user" value="<?= $result['id_user'] ?>"  class="btn btn-success">
                         SIMPAN
                     </button>
                 </div>         

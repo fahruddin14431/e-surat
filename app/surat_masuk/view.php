@@ -18,12 +18,12 @@
 
                     <tbody>
                         <?php 
-                            $dinas  = $_SESSION['sess_user']['sess_id_pegawai'];
+                            $dinas  = $_SESSION['sess_user']['sess_id_user'];
                             $crud   = new Crud();
                             $result = $crud->view( "SELECT * FROM tb_surat_keluar
                                                     INNER JOIN tb_jenis_surat ON tb_surat_keluar.id_jenis_surat = tb_jenis_surat.id_jenis_surat
                                                     INNER JOIN tb_detail_surat_keluar ON tb_surat_keluar.id_surat_keluar = tb_detail_surat_keluar.id_surat_keluar
-                                                    AND tb_detail_surat_keluar.id_pegawai = '$dinas'"
+                                                    AND tb_detail_surat_keluar.id_user = '$dinas'"
                                                 );            
                             $no = 1;
                             foreach ($result as $value):

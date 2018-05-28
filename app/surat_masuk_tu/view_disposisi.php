@@ -7,7 +7,7 @@
             <div class="row">
                 <div class="col-md-6">
                     <h3>
-                        Surat Masuk
+                        Disposisi Surat
                         <?php if($auth->isTu()): ?>
                             <a href="index.php?page=add_surat_masuk" class="btn btn-success">Tambah</a>
                         <?php endif ?>
@@ -15,23 +15,22 @@
                 </div>
                 <!-- <div class="col-md-3"></div> -->
                 <!-- filter -->
-                <?php if(!$auth->isPegawai()): ?>
                 <div class="col-md-6">
                     <div class="form-inline pull-right">
                         <label><b>Filter : &ensp;</b></label>
                         <select id="filter_dinas" class="form-control">
-                            <option value=""> -- Semua Dinas -- </option>
+                            <option value=""> -- Semua Kepala Bidang -- </option>
                             <?php 
                                 $crud   = new Crud();
-                                $result = $crud->view("SELECT * FROM tb_user WHERE id_jabatan = '5'");          
+                                $result = $crud->view(" SELECT * FROM tb_jabatan
+                                                        WHERE id_jabatan IN(6,7,8,9,10)");          
                                 foreach ($result as  $value):
                             ?>
-                            <option value="<?= $value['nama'] ?>"><?= $value['nama'] ?></option>
+                            <option value="<?= $value['id_jabatan'] ?>"><?= $value['jabatan'] ?></option>
                             <?php endforeach ?>
                         </select>                        
                     </div>
                 </div>
-                <?php endif ?>
                 <!-- end filter -->
             </div>
 
@@ -45,9 +44,6 @@
                             <th>Perihal</th>
                             <th>Tanggal Surat Penerimaan</th>
                             <th>Tanggal Surat</th>
-                            <?php if($auth->isPegawai()): ?>
-                            <th>Instruksi</th>
-                            <?php endif ?>
                             <th>Aksi</th>
                         </tr>
                     </thead>
@@ -55,25 +51,12 @@
                     <tbody>
                         <?php 
                             $crud   = new Crud();
+                            $sql = "SELECT * FROM tb_surat_masuk
+                                    INNER JOIN tb_jabatan ON tb_surat_masuk.id_jabatan = tb_jabatan.id_jabatan 
+                                    INNER JOIN tb_user ON tb_surat_masuk.id_user = tb_user.id_user
+                                    WHERE tb_surat_masuk.id_jabatan = 1 ";
 
-                            // get id jabatan from id pegawai
-                            $id_user = $_SESSION['sess_user']['sess_id_user'];
-                            $sql = "SELECT id_jabatan FROM tb_user WHERE id_user = '$id_user'";
-                            $id_jabatan = $crud->view($sql)[0]['id_jabatan'];
-                            
-                            if($auth->isPegawai()):                            
-                                $sql = "SELECT * FROM tb_surat_masuk
-                                        INNER JOIN tb_jabatan ON tb_surat_masuk.id_jabatan = tb_jabatan.id_jabatan 
-                                        INNER JOIN tb_user ON tb_surat_masuk.id_user = tb_user.id_user
-                                        WHERE tb_surat_masuk.status = '0' AND tb_surat_masuk.id_jabatan = '$id_jabatan' ";
-                            else:                        
-                                $sql = "SELECT * FROM tb_surat_masuk
-                                        INNER JOIN tb_jabatan ON tb_surat_masuk.id_jabatan = tb_jabatan.id_jabatan 
-                                        INNER JOIN tb_user ON tb_surat_masuk.id_user = tb_user.id_user
-                                        WHERE status='0' AND tb_jabatan.id_jabatan != 1";                                    
-                            endif;     
-
-                            $result = $crud->view($sql);                     
+                            $result = $crud->view($sql);            
                             $no = 1;
                             foreach ($result as $value):
                         ?>
@@ -85,12 +68,11 @@
                             <td><?= $value['perihal'] ?></td>
                             <td><?= $value['tanggal_surat'] ?></td>
                             <td><?= $value['tanggal_surat_penerimaan'] ?></td>
-                            <?php if($auth->isPegawai()): ?>
-                            <td><?= $value['instruksi'] ?></td>
-                            <?php endif ?>
                             <td>
                                 <a href="../file/surat_masuk/<?= $value['file_surat'] ?>" class="btn btn-info">Unduh</a>
-                            </td>
+                            
+                                <a href="index.php?page=add_disposisi&id_surat=<?= $value['id_surat_masuk'] ?>" class="btn btn-primary">Disposisi</a>
+                            </td>                            
                         </tr>
                         <?php endforeach ?>
                     </tbody>
@@ -100,7 +82,6 @@
         </div>
     </div>
 </div> 
-<?php if(!$auth->isPegawai()): ?>
 <script>
 $.fn.dataTable.ext.search.push(
     function( settings, data, dataIndex ) {
@@ -118,10 +99,3 @@ $.fn.dataTable.ext.search.push(
         table.draw();    
 });
 </script>
-<?php else: ?>
-<script>
-
-$('#data_table_filter').DataTable();
-
-</script>
-<?php endif ?>

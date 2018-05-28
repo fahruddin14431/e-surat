@@ -18,7 +18,7 @@ if ($check) {
     $res = $crud->view($sql)[0];
     $_SESSION['sess_user'] = array(
         "sess_nama_pengguna" => $res['nama_pengguna'],
-        "sess_id_pegawai"    => $res['id_pegawai'],
+        "sess_id_user"    => $res['id_user'],
         "sess_status"        => $res['status']
     );
     header("location:app/index.php?page=view_dashbord");

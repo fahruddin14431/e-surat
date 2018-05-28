@@ -20,9 +20,9 @@
                     <tbody>
                         <?php 
                             $crud   = new Crud();
-                            $result = $crud->view(" SELECT * FROM tb_pegawai
-                                                    INNER JOIN tb_jabatan ON tb_pegawai.id_jabatan = tb_jabatan.id_jabatan
-                                                    INNER JOIN tb_login ON tb_pegawai.id_pegawai = tb_login.id_pegawai
+                            $result = $crud->view(" SELECT * FROM tb_user
+                                                    INNER JOIN tb_jabatan ON tb_user.id_jabatan = tb_jabatan.id_jabatan
+                                                    INNER JOIN tb_login ON tb_user.id_user = tb_login.id_user
                                                     WHERE tb_login.status = 'DINAS'"
                                                 );            
                             $no = 1;
@@ -32,8 +32,8 @@
                             <td><?= $no++."." ?></td>
                             <td><?= $value['nama'] ?></td>
                             <td>
-                                <a href="index.php?page=edit_dinas&id_pegawai=<?= $value['id_pegawai'] ?>" class="btn btn-warning">Ubah</a>
-                                <a href="index.php?page=delete_dinas&id_pegawai=<?= $value['id_pegawai'] ?>" onClick="return confirm('Data Akan Dihapus !')" class="btn btn-danger">Hapus</a>
+                                <a href="index.php?page=edit_dinas&id_user=<?= $value['id_user'] ?>" class="btn btn-warning">Ubah</a>
+                                <a href="index.php?page=delete_dinas&id_user=<?= $value['id_user'] ?>" onClick="return confirm('Data Akan Dihapus !')" class="btn btn-danger">Hapus</a>
                             </td>
                         </tr>
                         <?php endforeach ?>

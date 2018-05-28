@@ -16,7 +16,7 @@ $result = $crud->view("SELECT * FROM tb_format_surat")[0];
 $logo           = "../../assets/images/" . $result['logo'];
 $kop            = $result['kop_surat'];
 $isi            = $_POST['isi_surat'];
-$dinas          = $_POST['id_pegawai'];
+$dinas          = $_POST['id_user'];
 $id_jenis_surat = $_POST['id_jenis_surat'];
 
 $get_jenis_surat = $crud->view("SELECT * FROM tb_jenis_surat WHERE id_jenis_surat='$id_jenis_surat'")[0];
@@ -49,7 +49,7 @@ ob_start();
                 <?php
                 foreach ($dinas as $key => $value) {
                     $key++;
-                    $get_nama_dinas = $crud->view("SELECT nama FROM tb_pegawai WHERE id_pegawai='$value'")[0];
+                    $get_nama_dinas = $crud->view("SELECT nama FROM tb_user WHERE id_user='$value'")[0];
                     echo $key.".".$get_nama_dinas['nama']."<br>";
                 }
                 ?>
@@ -108,9 +108,9 @@ $data = array(
 
 $res = $crud->insert("tb_surat_keluar",$data);
 
-foreach ($_POST['id_pegawai'] as $id_pegawai) {
+foreach ($_POST['id_user'] as $id_user) {
     $data1 = array(
-        'id_pegawai'      => $id_pegawai,
+        'id_user'      => $id_user,
         'id_surat_keluar' => $id_surat_keluar    
     );
     

@@ -26,8 +26,8 @@ class Auth {
 		return ($_SESSION['sess_user']['sess_status'] == "PEGAWAI");
 	}
 
-	public function getUser($id_pegawai){
-		$sql    = "SELECT * FROM tb_pegawai WHERE id_pegawai = '$id_pegawai'";
+	public function getUser($id_user){
+		$sql    = "SELECT * FROM tb_user WHERE id_user = '$id_user'";
 		$crud   = new Crud();
 		$result = $crud->view($sql);
 		return $result[0]['nama'];

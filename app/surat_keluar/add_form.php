@@ -11,16 +11,16 @@
                     <div class="form-group">
                         <h5>Dinas Tujuan</h5>
 
-                        <select required class="js-example-basic-multiple" name="id_pegawai[]" multiple="multiple" class="form-control">                            
+                        <select required class="js-example-basic-multiple" name="id_user[]" multiple="multiple" class="form-control">                            
                             <?php 
-                                $sess_dinas = $_SESSION['sess_user']['sess_id_pegawai'];
+                                $sess_dinas = $_SESSION['sess_user']['sess_id_user'];
                                 $crud   = new Crud();
-                                $result = $crud->view(" SELECT * FROM `tb_pegawai` 
+                                $result = $crud->view(" SELECT * FROM `tb_user` 
                                                         WHERE `id_jabatan`='5'
                                                     ");          
                                 foreach ($result as  $value):
                             ?>
-                            <option value="<?= $value['id_pegawai'] ?>"><?= $value['nama'] ?></option>
+                            <option value="<?= $value['id_user'] ?>"><?= $value['nama'] ?></option>
                             <?php endforeach ?>
                         </select>
 

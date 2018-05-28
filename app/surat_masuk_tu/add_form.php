@@ -11,14 +11,14 @@
                     <div class="form-group">
                         <h5>Asal Surat Surat</h5>
 
-                        <select required name="id_pegawai" class="form-control">
+                        <select required name="id_user" class="form-control">
                             <option value=""> -- Asal Surat -- </option>
                             <?php 
                                 $crud   = new Crud();
-                                $result = $crud->view("SELECT * FROM tb_pegawai WHERE id_jabatan = '5'");          
+                                $result = $crud->view("SELECT * FROM tb_user WHERE id_jabatan = '5'");          
                                 foreach ($result as  $value):
                             ?>
-                            <option value="<?= $value['id_pegawai'] ?>"><?= $value['nama'] ?></option>
+                            <option value="<?= $value['id_user'] ?>"><?= $value['nama'] ?></option>
                             <?php endforeach ?>
                         </select>
                     </div>
@@ -56,7 +56,7 @@
                             <?php 
                                 $crud   = new Crud();
                                 $result = $crud->view(" SELECT * FROM tb_jabatan
-                                                        WHERE id_jabatan NOT IN(4,5)");          
+                                                        WHERE id_jabatan IN(1,2)");          
                                 foreach ($result as  $value):
                             ?>
                             <option value="<?= $value['id_jabatan'] ?>"><?= $value['jabatan'] ?></option>

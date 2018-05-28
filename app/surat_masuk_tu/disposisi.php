@@ -1,17 +1,21 @@
 
 <?php  
 
-$id_surat_masuk = $_GET['id_surat_masuk'];
+include "../helper/crud.php";
+$crud = new Crud();
+
+$id_surat   = $_POST['id_surat'];
 
 $data = array(
-    'status'    => "1"
+    'id_jabatan'  => $_POST['id_jabatan'],
+    'instruksi'  => $_POST['instruksi'],
 );
 
 $crud = new Crud();
-$res = $crud->update("tb_surat_masuk", $data, "id_surat_masuk = '$id_surat_masuk'");
+$res = $crud->update("tb_surat_masuk", $data, "id_surat_masuk = '$id_surat'");
 
 if ($res) {
-    header("location:index.php?page=view_surat_masuk_tu");
+    header("location:../index.php?page=view_disposisi");
 }
 
 ?>

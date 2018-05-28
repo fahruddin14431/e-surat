@@ -108,7 +108,7 @@ if (empty($_SESSION['sess_user'])) {
 					   
 						<li class="nav-item dropdown">
 							<a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="../assets/images/user.png" alt="user" class="profile-pic m-r-10" />
-								<?= $auth->getUser($_SESSION['sess_user']['sess_id_pegawai'])." - <b>".$_SESSION['sess_user']['sess_status']."</b>" ?>					
+								<?= $auth->getUser($_SESSION['sess_user']['sess_id_user'])." - <b>".$_SESSION['sess_user']['sess_status']."</b>" ?>					
 							</a>
 						</li>
 					</ul>
@@ -135,7 +135,7 @@ if (empty($_SESSION['sess_user'])) {
 					</li>				
 					<?php if($auth->isKepalaBadan()): ?>
 						<li> 
-							<a class="waves-effect waves-darkenvelope-open" href="index.php?page=view_surat_masuk_tu" aria-expanded="false"><i class="fa fa-envelope-square"></i><span class="hide-menu"> Disposisi</span></a>
+							<a class="waves-effect waves-darkenvelope-open" href="index.php?page=view_disposisi" aria-expanded="false"><i class="fa fa-envelope-square"></i><span class="hide-menu"> Disposisi</span></a>
 						</li>
 					<?php elseif($auth->isAdmin()): ?>
 						<li> 
@@ -153,6 +153,9 @@ if (empty($_SESSION['sess_user'])) {
 					<?php elseif($auth->isTU()): ?>						
 						<li> 
 							<a class="waves-effect waves-darkenvelope-open" href="index.php?page=view_surat_masuk_tu" aria-expanded="false"><i class="fa fa-envelope-open"></i><span class="hide-menu"> Surat Masuk</span></a>
+						</li>
+						<li> 
+							<a class="waves-effect waves-darkenvelope-open" href="index.php?page=view_disposisi" aria-expanded="false"><i class="fa fa-envelope-square"></i><span class="hide-menu"> Disposisi</span></a>
 						</li>
 						<li> 
 							<a class="waves-effect waves-dark" href="index.php?page=view_surat_keluar" aria-expanded="false"><i class="fa fa-envelope"></i><span class="hide-menu"> Surat Keluar</span></a>
@@ -269,6 +272,12 @@ if (empty($_SESSION['sess_user'])) {
 					}
 					// end  surat masuk
 
+					else if($page == "view_disposisi"){
+						include "surat_masuk_tu/view_disposisi.php";
+					}else if($page == "add_disposisi"){
+						include "surat_masuk_tu/add_disposisi.php";
+					}
+
 					// end TU
 
 					// dinas
@@ -280,8 +289,8 @@ if (empty($_SESSION['sess_user'])) {
 					// end dinas
 
 					// kepala dinas
-					else if($page == "disposisi"){
-						include "surat_masuk_tu/disposisi.php";
+					else if($page == "view_disposisi"){
+						include "surat_masuk_tu/view_disposisi.php";
 					}
 					// end kepala dinas
 
