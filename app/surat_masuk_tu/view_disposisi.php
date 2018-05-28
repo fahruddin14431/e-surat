@@ -56,7 +56,7 @@
                             $sql = "SELECT * FROM tb_surat_masuk
                                     INNER JOIN tb_jabatan ON tb_surat_masuk.id_jabatan = tb_jabatan.id_jabatan 
                                     INNER JOIN tb_user ON tb_surat_masuk.id_user = tb_user.id_user
-                                    WHERE tb_jabatan.id_jabatan != 2";
+                                    WHERE tb_jabatan.id_jabatan NOT IN(2)";
 
                             $result = $crud->view($sql);            
                             $no = 1;

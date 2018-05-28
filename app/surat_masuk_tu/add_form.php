@@ -49,22 +49,6 @@
                     </div>
 
                     <div class="form-group">
-                        <h5>Ditunjukan Kepada</h5>
-
-                        <select required name="id_jabatan" class="form-control">
-                            <option value=""> -- Ditunjukan Kepada -- </option>
-                            <?php 
-                                $crud   = new Crud();
-                                $result = $crud->view(" SELECT * FROM tb_jabatan
-                                                        WHERE id_jabatan IN(1,2)");          
-                                foreach ($result as  $value):
-                            ?>
-                            <option value="<?= $value['id_jabatan'] ?>"><?= $value['jabatan'] ?></option>
-                            <?php endforeach ?>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
                         <h5>File Surat</h5>
                         <input type="file" name="scan_surat" required>
                     </div>

@@ -12,13 +12,13 @@ $target_file = "../../file/surat_masuk/" . basename($_FILES["scan_surat"]["name"
 if (move_uploaded_file($scan_surat, $target_file)) {
     $data = array(
         'id_surat_masuk'            => $id_surat_masuk,
-        'id_user'                => $_POST['id_user'],
+        'id_user'                   => $_POST['id_user'],
         'no_surat'                  => $_POST['no_surat'],
         'no_agenda'                 => $_POST['no_agenda'],
         'perihal'                   => $_POST['perihal'],
         'tanggal_surat_penerimaan'  => $_POST['tgl_penerimaan'],
         'tanggal_surat'             => $_POST['tgl_surat'],        
-        'id_jabatan'                => $_POST['id_jabatan'],        
+        'id_jabatan'                => 2,        
         'file_surat'                => basename($_FILES["scan_surat"]["name"])
     );    
 
