@@ -71,7 +71,7 @@
                             <td><?= $value['status']=="0"?"Pending":"Success" ?></td>
                             <td><?= $value['jabatan'] ?></td>
                             <td>
-                                <a href="../file/surat_masuk/<?= $value['file_surat'] ?>" class="btn btn-info <?= !empty($value['file_surat'])?"":"disabled" ?>">Unduh</a>
+                                <a href="../file/surat_masuk/<?= $value['scan_surat'] ?>" class="btn btn-info <?= !empty($value['scan_surat'])?"":"disabled" ?>">Unduh</a>
                                 <?php if($auth->isKepalaBadan()): ?>
                                 <a href="index.php?page=add_disposisi&id_surat=<?= $value['id_surat_masuk'] ?>" class="btn btn-primary <?= $value['status']=="0"?"":"disabled" ?>">Disposisi</a>
                                 <?php endif ?>
