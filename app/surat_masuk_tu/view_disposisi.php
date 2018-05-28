@@ -15,6 +15,7 @@
                 </div>
                 <!-- <div class="col-md-3"></div> -->
                 <!-- filter -->
+                <?php if(!$auth->isTU()): ?>
                 <div class="col-md-6">
                     <div class="form-inline pull-right">
                         <label><b>Filter : &ensp;</b></label>
@@ -26,11 +27,12 @@
                                                         WHERE id_jabatan IN(6,7,8,9,10)");          
                                 foreach ($result as  $value):
                             ?>
-                            <option value="<?= $value['id_jabatan'] ?>"><?= $value['jabatan'] ?></option>
+                            <option value="<?= $value['jabatan'] ?>"><?= $value['jabatan'] ?></option>
                             <?php endforeach ?>
                         </select>                        
                     </div>
                 </div>
+                <?php endif ?>
                 <!-- end filter -->
             </div>
 
@@ -42,6 +44,8 @@
                             <th>No Agenda</th>
                             <th>Perihal</th>
                             <th>Tanggal Surat</th>
+                            <th>Status</th>
+                            <th>Jabatan</th>
                             <th>Aksi</th>
                         </tr>
                     </thead>
@@ -52,7 +56,7 @@
                             $sql = "SELECT * FROM tb_surat_masuk
                                     INNER JOIN tb_jabatan ON tb_surat_masuk.id_jabatan = tb_jabatan.id_jabatan 
                                     INNER JOIN tb_user ON tb_surat_masuk.id_user = tb_user.id_user
-                                    WHERE tb_surat_masuk.id_jabatan = 1 ";
+                                    WHERE tb_jabatan.id_jabatan != 2";
 
                             $result = $crud->view($sql);            
                             $no = 1;
@@ -64,10 +68,12 @@
                             <td><?= $value['no_agenda'] ?></td>
                             <td><?= $value['perihal'] ?></td>
                             <td><?= $value['tanggal_surat'] ?></td>
+                            <td><?= $value['status']=="0"?"Pending":"Success" ?></td>
+                            <td><?= $value['jabatan'] ?></td>
                             <td>
-                                <a href="../file/surat_masuk/<?= $value['file_surat'] ?>" class="btn btn-info">Unduh</a>
+                                <a href="../file/surat_masuk/<?= $value['file_surat'] ?>" class="btn btn-info <?= !empty($value['file_surat'])?"":"disabled" ?>">Unduh</a>
                                 <?php if($auth->isKepalaBadan()): ?>
-                                <a href="index.php?page=add_disposisi&id_surat=<?= $value['id_surat_masuk'] ?>" class="btn btn-primary">Disposisi</a>
+                                <a href="index.php?page=add_disposisi&id_surat=<?= $value['id_surat_masuk'] ?>" class="btn btn-primary <?= $value['status']=="0"?"":"disabled" ?>">Disposisi</a>
                                 <?php endif ?>
                             </td>                            
                         </tr>
@@ -79,11 +85,12 @@
         </div>
     </div>
 </div> 
+<?php if(!$auth->isTU()): ?>
 <script>
 $.fn.dataTable.ext.search.push(
     function( settings, data, dataIndex ) {
         var filter_dinas = $('#filter_dinas').val();
-        if(filter_dinas == data[1] || filter_dinas == ""){
+        if(filter_dinas == data[6] || filter_dinas == ""){            
             return true;
         }
         return false
@@ -92,7 +99,14 @@ $.fn.dataTable.ext.search.push(
 
     var table = $('#data_table_filter').DataTable();
 
-    $('select').on('change', function() {
+    $('select').on('change', function() {                
         table.draw();    
-});
+    });
 </script>
+<?php else: ?>
+<script>
+
+$('#data_table_filter').DataTable();
+
+</script>
+<?php endif ?>

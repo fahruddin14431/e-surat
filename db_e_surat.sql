@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: 28 Mei 2018 pada 07.29
+-- Generation Time: 28 Mei 2018 pada 11.24
 -- Versi Server: 10.1.26-MariaDB
 -- PHP Version: 7.1.9
 
@@ -168,7 +168,8 @@ CREATE TABLE `tb_surat_masuk` (
   `perihal` varchar(100) NOT NULL,
   `tanggal_surat` date NOT NULL,
   `tanggal_surat_penerimaan` date NOT NULL,
-  `file_surat` varchar(100) NOT NULL,
+  `file_surat` varchar(100) DEFAULT NULL,
+  `scan_surat` varchar(100) NOT NULL,
   `id_jabatan` int(11) NOT NULL,
   `status` int(11) NOT NULL DEFAULT '0',
   `instruksi` text
@@ -178,9 +179,11 @@ CREATE TABLE `tb_surat_masuk` (
 -- Dumping data untuk tabel `tb_surat_masuk`
 --
 
-INSERT INTO `tb_surat_masuk` (`id_surat_masuk`, `id_user`, `no_surat`, `no_agenda`, `perihal`, `tanggal_surat`, `tanggal_surat_penerimaan`, `file_surat`, `id_jabatan`, `status`, `instruksi`) VALUES
-(4, 'PEG1006', 'no surat', 'no agenda', 'perihal', '2018-05-28', '2018-12-31', '20170506122014666200.png', 2, 0, NULL),
-(5, 'PEG1007', 'no surat dis', 'no agenda dis', 'perihal dis', '2018-01-01', '2018-01-01', 'icon.jpg', 10, 0, 'instruksi');
+INSERT INTO `tb_surat_masuk` (`id_surat_masuk`, `id_user`, `no_surat`, `no_agenda`, `perihal`, `tanggal_surat`, `tanggal_surat_penerimaan`, `file_surat`, `scan_surat`, `id_jabatan`, `status`, `instruksi`) VALUES
+(4, 'PEG1006', 'no surat', 'no agenda', 'perihal', '2018-05-28', '2018-12-31', '4.pdf', '20170506122014666200.png', 10, 1, 'instruksi'),
+(5, 'PEG1007', 'no surat dis', 'no agenda dis', 'perihal dis', '2018-01-01', '2018-01-01', '5.pdf', 'icon.jpg', 10, 1, 'instruksi'),
+(6, 'PEG1006', '', 'agenda disposisi', 'perihal disposisi', '2018-12-31', '0000-00-00', '6.pdf', '20170506122014666200.png', 10, 1, 'instruksi'),
+(7, 'PEG1007', 'a', 'a', 'a', '2018-05-28', '2018-05-28', '20170506122014666200.png', '', 2, 0, NULL);
 
 -- --------------------------------------------------------
 
@@ -300,7 +303,7 @@ ALTER TABLE `tb_login`
 -- AUTO_INCREMENT for table `tb_surat_masuk`
 --
 ALTER TABLE `tb_surat_masuk`
-  MODIFY `id_surat_masuk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_surat_masuk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)

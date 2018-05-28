@@ -139,7 +139,7 @@ if (empty($_SESSION['sess_user'])) {
 						</li>
 					<?php elseif($auth->isAdmin()): ?>
 						<li> 
-							<a class="waves-effect waves-dark" href="index.php?page=view_pegawai" aria-expanded="false"><i class="fa fa-users"></i><span class="hide-menu"> Master Pegawai</span></a>
+							<a class="waves-effect waves-dark" href="index.php?page=view_user" aria-expanded="false"><i class="fa fa-users"></i><span class="hide-menu"> Master User</span></a>
 						</li>
 						<li> 
 							<a class="waves-effect waves-dark" href="index.php?page=view_jenis_surat" aria-expanded="false"><i class="fa fa-tags"></i><span class="hide-menu"> Master Jenis Surat</span></a>
@@ -213,9 +213,9 @@ if (empty($_SESSION['sess_user'])) {
 					// menu admin
 
 					// m_pegawai
-					}else if($page == "view_pegawai"){
+					}else if($page == "view_user"){
 						include "m_pegawai/view.php";
-					}else if($page == "add_pegawai"){
+					}else if($page == "add_user"){
 						include "m_pegawai/add_form.php";
 					}else if($page == "edit"){
 						include "m_pegawai/edit_form.php";

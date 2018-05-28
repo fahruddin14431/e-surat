@@ -23,6 +23,10 @@
                         </select>
                     </div>
 
+                    <div class="form-group">
+                        <h5>No Surat</h5>
+                        <input type="text" name="no_surat" required class="form-control" placeholder="No Surat">
+                    </div>                                        
 
                     <div class="form-group">
                         <h5>No Agenda</h5>

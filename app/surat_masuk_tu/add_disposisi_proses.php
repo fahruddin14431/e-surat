@@ -1,4 +1,3 @@
-
 <?php  
 
 include "../helper/crud.php";
@@ -13,19 +12,18 @@ if (move_uploaded_file($scan_surat, $target_file)) {
     $data = array(
         'id_surat_masuk'            => $id_surat_masuk,
         'id_user'                   => $_POST['id_user'],
+        'no_surat'                  => $_POST['no_surat'],
         'no_agenda'                 => $_POST['no_agenda'],
         'perihal'                   => $_POST['perihal'],
         'tanggal_surat'             => $_POST['tgl_surat'],        
         'id_jabatan'                => 1,        
-        'file_surat'                => basename($_FILES["scan_surat"]["name"])
+        'scan_surat'                => basename($_FILES["scan_surat"]["name"]),
+        'file_surat'                => $id_surat_masuk.".pdf"
     );    
-
 }
-
 $res = $crud->insert("tb_surat_masuk", $data);
 
 if ($res) {
     header("location:../index.php?page=view_disposisi");
 }
-
 ?>

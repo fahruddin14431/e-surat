@@ -5,8 +5,8 @@
             <div class="card-block">
 
                 <h3>
-                    Master Pegawai
-                    <a href="index.php?page=add_pegawai" class="btn btn-success">Tambah</a>
+                    Master User
+                    <a href="index.php?page=add_user" class="btn btn-success">Tambah</a>
                 </h3>
 
                 <table class="table table-stripped table-bordered" id="data_table">
