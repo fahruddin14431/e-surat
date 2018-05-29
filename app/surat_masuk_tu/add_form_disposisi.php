@@ -4,7 +4,7 @@
         <div class="card">
             <div class="card-block">
 
-                <h3>Tambah Data Surat Masuk</h3>
+                <h3>Tambah Data Disposisi Surat</h3>
 
                 <form action="surat_masuk_tu/add_disposisi_proses.php" method="POST" enctype="multipart/form-data">
 

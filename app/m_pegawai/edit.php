@@ -23,7 +23,7 @@ $data1 = array(
 $res1 = $crud->update("tb_login",$data1, "id_user = '$id_user'");
 
 if ($res && $res1) {
-    header("location:../index.php?page=view_pegawai");
+    header("location:../index.php?page=view_user");
 }
 
 ?>

@@ -90,6 +90,8 @@
                             <?php endif ?>
                             <td>
                                 <a href="../file/surat_masuk/<?= $value['file_surat'] ?>" class="btn btn-info">Unduh</a>
+                                <a href="index.php?page=edit_surat_masuk_tu&id_surat_masuk=<?= $value['id_surat_masuk'] ?>" class="btn btn-warning">Ubah</a>
+                                <a href="index.php?page=delete_surat_masuk&id_surat_masuk=<?= $value['id_surat_masuk'] ?>" onClick="return confirm('Data Akan Dihapus !')" class="btn btn-danger">Hapus</a>
                             </td>
                         </tr>
                         <?php endforeach ?>

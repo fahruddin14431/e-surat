@@ -269,6 +269,14 @@ if (empty($_SESSION['sess_user'])) {
 						include "surat_masuk_tu/view.php";
 					}else if($page == "add_surat_masuk"){
 						include "surat_masuk_tu/add_form.php";
+					}else if($page == "edit_surat_masuk_tu"){
+						include "surat_masuk_tu/edit_form.php";
+					}else if($page == "delete_surat_masuk"){
+						include "surat_masuk_tu/delete.php";
+					}else if($page == "edit_disposisi"){
+						include "surat_masuk_tu/edit_form_disposisi.php";
+					}else if($page == "delete_disposisi"){
+						include "surat_masuk_tu/delete_disposisi.php";
 					}
 					// end  surat masuk
 

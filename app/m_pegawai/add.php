@@ -27,7 +27,7 @@ $data1 = array(
 $res1 = $crud->insert("tb_login",$data1);
 
 if ($res && $res1) {
-    header("location:../index.php?page=view_pegawai");
+    header("location:../index.php?page=view_user");
 }
 
 ?>
