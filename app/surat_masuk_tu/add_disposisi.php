@@ -29,7 +29,7 @@ $id_surat = $_GET['id_surat'];
 
                     <div class="form-group">
                         <h5>Instruksi</h5>
-                        <input type="text" name="instruksi" class="form-control" required>
+                        <textarea name="instruksi" class="form-control" required cols="30" rows="10"></textarea>
                     </div>
 
                    <div class="form-group">                                    

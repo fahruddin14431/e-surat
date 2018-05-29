@@ -43,7 +43,6 @@
                             <th>No Surat</th>
                             <th>No Agenda</th>
                             <th>Perihal</th>
-                            <th>Tanggal Surat Penerimaan</th>
                             <th>Tanggal Surat</th>
                             <?php if($auth->isPegawai()): ?>
                             <th>Instruksi</th>
@@ -84,14 +83,15 @@
                             <td><?= $value['no_agenda'] ?></td>
                             <td><?= $value['perihal'] ?></td>
                             <td><?= $value['tanggal_surat'] ?></td>
-                            <td><?= $value['tanggal_surat_penerimaan'] ?></td>
                             <?php if($auth->isPegawai()): ?>
                             <td><?= $value['instruksi'] ?></td>
                             <?php endif ?>
                             <td>
                                 <a href="../file/surat_masuk/<?= $value['file_surat'] ?>" class="btn btn-info">Unduh</a>
+                                <?php if($auth->isTU()): ?>
                                 <a href="index.php?page=edit_surat_masuk_tu&id_surat_masuk=<?= $value['id_surat_masuk'] ?>" class="btn btn-warning">Ubah</a>
                                 <a href="index.php?page=delete_surat_masuk&id_surat_masuk=<?= $value['id_surat_masuk'] ?>" onClick="return confirm('Data Akan Dihapus !')" class="btn btn-danger">Hapus</a>
+                                <?php endif ?>
                             </td>
                         </tr>
                         <?php endforeach ?>
