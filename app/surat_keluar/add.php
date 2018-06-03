@@ -15,9 +15,14 @@ $result = $crud->view("SELECT * FROM tb_format_surat")[0];
 
 $logo           = "../../assets/images/" . $result['logo'];
 $kop            = $result['kop_surat'];
+
+$tanggal        = $_POST['tanggal_surat_dibuat'];
+$lampiran       = $_POST['lampiran'];
+$id_jenis_surat = $_POST['id_jenis_surat'];
 $isi            = $_POST['isi_surat'];
 $dinas          = $_POST['id_user'];
-$id_jenis_surat = $_POST['id_jenis_surat'];
+$no_surat       = $_POST['no_surat'];
+$tembusan       = $_POST['tembusan'];
 
 $get_jenis_surat = $crud->view("SELECT * FROM tb_jenis_surat WHERE id_jenis_surat='$id_jenis_surat'")[0];
 
@@ -25,7 +30,7 @@ ob_start();
 ?>
 
 <!-- start template -->
-<table class="table table-bordered">
+<table class="table">
     <tr>
         <td colspan="2" class="text-center">
             <img src="<?= $logo ?>" width="100px" height="100px">
@@ -38,7 +43,7 @@ ob_start();
         <td colspan="6">
             <p>Nomor : <?= $get_jenis_surat['no_surat']?> </p>
             <br>
-            <p>Lampiran : </p>
+            <p>Lampiran : <?= $_POST['lampiran'] ?></p>
             <br>
             <p>Perihal :<?= $get_jenis_surat['jenis_surat']?> </p>
 
@@ -53,6 +58,8 @@ ob_start();
                     echo $key.".".$get_nama_dinas['nama']."<br>";
                 }
                 ?>
+                <br>
+                <p>di Labuhan Bajo</p>
         </td>
     </tr>
     <tr>
@@ -68,15 +75,19 @@ ob_start();
             <p>
                 Kepala Badan Kepegawaian Pendidikan dan Pelatihan<br>
                 Daerah Kabupaten Manggarai Barat <br><br><br><br>
-            
-                <b><u>Ir. Sebastiana Wantung</u></b><br>
+                <?php 
+                $data = explode("-",$_POST['atas_nama']);
+                ?>
+                <b><u><?= $data[0] ?></u></b><br>
                 Pembina Utama Muda <br>
-                NIP. 196508041997031002
+                NIP. <?= $data[1] ?>
             </p>
         </td>
     </tr>
     <tr>
-        <td colspan="9"></td>
+        <td colspan="9">
+            <p><?= $_POST['tembusan'] ?></p>
+        </td>
         <td></td>
         <td></td>
         <td></td>
@@ -98,11 +109,15 @@ $post_file = "../../file/surat_keluar/".$id_surat_keluar.".pdf";
 
 $mpdf->Output($post_file,"F");
 
-// insert surat keluar
+// // insert surat keluar
 $data = array(
     'id_surat_keluar' => $id_surat_keluar,
     'id_jenis_surat'  => $id_jenis_surat,
-    'tanggal'         => date("Y-m-d"),
+    'tanggal'         => $tanggal,
+    'isi'             => $isi,
+    'no_surat'        => $no_surat,
+    'lampiran'        => $lampiran,
+    'tembusan'        => $tembusan,
     'file_surat'      => $id_surat_keluar.".pdf"
 );
 

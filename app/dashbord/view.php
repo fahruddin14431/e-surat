@@ -1,12 +1,14 @@
 <div class="row">
 
-	<div class="col-lg-8 col-xs-12">
+	<div class="col-lg-10 col-xs-12">
 		<div class="box box-danger">
 			<div class="inner">
 				<h2 class="white-text strong">
 					Badan Kepegawaian Pendidikan dan Pelatihan Daerah Kabupaten Manggarai Barat-Flores – NTT 
 				</h2>
 				<h3><marquee>selamat datang di aplikasi korespondensi digital berbasis website pada Badan Kepegawaian Pendidikan dan Pelatihan daerah kabupaten Manggarai Barat</marquee></h3>
+				<img src="../assets/images/bg.jpeg" width="100%">
+				<br><br>
 				<p><i>Oleh Maria Philomena Erni</i></p>
 				<br>
 			</div>

@@ -10,8 +10,10 @@
 
                 <div class="form-group">
                     <h5>NIP</h5>
-                    <input required type="text" name="nip" class="form-control" placeholder="NIP"/> 
+                    <input type="text" name="nip" class="form-control" placeholder="NIP"/> 
+                    <i>*biarkan kosong selain pegawai</i>
                 </div>
+                
 
                 <div class="form-group">
                     <h5>Nama</h5>
@@ -41,7 +43,7 @@
 
                 <div class="form-group">
                     <h5>Password</h5>
-                    <input required type="text" name="kata_sandi" class="form-control" placeholder="Password"/> 
+                    <input required type="password" name="kata_sandi" class="form-control" placeholder="Password"/> 
                 </div>       
 
                 <div class="form-group">
@@ -49,7 +51,7 @@
                     <select required name="status" class="form-control">
                         <option value=""> -- Pilih Status -- </option>
                         <?php 
-                            $result = array('KEPALA BADAN', 'ADMIN', 'TU', 'PEGAWAI');
+                            $result = array('KEPALA BADAN', 'ADMIN', 'TU', 'PEGAWAI','DINAS');
                             foreach ($result as  $value):
                         ?>
                         <option value="<?= $value ?>"><?= $value ?></option>

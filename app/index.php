@@ -135,7 +135,7 @@ if (empty($_SESSION['sess_user'])) {
 					</li>				
 					<?php if($auth->isKepalaBadan()): ?>
 						<li> 
-							<a class="waves-effect waves-darkenvelope-open" href="index.php?page=view_disposisi" aria-expanded="false"><i class="fa fa-envelope-square"></i><span class="hide-menu"> Disposisi</span></a>
+							<a class="waves-effect waves-darkenvelope-open" href="index.php?page=view_surat_masuk_tu" aria-expanded="false"><i class="fa fa-envelope-square"></i><span class="hide-menu"> Surat Masuk</span></a>
 						</li>
 					<?php elseif($auth->isAdmin()): ?>
 						<li> 
@@ -147,18 +147,15 @@ if (empty($_SESSION['sess_user'])) {
 						<li> 
 							<a class="waves-effect waves-dark" href="index.php?page=view_format_surat" aria-expanded="false"><i class="fa fa-file"></i><span class="hide-menu"> Master Format Surat</span></a>
 						</li>
-						<li> 
-							<a class="waves-effect waves-dark" href="index.php?page=view_dinas" aria-expanded="false"><i class="fa fa-user-circle"></i><span class="hide-menu"> Master Instansi</span></a>
-						</li>
 					<?php elseif($auth->isTU()): ?>						
 						<li> 
-							<a class="waves-effect waves-darkenvelope-open" href="index.php?page=view_surat_masuk_tu" aria-expanded="false"><i class="fa fa-envelope-open"></i><span class="hide-menu"> Surat Masuk</span></a>
+							<a class="waves-effect waves-darkenvelope-open" href="index.php?page=view_surat_masuk_tu" aria-expanded="false"><i class="fa fa-envelope-open"></i><span class="hide-menu">Transaksi Surat Masuk</span></a>
 						</li>
-						<li> 
+						<!-- <li> 
 							<a class="waves-effect waves-darkenvelope-open" href="index.php?page=view_disposisi" aria-expanded="false"><i class="fa fa-envelope-square"></i><span class="hide-menu"> Disposisi</span></a>
-						</li>
+						</li> -->
 						<li> 
-							<a class="waves-effect waves-dark" href="index.php?page=view_surat_keluar" aria-expanded="false"><i class="fa fa-envelope"></i><span class="hide-menu"> Surat Keluar</span></a>
+							<a class="waves-effect waves-dark" href="index.php?page=view_surat_keluar" aria-expanded="false"><i class="fa fa-envelope"></i><span class="hide-menu">Transaksi Surat Keluar</span></a>
 						</li>
 					<?php elseif($auth->isDinas()): ?>
 						<li> 
@@ -229,6 +226,8 @@ if (empty($_SESSION['sess_user'])) {
 						include "m_jenis_surat/view.php";		
 					}else if($page == "add_jenis_surat"){
 						include "m_jenis_surat/add_form.php";
+					}else if($page == "detail"){
+						include "m_jenis_surat/detail.php";
 					}else if($page == "edit_jenis_surat"){
 						include "m_jenis_surat/edit_form.php";
 					}else if($page == "delete_jenis_surat"){
@@ -238,6 +237,10 @@ if (empty($_SESSION['sess_user'])) {
 
 					else if($page == "view_format_surat"){
 						include "m_format_surat/view.php";		
+					}else if($page == "add_format_surat"){
+						include "m_format_surat/add_form.php";		
+					}else if($page == "delete_format_surat"){
+						include "m_format_surat/delete.php";		
 					}
 
 					// m_dinas

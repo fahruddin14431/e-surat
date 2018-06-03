@@ -19,7 +19,8 @@ $result     = $crud->view(" SELECT * FROM tb_user INNER JOIN tb_login
 
                 <div class="form-group">
                     <h5>NIP</h5>
-                    <input required type="text" value="<?= $result['nip'] ?>" name="nip" class="form-control" placeholder="NIP"/> 
+                    <input type="text" value="<?= $result['nip'] ?>" name="nip" class="form-control" placeholder="NIP"/> 
+                    <i>*biarkan kosong selain pegawai</i>
                 </div>
 
                 <div class="form-group">

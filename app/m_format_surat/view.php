@@ -1,45 +1,48 @@
 <div class="row">
     <!-- Column -->
-    <div class="col-lg-10">
+    <div class="col-lg-12">
         <div class="card">
             <div class="card-block">
 
-                <h3>Master Format Surat</h3>
+                <h3>
+                    Master Format Surat
+                    <a href="index.php?page=add_format_surat" class="btn btn-success">Tambah</a>
+                </h3>
 
-                <?php
-                    $crud           = new Crud();
-                    $result         = $crud->view(" SELECT * FROM tb_format_surat")[0];
-                ?>
+                <table class="table table-stripped table-bordered text-center" id="data_table">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Logo</th>
+                            <th>Kop</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
 
-                 <form action="m_format_surat/edit.php" method="POST" enctype="multipart/form-data">
+                    <tbody>
+                        <?php 
+                            $crud   = new Crud();
+                            $result = $crud->view("SELECT * FROM tb_format_surat");            
+                            $no = 1;
+                            foreach ($result as $value):
+                        ?>
+                        <tr>
+                            <td><?= $no++."." ?></td>
+                            <td>
+                                <img src="../assets/images/<?= $value['logo']?>" alt="" width="60%" height="25%">
+                            </td>
+                            <td><?= $value['kop_surat'] ?></td>
+                            <td>
+                                <a href="index.php?page=edit_format_surat&id_format_surat=<?= $value['id_format_surat'] ?>" class="btn btn-warning">Ubah</a>
+                                <a href="index.php?page=delete_format_surat&id_format_surat=<?= $value['id_format_surat'] ?>" onClick="return confirm('Data Akan Dihapus !')" class="btn btn-danger">Hapus</a>
+                            </td>
+                        </tr>
+                        <?php endforeach ?>
+                    </tbody>
 
-                    <div class="form-group">
-                        <h5>Kop Surat</h5>
-                        <textarea name="kop_surat" id="editor" cols="30" rows="10" class="form-control"><?= $result['kop_surat']?></textarea>
-                    </div>
-
-                    <div class="form-group">
-                        <h5>Logo</h5>
-                        <img src="../assets/images/<?= $result['logo']?>" alt="" width="25%" height="25%">
-                        <input  type="file" name="logo" class="form-control" placeholder="Logo"/> 
-                    </div>
-
-                    <div class="form-group">                                    
-                        <button type="submit" name="id_format_surat" value="<?= $result['id_format_surat'] ?>"  class="btn btn-success">
-                            SIMPAN
-                        </button>
-                    </div>         
-
-                </form>
-
-               
+                </table>
             </div>
         </div>
     </div>
 </div> 
-<!-- config ckeditor -->
-<script>
-CKEDITOR.replace( 'editor', {
-    height: 200
-});
-</script>
+

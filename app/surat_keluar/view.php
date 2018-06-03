@@ -15,7 +15,9 @@
                             <th>No</th>
                             <th>ID Surat Keluar</th>
                             <th>Tanggal</th>
-                            <th>Jenis</th>
+                            <th>No Surat</th>
+                            <th>Perihal</th>
+                            <th>Lampiran</th>
                             <th>Aksi</th>
                         </tr>
                     </thead>
@@ -34,7 +36,9 @@
                             <td><?= $no++."." ?></td>
                             <td><?= $value['id_surat_keluar'] ?></td>
                             <td><?= $value['tanggal'] ?></td>
+                            <td><?= $value['no_surat'] ?></td>
                             <td><?= $value['jenis_surat'] ?></td>
+                            <td><?= $value['lampiran'] ?></td>
                             <td>
                                 <a href="../file/surat_keluar/<?= $value['file_surat'] ?>" class="btn btn-info">Unduh</a>
                                 <!-- <a href="index.php?page=delete_surat_keluar&id_surat_keluar=<?= $value['id_surat_keluar'] ?>" onClick="return confirm('Data Akan Dihapus !')" class="btn btn-danger">Hapus</a> -->

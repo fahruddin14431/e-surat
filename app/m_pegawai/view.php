@@ -13,7 +13,6 @@
                     <thead>
                         <tr>
                             <th>No</th>
-                            <th>NIP</th>
                             <th>Nama</th>
                             <th>Jabatan</th>
                             <th>Aksi</th>
@@ -25,15 +24,13 @@
                             $crud   = new Crud();
                             $result = $crud->view(" SELECT * FROM tb_user
                                                     INNER JOIN tb_jabatan ON tb_user.id_jabatan = tb_jabatan.id_jabatan
-                                                    INNER JOIN tb_login ON tb_user.id_user = tb_login.id_user
-                                                    WHERE NOT tb_login.status = 'DINAS'"
+                                                    INNER JOIN tb_login ON tb_user.id_user = tb_login.id_user"
                                                 );            
                             $no = 1;
                             foreach ($result as $value):
                         ?>
                         <tr>
                             <td><?= $no++."." ?></td>
-                            <td><?= $value['nip'] ?></td>
                             <td><?= $value['nama'] ?></td>
                             <td><?= $value['jabatan'] ?></td>
                             <td>

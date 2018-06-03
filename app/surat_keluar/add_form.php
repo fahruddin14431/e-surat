@@ -9,7 +9,37 @@
                 <form action="surat_keluar/add.php" method="POST">
 
                     <div class="form-group">
-                        <h5>Dinas Tujuan</h5>
+                        <h5>Tanggal Surat Dibuat</h5>
+                        <input type="date" name="tanggal_surat_dibuat" required class="form-control">
+                    </div>  
+
+                    <div class="form-group">
+                        <h5>Lampiran</h5>
+                        <input type="text" name="lampiran" required class="form-control" placeholder="Lampiran">
+                    </div>   
+
+                    <div class="form-group">
+                        <h5>Perihal</h5>
+
+                        <select required name="id_jenis_surat" id="id_jenis_surat" class="form-control">
+                            <option value=""> -- Pilih Jenis Surat -- </option>
+                            <?php 
+                                $crud   = new Crud();
+                                $result = $crud->view("SELECT * FROM tb_jenis_surat");          
+                                foreach ($result as  $value):
+                            ?>
+                            <option value="<?= $value['id_jenis_surat'] ?>"><?= $value['jenis_surat'] ?></option>
+                            <?php endforeach ?>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <h5>No Surat</h5>
+                        <input type="text" name="no_surat" id="no_surat" required class="form-control" placeholder="No Surat">
+                    </div> 
+
+                    <div class="form-group">
+                        <h5>Kepada</h5>
 
                         <select required class="js-example-basic-multiple" name="id_user[]" multiple="multiple" class="form-control">                            
                             <?php 
@@ -24,32 +54,39 @@
                             <?php endforeach ?>
                         </select>
 
-                    </div>   
-
-                    <div class="form-group">
-                        <h5>Jenis Surat</h5>
-
-                        <select required name="id_jenis_surat" id="id_jenis_surat" class="form-control">
-                            <option value=""> -- Pilih Jenis Surat -- </option>
-                            <?php 
-                                $crud   = new Crud();
-                                $result = $crud->view("SELECT * FROM tb_jenis_surat");          
-                                foreach ($result as  $value):
-                            ?>
-                            <option value="<?= $value['id_jenis_surat'] ?>"><?= $value['jenis_surat'] ?></option>
-                            <?php endforeach ?>
-                        </select>
-
-                    </div>
+                    </div>     
 
                     <div class="form-group">
                         <h5>Isi Surat Keluar</h5>
                         <textarea required name="isi_surat" id="editor" cols="30" rows="10" class="form-control"></textarea>
                     </div>
 
+                    <div class="form-group">
+                        <h5>Yang membuat surat</h5>
+
+                        <select required name="atas_nama" class="form-control">                            
+                            <?php 
+                                $crud   = new Crud();
+                                $result = $crud->view(" SELECT * FROM `tb_user` INNER JOIN tb_jabatan
+                                                        ON tb_user.id_jabatan = tb_jabatan.id_jabatan
+                                                        WHERE tb_jabatan.`id_jabatan` IN (1,2)
+                                                    ");          
+                                foreach ($result as  $value):
+                            ?>
+                            <option value="<?= $value['nama']."-".$value['nip'] ?>"><?= $value['nama']." - ".$value['jabatan'] ?></option>
+                            <?php endforeach ?>
+                        </select>
+
+                    </div>  
+
+                    <div class="form-group">
+                        <h5>Tembusan</h5>
+                        <textarea required name="tembusan" id="editor1" cols="30" rows="10" class="form-control"></textarea>
+                    </div>
+
                     <div class="form-group">                    
                         <input required type="submit" value="SIMPAN" class="btn btn-success form-control"/> 
-                    </div>         
+                    </div>                        
 
                 </form>
 
@@ -64,18 +101,24 @@ CKEDITOR.replace( 'editor', {
     height: 400
 });
 
+CKEDITOR.replace( 'editor1', {
+    height: 400
+});
+
 
 $(document).ready(function() {
 
     // ajax change isi surat
     $("#id_jenis_surat").change(function(){
+        
         $.ajax({
             type : "POST",
             url  : "../app/surat_keluar/get_isi_surat.php",
             data : {id_jenis_surat : $("#id_jenis_surat").val()},
             dataType : "json",
             success: function(data){
-                CKEDITOR.instances["editor"].setData(data.data);
+                $("#no_surat").val(data.data.no_surat);
+                CKEDITOR.instances["editor"].setData(data.data.isi_surat);
                 
             },
             error: function (xhr, ajaxOptions, thrownError) {
@@ -86,7 +129,7 @@ $(document).ready(function() {
 
     // select2
     $('.js-example-basic-multiple').select2({
-        placeholder:"-- Pilih Dinas Tujuan --",
+        placeholder:"-- Kepada --",
         width: '100%'
     });
 
