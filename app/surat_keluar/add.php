@@ -11,8 +11,9 @@ $mpdf->allow_output_buffering = true;
 
 // format surat
 $crud   = new Crud();
-$result = $crud->view("SELECT * FROM tb_format_surat")[0];
 
+$id_format_surat = $_POST['id_format_surat'];
+$result = $crud->view("SELECT * FROM tb_format_surat WHERE id_format_surat='$id_format_surat'")[0];
 $logo           = "../../assets/images/" . $result['logo'];
 $kop            = $result['kop_surat'];
 

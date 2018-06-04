@@ -266,6 +266,8 @@ if (empty($_SESSION['sess_user'])) {
 						include "surat_keluar/add_form.php";
 					}else if($page == "acc_surat_keluar"){
 						include "surat_keluar/acc_surat.php";
+					}else if($page == "delete_surat_keluar"){
+						include "surat_keluar/delete.php";
 					}
 					// end surat keluar
 
@@ -278,10 +280,6 @@ if (empty($_SESSION['sess_user'])) {
 						include "surat_masuk_tu/edit_form.php";
 					}else if($page == "delete_surat_masuk"){
 						include "surat_masuk_tu/delete.php";
-					}else if($page == "edit_disposisi"){
-						include "surat_masuk_tu/edit_form_disposisi.php";
-					}else if($page == "delete_disposisi"){
-						include "surat_masuk_tu/delete_disposisi.php";
 					}
 					// end  surat masuk
 

@@ -47,6 +47,8 @@
                                 <?php if($auth->isKepalaBadan()): ?>
                                 <a href="index.php?page=acc_surat_keluar&id_surat_keluar=<?= $value['id_surat_keluar'] ?>" class="btn btn-primary">ACC</a>
                                 <?php endif ?>
+
+                                <a href="index.php?page=delete_surat_keluar&id_surat_keluar=<?= $value['id_surat_keluar'] ?>" onClick="return confirm('Data Akan Dihapus !')" class="btn btn-danger">Hapus</a>
                             </td>
                         </tr>
                         <?php endforeach ?>

@@ -9,6 +9,21 @@
                 <form action="surat_keluar/add.php" method="POST">
 
                     <div class="form-group">
+                        <h5>Kop Surat</h5>
+
+                        <select required name="id_format_surat" class="form-control">
+                            <option value=""> -- Pilih Kop Surat -- </option>
+                            <?php 
+                                $crud   = new Crud();
+                                $result = $crud->view("SELECT * FROM tb_format_surat");          
+                                foreach ($result as  $value):
+                            ?>
+                            <option value="<?= $value['id_format_surat'] ?>"><?= $value['nama_kop'] ?></option>
+                            <?php endforeach ?>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
                         <h5>Tanggal Surat Dibuat</h5>
                         <input type="date" name="tanggal_surat_dibuat" required class="form-control">
                     </div>  
