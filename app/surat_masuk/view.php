@@ -10,7 +10,7 @@
                     <thead>
                         <tr>
                             <th>No</th>
-                            <th>Jenis</th>
+                            <th>Perihal</th>
                             <th>Tanggal</th>
                             <th>Aksi</th>
                         </tr>
@@ -23,8 +23,9 @@
                             $result = $crud->view( "SELECT * FROM tb_surat_keluar
                                                     INNER JOIN tb_jenis_surat ON tb_surat_keluar.id_jenis_surat = tb_jenis_surat.id_jenis_surat
                                                     INNER JOIN tb_detail_surat_keluar ON tb_surat_keluar.id_surat_keluar = tb_detail_surat_keluar.id_surat_keluar
-                                                    AND tb_detail_surat_keluar.id_user = '$dinas'"
-                                                );            
+                                                    WHERE tb_detail_surat_keluar.id_user = '$dinas' 
+                                                    AND tb_surat_keluar.status='1'"
+                                                );     
                             $no = 1;
                             foreach ($result as $value):
                         ?>

@@ -60,7 +60,7 @@
                             <option value=""> -- Kepada -- </option>
                             <?php 
                                 $crud   = new Crud();
-                                $result = $crud->view("SELECT * FROM tb_jabatan WHERE id_jabatan IN(2,6,7,8,9,10)");          
+                                $result = $crud->view("SELECT * FROM tb_jabatan WHERE id_jabatan IN(6,7,8,9,10)");          
                                 foreach ($result as  $value):
                             ?>
                             <option value="<?= $value['id_jabatan'] ?>"><?= $value['jabatan'] ?></option>

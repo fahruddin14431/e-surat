@@ -135,7 +135,10 @@ if (empty($_SESSION['sess_user'])) {
 					</li>				
 					<?php if($auth->isKepalaBadan()): ?>
 						<li> 
-							<a class="waves-effect waves-darkenvelope-open" href="index.php?page=view_surat_masuk_tu" aria-expanded="false"><i class="fa fa-envelope-square"></i><span class="hide-menu"> Surat Masuk</span></a>
+							<a class="waves-effect waves-darkenvelope-open" href="index.php?page=view_surat_masuk_tu" aria-expanded="false"><i class="fa fa-envelope-open"></i><span class="hide-menu"> Surat Masuk</span></a>
+						</li>
+						<li> 
+							<a class="waves-effect waves-dark" href="index.php?page=view_surat_keluar" aria-expanded="false"><i class="fa fa-envelope"></i><span class="hide-menu">Surat Keluar</span></a>
 						</li>
 					<?php elseif($auth->isAdmin()): ?>
 						<li> 
@@ -151,9 +154,6 @@ if (empty($_SESSION['sess_user'])) {
 						<li> 
 							<a class="waves-effect waves-darkenvelope-open" href="index.php?page=view_surat_masuk_tu" aria-expanded="false"><i class="fa fa-envelope-open"></i><span class="hide-menu">Transaksi Surat Masuk</span></a>
 						</li>
-						<!-- <li> 
-							<a class="waves-effect waves-darkenvelope-open" href="index.php?page=view_disposisi" aria-expanded="false"><i class="fa fa-envelope-square"></i><span class="hide-menu"> Disposisi</span></a>
-						</li> -->
 						<li> 
 							<a class="waves-effect waves-dark" href="index.php?page=view_surat_keluar" aria-expanded="false"><i class="fa fa-envelope"></i><span class="hide-menu">Transaksi Surat Keluar</span></a>
 						</li>
@@ -264,6 +264,8 @@ if (empty($_SESSION['sess_user'])) {
 						include "surat_keluar/view.php";
 					}else if($page == "add_surat_keluar"){
 						include "surat_keluar/add_form.php";
+					}else if($page == "acc_surat_keluar"){
+						include "surat_keluar/acc_surat.php";
 					}
 					// end surat keluar
 

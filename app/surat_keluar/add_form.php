@@ -22,7 +22,7 @@
                         <h5>Perihal</h5>
 
                         <select required name="id_jenis_surat" id="id_jenis_surat" class="form-control">
-                            <option value=""> -- Pilih Jenis Surat -- </option>
+                            <option value=""> -- Pilih Perihal -- </option>
                             <?php 
                                 $crud   = new Crud();
                                 $result = $crud->view("SELECT * FROM tb_jenis_surat");          

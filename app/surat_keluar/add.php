@@ -93,7 +93,7 @@ ob_start();
         <td></td>
     </tr>
 </table>
-<!-- end start -->
+<!-- end template -->
 
 
 <?php 
@@ -109,7 +109,7 @@ $post_file = "../../file/surat_keluar/".$id_surat_keluar.".pdf";
 
 $mpdf->Output($post_file,"F");
 
-// // insert surat keluar
+// insert surat keluar
 $data = array(
     'id_surat_keluar' => $id_surat_keluar,
     'id_jenis_surat'  => $id_jenis_surat,
