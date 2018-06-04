@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: 29 Mei 2018 pada 10.39
+-- Generation Time: 04 Jun 2018 pada 04.16
 -- Versi Server: 10.1.26-MariaDB
 -- PHP Version: 7.1.9
 
@@ -32,6 +32,13 @@ CREATE TABLE `tb_detail_surat_keluar` (
   `id_surat_keluar` varchar(11) NOT NULL,
   `id_user` varchar(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `tb_detail_surat_keluar`
+--
+
+INSERT INTO `tb_detail_surat_keluar` (`id_surat_keluar`, `id_user`) VALUES
+('SUK1001', 'PEG1010');
 
 -- --------------------------------------------------------
 
@@ -97,7 +104,7 @@ CREATE TABLE `tb_jenis_surat` (
 
 INSERT INTO `tb_jenis_surat` (`id_jenis_surat`, `no_surat`, `jenis_surat`, `isi_surat`) VALUES
 (5, 'BKPPD.890/182/VII/2017', 'Pengambilan Sertifikat Diklat', '<p style=\"text-align:justify\">&nbsp; &nbsp; &nbsp; &nbsp;Sesuai perihal surat diatas, maka dengna ini disampaikan bahwa&nbsp;Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellat totam ipsum iure accusamus officia quod veniam laborum. Rerum libero consequatur quo laborum reiciendis officia id? Aperiam similique dicta quod vitae.&nbsp;Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellat totam ipsum iure accusamus officia quod veniam laborum. Rerum libero consequatur quo laborum reiciendis officia id? Aperiam similique dicta quod vitae.&nbsp;Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellat totam ipsum iure accusamus officia quod veniam laborum. Rerum libero consequatur quo laborum reiciendis officia id? Aperiam similique dicta quod vitae.</p>\r\n\r\n<p style=\"text-align:justify\">Demikian untuk maklum dan atas kerjasamanya diucapkan terima kasih.</p>\r\n'),
-(6, 'BKPPD/822', 'Kenaikan Gaji Berkala', '                                                                                                                                                                                                                                 \r\n                                                                                                   <p style=\"text-align:justify\">Â    Labuan Bajo,.......,..........,........</p>\r\n\r\n<p style=\"text-align:justify\">Â Nomor		:BKPPD.822/.../...../....</p>			Kepada Yth.\r\nLampiran	: .......						.................................\r\nPerihal		:Kenaikan Gaji Berkala			di-\r\n								    .......................\r\n\r\n    <p style=\"text-align:justify\">Â Dengan ini diberitahukan bahwa berhubung dengan telah dipenuhi masa kerja dan syarat-syarat lainya kepada :\r\n1.	Nama 					:..................................................\r\n2.	NIP					:..................................................\r\n3.	Pangkat / Golongan Ruang Gaji	: .................................................\r\n4.	Unit Kerja				: .................................................\r\n5.	Gaji Pokok Lama			:..................................................\r\n(Atas dasar SKP terakhir tentang gaji/Pangkat yang ditetapkan):\r\na.	Oleh Pejabat					:..................................\r\nb.	Tanggal						:..................................\r\nc.	Nomor						:..................................\r\nd.	Tanggal Berlakunya Gaji tersebut			:..................................\r\ne.	Masa Kerja Golongan pada tanggal tersebut	:..................................\r\nDiberikan gaji berkala hingga memperoleh	:\r\n6.	Gaji Pokok Baru			:..............................\r\n7.	Berdasarkan Masa Kerja		:.............................\r\n8.	Pangkat/Golongan Ruang		:.............................\r\n9.	Terhitung Mulai Tanggal		:............................\r\n10.	TMT Gaji Berkala Berikutnya	:.............................\r\nDiharapkan agar sesuai dengan Peraturan Pemerintah Nomor 30 Tahun 2015, maka kepada Pegawai Negeri Spil tersebut dapat dibayarkan penghasilanya berdasarkan gaji yang baru.</p>\r\n\r\n				 A.n.Bupati Manggarai Barat\r\n	Kepala BadanKepegawaianPendidikan dan\r\n               Pelatihan Daerah Kab.Manggarai Barat,\r\n\r\n\r\nIr.Sebastianus Wantung\r\n   Pembina Utama Muda\r\n   NIP 19650841199703 1 002\r\n\r\nTembusan:disampaikan dengan hormat kepada:\r\n1............\r\n2............\r\n3............\r\n'),
+(6, 'BKPPD/822', 'Kenaikan Gaji Berkala', '<p>Dengan ini diberitahukan bahwa berhubung dengan telah dipenuhi masa kerja dan syarat-syarat lain nya kepada :</p>\r\n\r\n<p>1. Nama&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;: .........<br />\r\n2. Nomor Induk Pegawai (NIP)&nbsp; &nbsp; &nbsp; : .........<br />\r\n3. Pangkat/Golongan Ruang Gaji &nbsp;: .........<br />\r\n4. Unit Kerja&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;: Badan Kepegawaian, Pendidikan dan Pelatihan Daerah Kabupaten Manggarai Barat<br />\r\n5. Gaji Pokok Lama&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; : Rp. ......</p>\r\n\r\n<p>&nbsp; &nbsp; (Atas dasar SKP terakhir tentang gaji/pangkat yang ditetapkan):<br />\r\n&nbsp; &nbsp;&nbsp;<br />\r\n&nbsp; &nbsp; a. Oleh Pejabat&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;: Bupati Manggarai Barat<br />\r\n&nbsp; &nbsp; b. Tanggal&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;: .......<br />\r\n&nbsp; &nbsp; c. Nomor&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;: .......<br />\r\n&nbsp; &nbsp; d. Tanggal berlakunya Gaji tersebut&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;:&nbsp;.......<br />\r\n&nbsp; &nbsp; e. Masa Kerja Golongan pada tanggal tersebut : .......</p>\r\n\r\n<p>&nbsp; &nbsp; Diberikan gaji berkala hingga memperoleh :</p>\r\n\r\n<p>6. Gaji Pokok Baru&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; : Rp. ......<br />\r\n7. Berdasarkan Maasa Kerja&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; : ......<br />\r\n8. Pangkat/Golongan ruang&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; : ......<br />\r\n9. Terhitung Mulai Tanggal&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; : ......<br />\r\n10.TMT Gaji Berkala berikutnya&nbsp; &nbsp; &nbsp; : ......</p>\r\n\r\n<p>Diharapkan agar sesuai dengan peraturan pemerintah Nomor 30 Tahun 2015, maka kepada pegawai negeri sipil tersebut dapat dibayarkan penghasilan nya sebesar gaji yang baru.</p>\r\n'),
 (7, 'BKPPD/813', 'Surat Keputusan 80%', 'PETIKAN KEPUTUSAN BUPATI MANGGARAI BARAT\r\nNOMOR: BKPPD.813/..../..../.....\r\n\r\nBUPATI MANGGARAI BARAT,\r\nMenimbang		:   dst;\r\nMengingat		:   dst;\r\nMemperhatikan		:  Penetapan NIP.....................................atas nama ........................................oleh\r\n			   Kepala badan Kepegawaian Pendidikan dan Pelatihan Negara tanggal..............\r\n\r\nMEMUTUSKAN\r\nMenetapkan		: \r\nPERTAMA		Mengangkat yang tersebut dibawah ini, nomor urut	:...............\r\n			Nama 				:............................................................................\r\n			NIP				:............................................................................\r\n			Tempat/Tanggal Lahir		:............................................................................\r\n			Jenis Kelamin			:...........................................................................\r\n			Pendidikan			:............................................................................\r\n			Menjadi Calon Pegawai Negeri Sipil dalam masa percobaan dengan:\r\n			Golongan Ruang		:............................................................................\r\n			Masa Kerja Golongan		:............................................................................\r\n			Jabatan				:............................................................................\r\n			Unit Kerja			:............................................................................\r\n\r\n		Dan kepadanya diberikan gaji pokok setiap bulan sebesar Rp......................; serta ditambah dengan penghasilan lain yang sah berdasarkan Peraturan Undang-undang yang berlaku, terhitung mulai tanggal.........................................\r\nKEDUA	: Apabila dikemudian hari ternyata terdapat kekeliruan dalam keputusan ini, akan diadakan perbaikan dan perhitungan kembali sebagaimana mestinya.\r\n	PETIKAN Keputusan ini disampaikan kepada:\r\n1.	Kepala Badan Kepegawaian Negara;\r\n2.	Direktur Jenderal Anggaran Depertemen Keuangan;\r\n3.	Kepala Regional X Badan Kepegawaian Negara Denpasar;\r\n4.	Kepala Dinas Pendapatan, Pengelolaan Keuangan dan Aset Daerah Kabupaten Manggarai Barat;\r\n5.	Calon Pegawai Negeri Sipil yang bersangkutan.\r\nDitetapkan di Labuan Bajo\r\nPada tanggal......................\r\nPetikan yang sesuai dengan aslinya\r\n        Sekretaris Daerah, 					BUPATI MANGGARAI BARAT\r\n\r\n      TTD\r\n Mbon Rofinus,SH,M.Si                                                              DRS. AGUSTINUS Ch.DULA\r\nPembina Utama Madya\r\nNip.19591122 198603 1 010\r\n'),
 (8, 'BKPPD/821', 'Surat Keputusan 100%', 'PETIKAN\r\nKEPUTUSAN BUPATI MANGGARAI BARAT\r\nNOMOR: BKPPD.821 /..../..../.....\r\n\r\nBUPATI MANGGARAI BARAT,\r\nMenimbang		:   dst;\r\nMengingat		:   dst;\r\nMEMUTUSKAN :\r\nMenetapkan		: \r\nPERTAMA		Calon pegawai Negeri Sipil  nomor urut	:...............\r\n			Nama 				:............................................................................\r\n			NIP				:............................................................................\r\n			Pendidikan			:............................................................................\r\nTempat/Tanggal Lahir		:............................................................................\r\n			TMT CPNS			:...........................................................................\r\n			Golongan Ruang		:............................................................................\r\n			Masa Kerja Golongan		:............................................................................\r\n			Gaji Pokok			:............................................................................\r\n			Unit Kerja			:............................................................................\r\n			Surat Keterangan Tim		:............................................................................\r\n			Penguji Kesehatan		:...........................................................................\r\n			STTPL				:..........................................................................\r\n\r\n		Terhitung mulai tanggal.......................diangkat menjadi Pegawai Negeri Sipil dalam pangkat.........................Golongan Ruang............,dengan masa kerja Golongan.......Tahun........Bulan dan diberikan gaji pokok sebesar Rp.............................; ditambah dengan penghasilan lain yang sah berdasarkan Peraturan Undang-undangan  yang berlaku.\r\nKEDUA	: Apabila dikemudian hari ternyata terdapat kekeliruan dalam keputusan ini, akan diadakan perbaikan dan perhitungan kembali sebagaimana mestinya.\r\n	PETIKAN Keputusan ini disampaikan kepada:\r\n1.	Kepala Badan Kepegawaian Negara;\r\n2.	Direktur Jenderal Anggaran Depertemen Keuangan;\r\n3.	Kepala Regional X Badan Kepegawaian Negara Denpasar;\r\n4.	Kepala Dinas Pendapatan, Pengelolaan Keuangan dan Aset Daerah Kabupaten Manggarai Barat;\r\n5.	Calon Pegawai Negeri Sipil yang Bersangkutan.\r\nDitetapkan di Labuan Bajo\r\nPada tanggal......................\r\nPetikan yang sesuai dengan aslinya\r\n        Sekretaris Daerah, 					BUPATI MANGGARAI BARAT\r\n      TTD\r\n Mbon Rofinus,SH,M.Si                                                              DRS. AGUSTINUS Ch.DULA\r\nPembina Utama Madya\r\nNip.19591122 198603 1 010\r\n'),
 (10, 'BKPPD/823', 'Kenaikan Pangkat', 'gfdg'),
@@ -105,7 +112,8 @@ INSERT INTO `tb_jenis_surat` (`id_jenis_surat`, `no_surat`, `jenis_surat`, `isi_
 (12, 'BKPPD/874', 'Usulan Perbaikan Data Pegawai', 'gfddd'),
 (13, 'BKPPD/890', 'Pengambilan Sertifikat', 'hddfgh'),
 (14, 'BKPPD/810', 'Kelengkapan Berkas CPNS', 'hgdd'),
-(15, 'BKPPD/870', 'undangan, pengantar, surat panggilan', 'PEMERINTAH KABUPATEN MANGGARAI BARAT\r\nBADAN KEPEGAWAIAN PENDIDIKAN DAN PELATIHAN DAERAH\r\n		Jl. FransLega Labuan Bajo-Flores-NTT Tlp.(0385) 41883\r\n\r\n\r\n\r\nNomor : BKPPD.870 /../../../â€¦							(Tgl.,Bln.,Thn)\r\nSifat :\r\nLampiran :\r\nHal :\r\n\r\nYth. â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦.â€¦\r\nâ€¦â€¦.â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦.â€¦\r\nâ€¦â€¦â€¦â€¦.â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦.â€¦\r\n\r\nâ€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦(Alinea Pembuka dan isi)..â€¦â€¦â€¦â€¦â€¦â€¦â€¦..\r\nâ€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦..â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦\r\npada hari, tanggal   	: â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦\r\nwaktu			 : pukulâ€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦\r\ntempat			 : â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦\r\nacara 			: â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦..\r\nâ€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦(Alinea Penutup)â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦..\r\nâ€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦..â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦\r\nâ€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦..â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦\r\n\r\n\r\nKepala BadanKepegawaianPendidikan dan\r\n               Pelatihan Daerah Kab.Manggarai Barat,\r\n\r\n\r\nIr.Sebastianus Wantung\r\n   Pembina Utama Muda\r\n   NIP 19650841199703 1 002\r\n\r\nTembusan:\r\n1. â€¦â€¦â€¦â€¦â€¦â€¦â€¦.\r\n2. â€¦â€¦â€¦â€¦â€¦â€¦â€¦.\r\n3. â€¦â€¦â€¦â€¦â€¦â€¦â€¦.\r\n\r\n\r\n');
+(15, 'BKPPD/870', 'undangan, pengantar, surat panggilan', 'PEMERINTAH KABUPATEN MANGGARAI BARAT\r\nBADAN KEPEGAWAIAN PENDIDIKAN DAN PELATIHAN DAERAH\r\n		Jl. FransLega Labuan Bajo-Flores-NTT Tlp.(0385) 41883\r\n\r\n\r\n\r\nNomor : BKPPD.870 /../../../â€¦							(Tgl.,Bln.,Thn)\r\nSifat :\r\nLampiran :\r\nHal :\r\n\r\nYth. â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦.â€¦\r\nâ€¦â€¦.â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦.â€¦\r\nâ€¦â€¦â€¦â€¦.â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦.â€¦\r\n\r\nâ€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦(Alinea Pembuka dan isi)..â€¦â€¦â€¦â€¦â€¦â€¦â€¦..\r\nâ€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦..â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦\r\npada hari, tanggal   	: â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦\r\nwaktu			 : pukulâ€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦\r\ntempat			 : â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦\r\nacara 			: â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦..\r\nâ€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦(Alinea Penutup)â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦..\r\nâ€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦..â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦\r\nâ€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦..â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦\r\n\r\n\r\nKepala BadanKepegawaianPendidikan dan\r\n               Pelatihan Daerah Kab.Manggarai Barat,\r\n\r\n\r\nIr.Sebastianus Wantung\r\n   Pembina Utama Muda\r\n   NIP 19650841199703 1 002\r\n\r\nTembusan:\r\n1. â€¦â€¦â€¦â€¦â€¦â€¦â€¦.\r\n2. â€¦â€¦â€¦â€¦â€¦â€¦â€¦.\r\n3. â€¦â€¦â€¦â€¦â€¦â€¦â€¦.\r\n\r\n\r\n'),
+(16, 'tes', 'tes', '<p style=\"text-align:left\"><span style=\"font-family:Arial,serif\"><span style=\"font-size:small\">KEPUTUSAN BUPATI MANGGARAI BARAT</span></span></p>\r\n\r\n<p style=\"text-align:left\"><span style=\"font-family:Arial,serif\"><span style=\"font-size:small\">NOMOR: BKPPD.813/..../..../.....</span></span></p>\r\n\r\n<p style=\"text-align:left\">&nbsp;</p>\r\n\r\n<p style=\"text-align:left\"><span style=\"font-family:Arial,serif\"><span style=\"font-size:small\">BUPATI MANGGARAI BARAT,</span></span></p>\r\n\r\n<p style=\"text-align:left\"><span style=\"font-family:Arial,serif\"><span style=\"font-size:small\">Menimbang : dst;</span></span></p>\r\n\r\n<p style=\"text-align:left\"><span style=\"font-family:Arial,serif\"><span style=\"font-size:small\">Mengingat : dst;</span></span></p>\r\n\r\n<p style=\"text-align:left\"><span style=\"font-family:Arial,serif\"><span style=\"font-size:small\">Memperhatikan : Penetapan NIP.....................................atas nama ........................................oleh</span></span></p>\r\n\r\n<p style=\"text-align:left\"><span style=\"font-family:Arial,serif\"><span style=\"font-size:small\">Kepala badan Kepegawaian Pendidikan dan Pelatihan Negara tanggal..............</span></span></p>\r\n\r\n<p style=\"text-align:left\">&nbsp;</p>\r\n\r\n<p style=\"text-align:left\"><span style=\"font-family:Arial,serif\"><span style=\"font-size:small\"><strong>MEMUTUSKAN</strong></span></span></p>\r\n\r\n<p style=\"text-align:left\"><span style=\"font-family:Arial,serif\"><span style=\"font-size:small\">Menetapkan : </span></span></p>\r\n\r\n<p style=\"text-align:left\"><span style=\"font-family:Arial,serif\"><span style=\"font-size:small\">PERTAMA Mengangkat yang tersebut dibawah ini, nomor urut :...............</span></span></p>\r\n\r\n<p style=\"text-align:left\"><span style=\"font-family:Arial,serif\"><span style=\"font-size:small\">Nama :............................................................................</span></span></p>\r\n\r\n<p style=\"text-align:left\"><span style=\"font-family:Arial,serif\"><span style=\"font-size:small\">NIP :............................................................................</span></span></p>\r\n\r\n<p style=\"text-align:left\"><span style=\"font-family:Arial,serif\"><span style=\"font-size:small\">Tempat/Tanggal Lahir :............................................................................</span></span></p>\r\n\r\n<p style=\"text-align:left\"><span style=\"font-family:Arial,serif\"><span style=\"font-size:small\">Jenis Kelamin :...........................................................................</span></span></p>\r\n\r\n<p style=\"text-align:left\"><span style=\"font-family:Arial,serif\"><span style=\"font-size:small\">Pendidikan :............................................................................</span></span></p>\r\n\r\n<p style=\"text-align:left\"><span style=\"font-family:Arial,serif\"><span style=\"font-size:small\">Menjadi Calon Pegawai Negeri Sipil dalam masa percobaan dengan:</span></span></p>\r\n\r\n<p style=\"text-align:left\"><span style=\"font-family:Arial,serif\"><span style=\"font-size:small\">Golongan Ruang :............................................................................</span></span></p>\r\n\r\n<p style=\"text-align:left\"><span style=\"font-family:Arial,serif\"><span style=\"font-size:small\">Masa Kerja Golongan :............................................................................</span></span></p>\r\n\r\n<p style=\"text-align:left\"><span style=\"font-family:Arial,serif\"><span style=\"font-size:small\">Jabatan :............................................................................</span></span></p>\r\n\r\n<p style=\"text-align:left\"><span style=\"font-family:Arial,serif\"><span style=\"font-size:small\">Unit Kerja :............................................................................</span></span></p>\r\n\r\n<p style=\"margin-left:3.75cm; text-align:left\">&nbsp;</p>\r\n\r\n<p style=\"margin-left:3.75cm; text-align:left\"><span style=\"font-family:Arial,serif\"><span style=\"font-size:small\">Dan kepadanya diberikan gaji pokok setiap bulan sebesar Rp......................; serta ditambah dengan penghasilan lain yang sah berdasarkan Peraturan Undang-undang yang berlaku, terhitung mulai tanggal.........................................</span></span></p>\r\n\r\n<p style=\"margin-left:3.75cm; text-align:left\"><span style=\"font-family:Arial,serif\"><span style=\"font-size:small\">KEDUA : Apabila dikemudian hari ternyata terdapat kekeliruan dalam keputusan ini, akan diadakan perbaikan dan perhitungan kembali sebagaimana mestinya.</span></span></p>\r\n\r\n<p style=\"margin-left:3.75cm; text-align:left\"><span style=\"font-family:Arial,serif\"><span style=\"font-size:small\">PETIKAN Keputusan ini disampaikan kepada:</span></span></p>\r\n\r\n<ol>\r\n	<li>\r\n	<p style=\"text-align:left\"><span style=\"font-family:Times New Roman,serif\"><span style=\"font-size:medium\"><span style=\"font-family:Arial,serif\"><span style=\"font-size:small\">Kepala Badan Kepegawaian Negara;</span></span></span></span></p>\r\n	</li>\r\n	<li>\r\n	<p style=\"text-align:left\"><span style=\"font-family:Times New Roman,serif\"><span style=\"font-size:medium\"><span style=\"font-family:Arial,serif\"><span style=\"font-size:small\">Direktur Jenderal Anggaran Depertemen Keuangan;</span></span></span></span></p>\r\n	</li>\r\n	<li>\r\n	<p style=\"text-align:left\"><span style=\"font-family:Times New Roman,serif\"><span style=\"font-size:medium\"><span style=\"font-family:Arial,serif\"><span style=\"font-size:small\">Kepala Regional X Badan Kepegawaian Negara Denpasar;</span></span></span></span></p>\r\n	</li>\r\n	<li>\r\n	<p style=\"text-align:left\"><span style=\"font-family:Times New Roman,serif\"><span style=\"font-size:medium\"><span style=\"font-family:Arial,serif\"><span style=\"font-size:small\">Kepala Dinas Pendapatan, Pengelolaan Keuangan dan Aset Daerah Kabupaten Manggarai Barat;</span></span></span></span></p>\r\n	</li>\r\n	<li>\r\n	<p style=\"text-align:left\"><span style=\"font-family:Times New Roman,serif\"><span style=\"font-size:medium\"><span style=\"font-family:Arial,serif\"><span style=\"font-size:small\">Calon Pegawai Negeri Sipil yang bersangkutan.</span></span></span></span></p>\r\n	</li>\r\n</ol>\r\n');
 
 -- --------------------------------------------------------
 
@@ -196,6 +204,10 @@ INSERT INTO `tb_login` (`id`, `nama_pengguna`, `kata_sandi`, `id_user`, `status`
 CREATE TABLE `tb_surat_keluar` (
   `id_surat_keluar` varchar(11) NOT NULL,
   `id_jenis_surat` int(11) NOT NULL,
+  `lampiran` varchar(50) NOT NULL,
+  `no_surat` varchar(50) NOT NULL,
+  `isi` text NOT NULL,
+  `tembusan` text NOT NULL,
   `tanggal` date NOT NULL,
   `file_surat` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -204,8 +216,8 @@ CREATE TABLE `tb_surat_keluar` (
 -- Dumping data untuk tabel `tb_surat_keluar`
 --
 
-INSERT INTO `tb_surat_keluar` (`id_surat_keluar`, `id_jenis_surat`, `tanggal`, `file_surat`) VALUES
-('SUK1001', 5, '2018-04-24', 'SUK1001.pdf');
+INSERT INTO `tb_surat_keluar` (`id_surat_keluar`, `id_jenis_surat`, `lampiran`, `no_surat`, `isi`, `tembusan`, `tanggal`, `file_surat`) VALUES
+('SUK1001', 6, 'asdf', 'BKPPD/822/2017', '<p>Dengan ini diberitahukan bahwa berhubung dengan telah dipenuhi masa kerja dan syarat-syarat lain nya kepada :</p>\r\n\r\n<p>1. Nama&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;: <strong>Maria</strong><br />\r\n2. Nomor Induk Pegawai (NIP)&nbsp; &nbsp; &nbsp; : .........<br />\r\n3. Pangkat/Golongan Ruang Gaji &nbsp;: .........<br />\r\n4. Unit Kerja&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;: Badan Kepegawaian, Pendidikan dan Pelatihan Daerah Kabupaten Manggarai Barat<br />\r\n5. Gaji Pokok Lama&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; : Rp. ......</p>\r\n\r\n<p>&nbsp; &nbsp; (Atas dasar SKP terakhir tentang gaji/pangkat yang ditetapkan):<br />\r\n&nbsp; &nbsp;&nbsp;<br />\r\n&nbsp; &nbsp; a. Oleh Pejabat&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;: Bupati Manggarai Barat<br />\r\n&nbsp; &nbsp; b. Tanggal&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;: .......<br />\r\n&nbsp; &nbsp; c. Nomor&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;: .......<br />\r\n&nbsp; &nbsp; d. Tanggal berlakunya Gaji tersebut&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;:&nbsp;.......<br />\r\n&nbsp; &nbsp; e. Masa Kerja Golongan pada tanggal tersebut : .......</p>\r\n\r\n<p>&nbsp; &nbsp; Diberikan gaji berkala hingga memperoleh :</p>\r\n\r\n<p>6. Gaji Pokok Baru&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; : Rp. ......<br />\r\n7. Berdasarkan Maasa Kerja&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; : ......<br />\r\n8. Pangkat/Golongan ruang&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; : ......<br />\r\n9. Terhitung Mulai Tanggal&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; : ......<br />\r\n10.TMT Gaji Berkala berikutnya&nbsp; &nbsp; &nbsp; : ......</p>\r\n\r\n<p>Diharapkan agar sesuai dengan peraturan pemerintah Nomor 30 Tahun 2015, maka kepada pegawai negeri sipil tersebut dapat dibayarkan penghasilan nya sebesar gaji yang baru.</p>\r\n', '<p><br />\r\nDisampaikan dengan hormat kepada :<br />\r\n1. xxxxx<br />\r\n2. xxxxx<br />\r\n3. xxxxx<br />\r\n4. xxxxx</p>\r\n', '2018-12-31', 'SUK1001.pdf');
 
 -- --------------------------------------------------------
 
@@ -214,10 +226,11 @@ INSERT INTO `tb_surat_keluar` (`id_surat_keluar`, `id_jenis_surat`, `tanggal`, `
 --
 
 CREATE TABLE `tb_surat_masuk` (
-  `id_surat_masuk` int(11) NOT NULL,
+  `id_surat_masuk` varchar(11) NOT NULL,
   `id_user` varchar(11) NOT NULL,
   `no_surat` varchar(50) NOT NULL,
   `no_agenda` varchar(50) NOT NULL,
+  `indeks_masalah` varchar(100) NOT NULL,
   `perihal` varchar(100) NOT NULL,
   `tanggal_surat` date NOT NULL,
   `tanggal_surat_penerimaan` date NOT NULL,
@@ -232,9 +245,8 @@ CREATE TABLE `tb_surat_masuk` (
 -- Dumping data untuk tabel `tb_surat_masuk`
 --
 
-INSERT INTO `tb_surat_masuk` (`id_surat_masuk`, `id_user`, `no_surat`, `no_agenda`, `perihal`, `tanggal_surat`, `tanggal_surat_penerimaan`, `file_surat`, `scan_surat`, `id_jabatan`, `status`, `instruksi`) VALUES
-(3, 'PEG1006', 'm', 'm', 'm', '2018-12-31', '2018-12-31', 'icon.jpg', '', 2, 0, NULL),
-(6, 'PEG1006', 'l', 'l', 'l', '2018-12-31', '0000-00-00', '6.pdf', '20170506122014666200.png', 10, 1, 'instruksi');
+INSERT INTO `tb_surat_masuk` (`id_surat_masuk`, `id_user`, `no_surat`, `no_agenda`, `indeks_masalah`, `perihal`, `tanggal_surat`, `tanggal_surat_penerimaan`, `file_surat`, `scan_surat`, `id_jabatan`, `status`, `instruksi`) VALUES
+('SUM1001', 'PEG1006', 'no surat', 'no agenda', 'indeks masalah', 'perihal', '2018-12-31', '2018-12-31', 'SUM1001.pdf', 'SUM1001.png', 10, 0, 'instruksi');
 
 -- --------------------------------------------------------
 
@@ -244,7 +256,7 @@ INSERT INTO `tb_surat_masuk` (`id_surat_masuk`, `id_user`, `no_surat`, `no_agend
 
 CREATE TABLE `tb_user` (
   `id_user` varchar(11) NOT NULL,
-  `nip` varchar(20) NOT NULL,
+  `nip` varchar(50) NOT NULL,
   `nama` varchar(100) NOT NULL,
   `id_jabatan` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -254,9 +266,9 @@ CREATE TABLE `tb_user` (
 --
 
 INSERT INTO `tb_user` (`id_user`, `nip`, `nama`, `id_jabatan`) VALUES
-('PEG1001', '19650804 199703 1 00', 'IR. Sebastianus Wantung', 1),
-('PEG1002', '198705292014021002', 'MAKSIMUS E. JAPEN, SE', 4),
-('PEG1004', '198506262006041005', 'WILHELMINA O. JAMI', 4),
+('PEG1001', '192 XXXXX', 'IR. Sebastianus Wantung', 1),
+('PEG1002', '', 'MAKSIMUS E. JAPEN, SE', 4),
+('PEG1004', '', 'WILHELMINA O. JAMI', 4),
 ('PEG1006', '', 'Dinas Pendidikan Pemuda dan Olahraga', 5),
 ('PEG1010', '', 'Bagian Administrasi Umum', 5),
 ('PEG1011', '', 'Bagian Humas dan Protokol', 5),
@@ -309,12 +321,12 @@ INSERT INTO `tb_user` (`id_user`, `nip`, `nama`, `id_jabatan`) VALUES
 ('PEG1058', '', 'Kelurahan Wae Kelambu', 5),
 ('PEG1059', '', 'Kelurahan Nantal', 5),
 ('PEG1060', '', 'Kelurahan Tangge', 5),
-('PEG1061', '19750228 200903 2 00', 'Wihelmina Imelda Pano, SE', 6),
-('PEG1062', '19740125 200904 1 00', 'Timotius Patrik Mariahma,SE', 7),
-('PEG1063', '19650721 199803 1 00', 'Viktor Budi,SH', 8),
-('PEG1064', '19650620 198603 1 01', 'Herman Nantu,S.IP', 10),
-('PEG1065', '19660222 199402 2 00', 'Kristina Nala, SH', 9),
-('PEG1066', '19850110 201212 2 00', 'Marselina J.Endang, SE', 4);
+('PEG1061', '', 'Wihelmina Imelda Pano, SE', 6),
+('PEG1062', '', 'Timotius Patrik Mariahma,SE', 7),
+('PEG1063', '', 'Viktor Budi,SH', 8),
+('PEG1064', '', 'Herman Nantu,S.IP', 10),
+('PEG1065', '', 'Kristina Nala, SH', 9),
+('PEG1066', '', 'Marselina J.Endang, SE', 4);
 
 --
 -- Indexes for dumped tables
@@ -333,118 +345,3 @@ ALTER TABLE `tb_detail_surat_keluar`
 ALTER TABLE `tb_format_surat`
   ADD PRIMARY KEY (`id_format_surat`);
 
---
--- Indexes for table `tb_jabatan`
---
-ALTER TABLE `tb_jabatan`
-  ADD PRIMARY KEY (`id_jabatan`);
-
---
--- Indexes for table `tb_jenis_surat`
---
-ALTER TABLE `tb_jenis_surat`
-  ADD PRIMARY KEY (`id_jenis_surat`);
-
---
--- Indexes for table `tb_login`
---
-ALTER TABLE `tb_login`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `id_pegawai` (`id_user`);
-
---
--- Indexes for table `tb_surat_keluar`
---
-ALTER TABLE `tb_surat_keluar`
-  ADD PRIMARY KEY (`id_surat_keluar`),
-  ADD KEY `id_jenis_surat` (`id_jenis_surat`);
-
---
--- Indexes for table `tb_surat_masuk`
---
-ALTER TABLE `tb_surat_masuk`
-  ADD PRIMARY KEY (`id_surat_masuk`),
-  ADD KEY `id_jabatan` (`id_jabatan`),
-  ADD KEY `id_pegawai` (`id_user`);
-
---
--- Indexes for table `tb_user`
---
-ALTER TABLE `tb_user`
-  ADD PRIMARY KEY (`id_user`),
-  ADD KEY `id_jabatan` (`id_jabatan`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `tb_format_surat`
---
-ALTER TABLE `tb_format_surat`
-  MODIFY `id_format_surat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT for table `tb_jabatan`
---
-ALTER TABLE `tb_jabatan`
-  MODIFY `id_jabatan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
-
---
--- AUTO_INCREMENT for table `tb_jenis_surat`
---
-ALTER TABLE `tb_jenis_surat`
-  MODIFY `id_jenis_surat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
-
---
--- AUTO_INCREMENT for table `tb_login`
---
-ALTER TABLE `tb_login`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=74;
-
---
--- AUTO_INCREMENT for table `tb_surat_masuk`
---
-ALTER TABLE `tb_surat_masuk`
-  MODIFY `id_surat_masuk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
---
--- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
---
-
---
--- Ketidakleluasaan untuk tabel `tb_detail_surat_keluar`
---
-ALTER TABLE `tb_detail_surat_keluar`
-  ADD CONSTRAINT `tb_detail_surat_keluar_ibfk_2` FOREIGN KEY (`id_user`) REFERENCES `tb_user` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `tb_detail_surat_keluar_ibfk_3` FOREIGN KEY (`id_surat_keluar`) REFERENCES `tb_surat_keluar` (`id_surat_keluar`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Ketidakleluasaan untuk tabel `tb_login`
---
-ALTER TABLE `tb_login`
-  ADD CONSTRAINT `tb_login_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `tb_user` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Ketidakleluasaan untuk tabel `tb_surat_keluar`
---
-ALTER TABLE `tb_surat_keluar`
-  ADD CONSTRAINT `tb_surat_keluar_ibfk_1` FOREIGN KEY (`id_jenis_surat`) REFERENCES `tb_jenis_surat` (`id_jenis_surat`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Ketidakleluasaan untuk tabel `tb_surat_masuk`
---
-ALTER TABLE `tb_surat_masuk`
-  ADD CONSTRAINT `tb_surat_masuk_ibfk_1` FOREIGN KEY (`id_jabatan`) REFERENCES `tb_jabatan` (`id_jabatan`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `tb_surat_masuk_ibfk_2` FOREIGN KEY (`id_user`) REFERENCES `tb_user` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Ketidakleluasaan untuk tabel `tb_user`
---
-ALTER TABLE `tb_user`
-  ADD CONSTRAINT `tb_user_ibfk_1` FOREIGN KEY (`id_jabatan`) REFERENCES `tb_jabatan` (`id_jabatan`) ON DELETE CASCADE ON UPDATE CASCADE;
-COMMIT;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
