@@ -3,13 +3,39 @@
     <div class="col-lg-12">
         <div class="card">
             <div class="card-block">
+            
+            <div class="row">
+                <div class="col-md-6">
+                    <h3>
+                        Master User
+                        <a href="index.php?page=add_user" class="btn btn-success">Tambah</a>
+                    </h3>
+                </div>
+                <div class="col-md-6">
+                    <!-- filter -->
+                    <div class="form-inline pull-right">
+                        <label><b>Filter : &ensp;</b></label>
+                        <select id="filter_jabatan" class="form-control">
+                            <option value=""> -- Semua -- </option>
+                            <?php 
+                                $crud   = new Crud();
+                                $result = $crud->view(" SELECT DISTINCT(jabatan) FROM tb_user
+                                                        INNER JOIN tb_jabatan ON tb_user.id_jabatan = tb_jabatan.id_jabatan
+                                                        INNER JOIN tb_login ON tb_user.id_user = tb_login.id_user"
+                                                    );          
+                                foreach ($result as  $value):
+                            ?>
+                            <option value="<?= $value['jabatan'] ?>"><?= $value['jabatan'] ?></option>
+                            <?php endforeach ?>
+                        </select>                        
+                    </div>                    
+                    <!-- end filter -->
+                </div>
+            </div>
 
-                <h3>
-                    Master User
-                    <a href="index.php?page=add_user" class="btn btn-success">Tambah</a>
-                </h3>
+                
 
-                <table class="table table-stripped table-bordered" id="data_table">
+                <table class="table table-stripped table-bordered" id="data_table_filter">
                     <thead>
                         <tr>
                             <th>No</th>
@@ -46,3 +72,24 @@
         </div>
     </div>
 </div> 
+
+<script>
+$.fn.dataTable.ext.search.push(
+    function( settings, data, dataIndex ) {
+        var filter_jabatan = $('#filter_jabatan').val();
+		if(filter_jabatan == data[2] || filter_jabatan == ""){
+			return true;
+		}
+		return false
+		
+	});
+
+	$(document).ready(function() {
+		var table = $('#data_table_filter').DataTable();
+
+		$('select').on('change', function() {
+			table.draw();    
+		});
+
+	});
+</script>

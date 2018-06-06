@@ -98,7 +98,7 @@ ob_start();
 
 
 <?php 
-$id_surat_keluar = $crud->makeId("tb_surat_keluar", "id_surat_keluar", "SUK");
+$id_surat_keluar = $_POST['id_surat_keluar'];
 
 $html = ob_get_contents();
 ob_end_clean();
@@ -122,18 +122,9 @@ $data = array(
     'file_surat'      => $id_surat_keluar.".pdf"
 );
 
-$res = $crud->insert("tb_surat_keluar",$data);
+$res = $crud->update("tb_surat_keluar", $data, "id_surat_keluar = '$id_surat_keluar'");
 
-foreach ($_POST['id_user'] as $id_user) {
-    $data1 = array(
-        'id_user'      => $id_user,
-        'id_surat_keluar' => $id_surat_keluar    
-    );
-    
-    $res1 = $crud->insert("tb_detail_surat_keluar",$data1);
-}
-
-if ($res && $res1) {
+if ($res) {
     header("location:../index.php?page=view_surat_keluar");
 }
 

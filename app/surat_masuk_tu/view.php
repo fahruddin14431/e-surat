@@ -54,7 +54,10 @@
                             <td><?= $value['jabatan'] ?></td>
                             <td>
                                 <a href="../file/surat_masuk/<?= $value['file_surat'] ?>" class="btn btn-info">Unduh File</a>
-                                <a href="../file/surat_masuk/<?= $value['scan_surat'] ?>" class="btn btn-primary">Unduh Scan</a>
+                                <a href="../file/surat_masuk/<?= $value['scan_surat'] ?>" class="btn btn-primary">Unduh Scan 1</a>
+                                <?php if(!empty($value['scan_surat2'])):?>
+                                <a href="../file/surat_masuk/<?= $value['scan_surat2'] ?>" class="btn btn-primary">Unduh Scan 2</a>
+                                <?php endif ?>
                                 <?php if($auth->isTU()): ?>
                                 <a href="index.php?page=edit_surat_masuk_tu&id_surat_masuk=<?= $value['id_surat_masuk'] ?>" class="btn btn-warning">Ubah</a>
                                 <a href="index.php?page=delete_surat_masuk&id_surat_masuk=<?= $value['id_surat_masuk'] ?>" onClick="return confirm('Data Akan Dihapus !')" class="btn btn-danger">Hapus</a>

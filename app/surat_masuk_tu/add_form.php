@@ -74,8 +74,13 @@
                     </div>                    
 
                     <div class="form-group">
-                        <h5>Scan Surat</h5>
+                        <h5>Scan Surat 1</h5>
                         <input type="file" name="scan_surat" required>
+                    </div>
+
+                    <div class="form-group">
+                        <h5>Scan Surat 2</h5>
+                        <input type="file" name="scan_surat2" required>
                     </div>
 
                     <div class="form-group">                    

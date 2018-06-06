@@ -26,7 +26,7 @@
                     <tbody>
                         <?php 
                             $crud   = new Crud();
-                            $result = $crud->view(" SELECT * FROM tb_surat_keluar
+                            $result = $crud->view(" SELECT *, tb_surat_keluar.no_surat as fix_no_surat FROM tb_surat_keluar
                                                     INNER JOIN tb_jenis_surat ON tb_surat_keluar.id_jenis_surat = tb_jenis_surat.id_jenis_surat
                                                     INNER JOIN tb_detail_surat_keluar ON tb_surat_keluar.id_surat_keluar = tb_detail_surat_keluar.id_surat_keluar
                                                     INNER JOIN tb_user ON tb_user.id_user = tb_detail_surat_keluar.id_user
@@ -37,7 +37,7 @@
                         <tr>
                             <td><?= $no++."." ?></td>
                             <td><?= $value['tanggal'] ?></td>
-                            <td><?= $value['no_surat'] ?></td>
+                            <td><?= $value['fix_no_surat'] ?></td>
                             <td><?= $value['lampiran'] ?></td>
                             <td><?= $value['jenis_surat'] ?></td>
                             <td><?= $value['nama'] ?></td>
@@ -47,7 +47,7 @@
                                 <?php if($auth->isKepalaBadan()): ?>
                                 <a href="index.php?page=acc_surat_keluar&id_surat_keluar=<?= $value['id_surat_keluar'] ?>" class="btn btn-primary">ACC</a>
                                 <?php endif ?>
-
+                                <a href="index.php?page=edit_surat_keluar&id_surat_keluar=<?= $value['id_surat_keluar'] ?>" class="btn btn-warning">Ubah</a>
                                 <a href="index.php?page=delete_surat_keluar&id_surat_keluar=<?= $value['id_surat_keluar'] ?>" onClick="return confirm('Data Akan Dihapus !')" class="btn btn-danger">Hapus</a>
                             </td>
                         </tr>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: 04 Jun 2018 pada 13.14
+-- Generation Time: 06 Jun 2018 pada 22.07
 -- Versi Server: 10.1.26-MariaDB
 -- PHP Version: 7.1.9
 
@@ -38,7 +38,8 @@ CREATE TABLE `tb_detail_surat_keluar` (
 --
 
 INSERT INTO `tb_detail_surat_keluar` (`id_surat_keluar`, `id_user`) VALUES
-('SUK1001', 'PEG1010');
+('SUK1001', 'PEG1010'),
+('SUK1002', 'PEG1010');
 
 -- --------------------------------------------------------
 
@@ -48,6 +49,7 @@ INSERT INTO `tb_detail_surat_keluar` (`id_surat_keluar`, `id_user`) VALUES
 
 CREATE TABLE `tb_format_surat` (
   `id_format_surat` int(11) NOT NULL,
+  `nama_kop` varchar(50) NOT NULL,
   `kop_surat` varchar(255) NOT NULL,
   `logo` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -56,8 +58,9 @@ CREATE TABLE `tb_format_surat` (
 -- Dumping data untuk tabel `tb_format_surat`
 --
 
-INSERT INTO `tb_format_surat` (`id_format_surat`, `kop_surat`, `logo`) VALUES
-(1, '<h2 style=\"text-align:center\"><span style=\"font-size:14px\"><strong>PEMERINTAH KEBUPATEN MANGGARAI BARAT BADANG KEPEGAWAIAN PENDIDIKAN DAN PELATAHIAN DAERAH Jln. Frans Sales Lega Labuhan Bajo NTT, email:bkdmabar@gmail.com</strong></span></h2>\r\n', 'logo.jpg');
+INSERT INTO `tb_format_surat` (`id_format_surat`, `nama_kop`, `kop_surat`, `logo`) VALUES
+(1, 'Kop Bupati Manggarai Barat', '<h2 style=\"text-align:center\"><span style=\"font-size:14px\"><strong>PEMERINTAH KEBUPATEN MANGGARAI BARAT BADANG KEPEGAWAIAN PENDIDIKAN DAN PELATAHIAN DAERAH Jln. Frans Sales Lega Labuhan Bajo NTT, email:bkdmabar@gmail.com</strong></span></h2>\r\n', 'logo.jpg'),
+(2, 'Kop Sekretariat Daerah Manggarai Barat', '<p style=\"text-align:center\"><strong>Kop baru</strong></p>\r\n', '20170506122014666200.jpg');
 
 -- --------------------------------------------------------
 
@@ -204,6 +207,7 @@ INSERT INTO `tb_login` (`id`, `nama_pengguna`, `kata_sandi`, `id_user`, `status`
 CREATE TABLE `tb_surat_keluar` (
   `id_surat_keluar` varchar(11) NOT NULL,
   `id_jenis_surat` int(11) NOT NULL,
+  `id_format_surat` int(11) NOT NULL,
   `lampiran` varchar(50) NOT NULL,
   `no_surat` varchar(50) NOT NULL,
   `isi` text NOT NULL,
@@ -217,8 +221,9 @@ CREATE TABLE `tb_surat_keluar` (
 -- Dumping data untuk tabel `tb_surat_keluar`
 --
 
-INSERT INTO `tb_surat_keluar` (`id_surat_keluar`, `id_jenis_surat`, `lampiran`, `no_surat`, `isi`, `tembusan`, `tanggal`, `file_surat`, `status`) VALUES
-('SUK1001', 6, 'asdf', 'BKPPD/822/2017', '<p>Dengan ini diberitahukan bahwa berhubung dengan telah dipenuhi masa kerja dan syarat-syarat lain nya kepada :</p>\r\n\r\n<p>1. Nama&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;: <strong>Maria</strong><br />\r\n2. Nomor Induk Pegawai (NIP)&nbsp; &nbsp; &nbsp; : .........<br />\r\n3. Pangkat/Golongan Ruang Gaji &nbsp;: .........<br />\r\n4. Unit Kerja&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;: Badan Kepegawaian, Pendidikan dan Pelatihan Daerah Kabupaten Manggarai Barat<br />\r\n5. Gaji Pokok Lama&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; : Rp. ......</p>\r\n\r\n<p>&nbsp; &nbsp; (Atas dasar SKP terakhir tentang gaji/pangkat yang ditetapkan):<br />\r\n&nbsp; &nbsp;&nbsp;<br />\r\n&nbsp; &nbsp; a. Oleh Pejabat&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;: Bupati Manggarai Barat<br />\r\n&nbsp; &nbsp; b. Tanggal&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;: .......<br />\r\n&nbsp; &nbsp; c. Nomor&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;: .......<br />\r\n&nbsp; &nbsp; d. Tanggal berlakunya Gaji tersebut&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;:&nbsp;.......<br />\r\n&nbsp; &nbsp; e. Masa Kerja Golongan pada tanggal tersebut : .......</p>\r\n\r\n<p>&nbsp; &nbsp; Diberikan gaji berkala hingga memperoleh :</p>\r\n\r\n<p>6. Gaji Pokok Baru&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; : Rp. ......<br />\r\n7. Berdasarkan Maasa Kerja&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; : ......<br />\r\n8. Pangkat/Golongan ruang&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; : ......<br />\r\n9. Terhitung Mulai Tanggal&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; : ......<br />\r\n10.TMT Gaji Berkala berikutnya&nbsp; &nbsp; &nbsp; : ......</p>\r\n\r\n<p>Diharapkan agar sesuai dengan peraturan pemerintah Nomor 30 Tahun 2015, maka kepada pegawai negeri sipil tersebut dapat dibayarkan penghasilan nya sebesar gaji yang baru.</p>\r\n', '<p><br />\r\nDisampaikan dengan hormat kepada :<br />\r\n1. xxxxx<br />\r\n2. xxxxx<br />\r\n3. xxxxx<br />\r\n4. xxxxx</p>\r\n', '2018-12-31', 'SUK1001.pdf', 1);
+INSERT INTO `tb_surat_keluar` (`id_surat_keluar`, `id_jenis_surat`, `id_format_surat`, `lampiran`, `no_surat`, `isi`, `tembusan`, `tanggal`, `file_surat`, `status`) VALUES
+('SUK1001', 6, 1, 'asdf u', 'BKPPD/822/2017 u', '<p>Dengan ini diberitahukan bahwa berhubung dengan telah dipenuhi masa kerja dan syarat-syarat lain nya kepada :</p>\r\n\r\n<p>1. Nama&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;: <strong>Maria</strong><br />\r\n2. Nomor Induk Pegawai (NIP)&nbsp; &nbsp; &nbsp; : .........<br />\r\n3. Pangkat/Golongan Ruang Gaji &nbsp;: .........<br />\r\n4. Unit Kerja&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;: Badan Kepegawaian, Pendidikan dan Pelatihan Daerah Kabupaten Manggarai Barat<br />\r\n5. Gaji Pokok Lama&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; : Rp. ......</p>\r\n\r\n<p>&nbsp; &nbsp; (Atas dasar SKP terakhir tentang gaji/pangkat yang ditetapkan):<br />\r\n&nbsp; &nbsp;&nbsp;<br />\r\n&nbsp; &nbsp; a. Oleh Pejabat&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;: Bupati Manggarai Barat<br />\r\n&nbsp; &nbsp; b. Tanggal&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;: .......<br />\r\n&nbsp; &nbsp; c. Nomor&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;: .......<br />\r\n&nbsp; &nbsp; d. Tanggal berlakunya Gaji tersebut&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;:&nbsp;.......<br />\r\n&nbsp; &nbsp; e. Masa Kerja Golongan pada tanggal tersebut : .......</p>\r\n\r\n<p>&nbsp; &nbsp; Diberikan gaji berkala hingga memperoleh :</p>\r\n\r\n<p>6. Gaji Pokok Baru&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; : Rp. ......<br />\r\n7. Berdasarkan Maasa Kerja&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; : ......<br />\r\n8. Pangkat/Golongan ruang&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; : ......<br />\r\n9. Terhitung Mulai Tanggal&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; : ......<br />\r\n10.TMT Gaji Berkala berikutnya&nbsp; &nbsp; &nbsp; : ......</p>\r\n\r\n<p>Diharapkan agar sesuai dengan peraturan pemerintah Nomor 30 Tahun 2015, maka kepada pegawai negeri sipil tersebut dapat dibayarkan penghasilan nya sebesar gaji yang baru. u</p>\r\n', '<p><br />\r\nDisampaikan dengan hormat kepada :<br />\r\n1. xxxxx<br />\r\n2. xxxxx<br />\r\n3. xxxxx<br />\r\n4. xxxxx</p>\r\n\r\n<p>u</p>\r\n', '2018-12-31', 'SUK1001.pdf', 1),
+('SUK1002', 5, 1, 'lampiran', 'BKPPD.890/182/VII/2017', '<p style=\"text-align:justify\">&nbsp; &nbsp; &nbsp; &nbsp;Sesuai perihal surat diatas, maka dengna ini disampaikan bahwa&nbsp;Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellat totam ipsum iure accusamus officia quod veniam laborum. Rerum libero consequatur quo laborum reiciendis officia id? Aperiam similique dicta quod vitae.&nbsp;Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellat totam ipsum iure accusamus officia quod veniam laborum. Rerum libero consequatur quo laborum reiciendis officia id? Aperiam similique dicta quod vitae.&nbsp;Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellat totam ipsum iure accusamus officia quod veniam laborum. Rerum libero consequatur quo laborum reiciendis officia id? Aperiam similique dicta quod vitae.</p>\r\n\r\n<p style=\"text-align:justify\">Demikian untuk maklum dan atas kerjasamanya diucapkan terima kasih.</p>\r\n', '<p>tembusan</p>\r\n', '2018-12-31', 'SUK1002.pdf', 0);
 
 -- --------------------------------------------------------
 
@@ -237,6 +242,7 @@ CREATE TABLE `tb_surat_masuk` (
   `tanggal_surat_penerimaan` date NOT NULL,
   `file_surat` varchar(100) DEFAULT NULL,
   `scan_surat` varchar(100) NOT NULL,
+  `scan_surat2` varchar(100) NOT NULL,
   `id_jabatan` int(11) NOT NULL,
   `status` int(11) NOT NULL DEFAULT '0',
   `instruksi` text
@@ -246,8 +252,8 @@ CREATE TABLE `tb_surat_masuk` (
 -- Dumping data untuk tabel `tb_surat_masuk`
 --
 
-INSERT INTO `tb_surat_masuk` (`id_surat_masuk`, `id_user`, `no_surat`, `no_agenda`, `indeks_masalah`, `perihal`, `tanggal_surat`, `tanggal_surat_penerimaan`, `file_surat`, `scan_surat`, `id_jabatan`, `status`, `instruksi`) VALUES
-('SUM1001', 'PEG1006', 'no surat', 'no agenda', 'indeks masalah', 'perihal', '2018-12-31', '2018-12-31', 'SUM1001.pdf', 'SUM1001.png', 10, 0, 'instruksi');
+INSERT INTO `tb_surat_masuk` (`id_surat_masuk`, `id_user`, `no_surat`, `no_agenda`, `indeks_masalah`, `perihal`, `tanggal_surat`, `tanggal_surat_penerimaan`, `file_surat`, `scan_surat`, `scan_surat2`, `id_jabatan`, `status`, `instruksi`) VALUES
+('SUM1001', 'PEG1006', 'no surat', 'no agenda', 'indeks masalah', 'perihal', '2018-12-31', '2018-12-31', 'SUM1001.pdf', 'SUM1001-1.png', 'SUM1001-2.png', 6, 0, 'instruksi');
 
 -- --------------------------------------------------------
 
@@ -370,7 +376,8 @@ ALTER TABLE `tb_login`
 --
 ALTER TABLE `tb_surat_keluar`
   ADD PRIMARY KEY (`id_surat_keluar`),
-  ADD KEY `id_jenis_surat` (`id_jenis_surat`);
+  ADD KEY `id_jenis_surat` (`id_jenis_surat`),
+  ADD KEY `id_format_surat` (`id_format_surat`);
 
 --
 -- Indexes for table `tb_surat_masuk`
@@ -395,7 +402,7 @@ ALTER TABLE `tb_user`
 -- AUTO_INCREMENT for table `tb_format_surat`
 --
 ALTER TABLE `tb_format_surat`
-  MODIFY `id_format_surat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_format_surat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `tb_jabatan`
@@ -436,7 +443,8 @@ ALTER TABLE `tb_login`
 -- Ketidakleluasaan untuk tabel `tb_surat_keluar`
 --
 ALTER TABLE `tb_surat_keluar`
-  ADD CONSTRAINT `tb_surat_keluar_ibfk_1` FOREIGN KEY (`id_jenis_surat`) REFERENCES `tb_jenis_surat` (`id_jenis_surat`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `tb_surat_keluar_ibfk_1` FOREIGN KEY (`id_jenis_surat`) REFERENCES `tb_jenis_surat` (`id_jenis_surat`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `tb_surat_keluar_ibfk_2` FOREIGN KEY (`id_format_surat`) REFERENCES `tb_format_surat` (`id_format_surat`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Ketidakleluasaan untuk tabel `tb_surat_masuk`
