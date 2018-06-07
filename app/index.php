@@ -38,6 +38,7 @@ if (empty($_SESSION['sess_user'])) {
 	<link href="../assets/css/colors/blue.css" id="theme" rel="stylesheet">
 	<!-- data table -->
 	<link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap4.min.css">
+	<link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.5.1/css/buttons.dataTables.min.css">
 	<!-- custom css -->
 	<style>
 	* {
@@ -47,12 +48,20 @@ if (empty($_SESSION['sess_user'])) {
 	</style>
 	<!-- All Jquery -->
 	<script src="../assets/plugins/jquery/jquery.min.js"></script>
+	
 	<!-- select2 -->
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
 	<!-- data table -->
 	<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
 	<script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js"></script>
+
+	<script src="https://cdn.datatables.net/buttons/1.5.1/js/dataTables.buttons.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/pdfmake.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/vfs_fonts.js"></script>
+	<script src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.html5.min.js"></script>
+
 </head>
 	<!-- ckeditorr -->
 	<script src="//cdn.ckeditor.com/4.9.2/full-all/ckeditor.js"></script>
@@ -158,11 +167,20 @@ if (empty($_SESSION['sess_user'])) {
 							<a class="waves-effect waves-dark" href="index.php?page=view_surat_keluar" aria-expanded="false"><i class="fa fa-envelope"></i><span class="hide-menu">Transaksi Surat Keluar</span></a>
 						</li>
 						<li> 
-							<a class="waves-effect waves-dark" href="index.php?page=view_laporan" aria-expanded="false"><i class="fa fa-clipboard"></i><span class="hide-menu"> Laporan</span></a>
+							<a class="waves-effect waves-dark" href="index.php?page=view_laporan_surat_masuk" aria-expanded="false"><i class="fa fa-clipboard"></i><span class="hide-menu"> Laporan Surat Masuk</span></a>
+						</li>
+						<li> 
+							<a class="waves-effect waves-dark" href="index.php?page=view_laporan_surat_keluar" aria-expanded="false"><i class="fa fa-clipboard"></i><span class="hide-menu"> Laporan Surat Keluar</span></a>
 						</li>
 					<?php elseif($auth->isDinas()): ?>
 						<li> 
 							<a class="waves-effect waves-darkenvelope-open" href="index.php?page=view_surat_masuk" aria-expanded="false"><i class="fa fa-envelope-open"></i><span class="hide-menu"> Surat Masuk</span></a>
+						</li>
+						<li> 
+							<a class="waves-effect waves-dark" href="index.php?page=view_laporan_surat_masuk" aria-expanded="false"><i class="fa fa-clipboard"></i><span class="hide-menu"> Laporan Surat Masuk</span></a>
+						</li>
+						<li> 
+							<a class="waves-effect waves-dark" href="index.php?page=view_laporan_surat_keluar" aria-expanded="false"><i class="fa fa-clipboard"></i><span class="hide-menu"> Laporan Surat Keluar</span></a>
 						</li>
 					<?php elseif($auth->isPegawai()): ?>
 						<li> 
@@ -312,6 +330,13 @@ if (empty($_SESSION['sess_user'])) {
 						include "surat_masuk_tu/add_disposisi.php";
 					}
 					// end kepala dinas
+
+					// laporan
+					else if($page == "view_laporan_surat_keluar"){
+						include "laporan/view_surat_keluar.php";
+					}else if($page == "view_laporan_surat_masuk"){
+						include "laporan/view_surat_masuk.php";
+					}
 
 				}else{
 					include "dashbord/view.php";
