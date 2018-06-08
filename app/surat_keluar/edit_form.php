@@ -68,6 +68,25 @@ $result2         = $crud->view(" SELECT * FROM tb_detail_surat_keluar
                     </div>
 
                     <div class="form-group">
+                        <h5>Yang membuat surat</h5>
+
+                        <select required name="atas_nama" class="form-control">                            
+                            <?php 
+                                $crud   = new Crud();
+                                $result = $crud->view(" SELECT * FROM `tb_user` INNER JOIN tb_jabatan
+                                                        ON tb_user.id_jabatan = tb_jabatan.id_jabatan
+                                                        WHERE tb_jabatan.`id_jabatan` IN (1,2)
+                                                    ");          
+                                foreach ($result as  $value):
+                            ?>
+                            <option value="<?= $value['nama']."-".$value['nip'] ?>"><?= $value['nama']." - ".$value['jabatan'] ?></option>
+                            <?php endforeach ?>
+                            <option value="NAMA BUPATI - NIP BUPATI">NAMA BUPATI - BUPATI</option>
+                        </select>
+
+                    </div>  
+
+                    <div class="form-group">
                         <h5>Tembusan</h5>
                         <textarea required name="tembusan" id="editor1" cols="30" rows="10" class="form-control"><?= $result1['tembusan'] ?></textarea>
                     </div>

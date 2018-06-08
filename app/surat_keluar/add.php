@@ -33,11 +33,17 @@ ob_start();
 <!-- start template -->
 <table class="table">
     <tr>
-        <td colspan="2" class="text-center">
+        <td colspan="1" class="text-center">
             <img src="<?= $logo ?>" width="100px" height="100px">
         </td>
-        <td colspan="10" class="text-center">
+        <td colspan="11" class="text-center">
             <?= $kop ?>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="8"></td>
+        <td colspan="4">
+            <p class="pull-right">Labuan Bajo, <?= $tanggal ?></p>
         </td>
     </tr>
     <tr>
@@ -113,13 +119,15 @@ $mpdf->Output($post_file,"F");
 // insert surat keluar
 $data = array(
     'id_surat_keluar' => $id_surat_keluar,
+    'id_format_surat' => $id_format_surat,
     'id_jenis_surat'  => $id_jenis_surat,
     'tanggal'         => $tanggal,
     'isi'             => $isi,
     'no_surat'        => $no_surat,
     'lampiran'        => $lampiran,
     'tembusan'        => $tembusan,
-    'file_surat'      => $id_surat_keluar.".pdf"
+    'file_surat'      => $id_surat_keluar.".pdf",
+    'atas_nama'       => $_POST['atas_nama']
 );
 
 $res = $crud->insert("tb_surat_keluar",$data);
@@ -136,5 +144,6 @@ foreach ($_POST['id_user'] as $id_user) {
 if ($res && $res1) {
     header("location:../index.php?page=view_surat_keluar");
 }
+
 
 ?>

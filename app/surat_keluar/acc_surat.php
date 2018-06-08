@@ -1,57 +1,64 @@
-
+<!-- Bootstrap Core CSS -->
+<link href="../../assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 <?php  
-// create pdf if acc from kepala badan
 
-// include "helper/crud.php";
-// include "../../assets/mpdf/mpdf.php";
+include_once "helper/crud.php";
+include "../assets/mpdf/mpdf.php";
 
-// $mpdf = new mPDF();
-// $mpdf->debug = true;
-// $mpdf->allow_output_buffering = true;
+$mpdf = new mPDF();
+$mpdf->debug = true;
+$mpdf->allow_output_buffering = true;
 
 // format surat
 $crud   = new Crud();
 $id_surat_keluar = $_GET['id_surat_keluar'];
-// $result = $crud->view("SELECT * FROM tb_format_surat")[0];
+$result = $crud->view("SELECT * FROM tb_format_surat")[0];
 
-// $logo           = "../../assets/images/" . $result['logo'];
-// $kop            = $result['kop_surat'];
+$logo           = "../assets/images/" . $result['logo'];
+$kop            = $result['kop_surat'];
 
 
-// $result = $crud->view("SELECT * tb_surat_keluar WHERE id_surat_keluar='$id_surat_keluar'")[0];
+$result = $crud->view(" SELECT * FROM tb_surat_keluar
+                        INNER JOIN tb_jenis_surat ON tb_surat_keluar.id_jenis_surat = tb_jenis_surat.id_jenis_surat
+                        INNER JOIN tb_detail_surat_keluar ON tb_surat_keluar.id_surat_keluar = tb_detail_surat_keluar.id_surat_keluar
+                        WHERE tb_surat_keluar.id_surat_keluar='$id_surat_keluar'")[0];
 
-// $get_jenis_surat = $crud->view("SELECT * FROM tb_jenis_surat WHERE id_jenis_surat='$id_jenis_surat'")[0];
-
-// ob_start();
+ob_end_clean();
+ob_start();
 ?>
-
 <!-- start template -->
-<!-- <table class="table">
+<table class="table">
     <tr>
         <td colspan="2" class="text-center">
             <img src="<?= $logo ?>" width="100px" height="100px">
         </td>
         <td colspan="10" class="text-center">
-            <?= $kop ?>
+        <?= $kop ?>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="8"></td>
+        <td colspan="4">
+            <p class="pull-right">Labuan Bajo, <?= $result['tanggal'] ?></p>
         </td>
     </tr>
     <tr>
         <td colspan="6">
-            <p>Nomor : <?= $get_jenis_surat['no_surat']?> </p>
+            <p>Nomor : <?= $result['no_surat']?> </p>
             <br>
             <p>Lampiran : <?= $result['lampiran'] ?></p>
             <br>
-            <p>Perihal :<?= $get_jenis_surat['jenis_surat']?> </p>
+            <p>Perihal :<?= $result['jenis_surat']?> </p>
 
         </td>
         <td colspan="6">
             <b>Kepada</b>
             <p>Yth</p>
                 <?php
-                foreach ($result['id_user'] as $key => $value) {
-                    $key++;
-                    $get_nama_dinas = $crud->view("SELECT nama FROM tb_user WHERE id_user='$value'")[0];
-                    echo $key.".".$get_nama_dinas['nama']."<br>";
+                $result1 = $crud->view(" SELECT * FROM `tb_detail_surat_keluar` INNER JOIN tb_user ON tb_user.id_user = tb_detail_surat_keluar.id_user WHERE id_surat_keluar='$id_surat_keluar'");
+                $no = 1;
+                foreach ($result1 as $value) {
+                    echo $no++.".".$value['nama']."<br>";
                 }
                 ?>
                 <br>
@@ -60,17 +67,20 @@ $id_surat_keluar = $_GET['id_surat_keluar'];
     </tr>
     <tr>
         <td colspan="12">
-            <?= $isi ?>
+            <?= $result['isi'] ?>
         </td>
     </tr>
     <tr>
         <td></td>
         <td></td>
         <td></td>
-        <td colspan="9" class="text-center">
+        <td colspan="9" class="text-center pull-right">
             <p>
                 Kepala Badan Kepegawaian Pendidikan dan Pelatihan<br>
-                Daerah Kabupaten Manggarai Barat <br><br><br><br>
+                Daerah Kabupaten Manggarai Barat 
+                <br><br>
+                <img src="../assets/ttd/ttd_kepala.jpeg" width="160px" height="160px">
+                <br><br>
                 <?php 
                 $data = explode("-",$result['atas_nama']);
                 ?>
@@ -88,19 +98,18 @@ $id_surat_keluar = $_GET['id_surat_keluar'];
         <td></td>
         <td></td>
     </tr>
-</table> -->
+</table>
 <!-- end template -->
-
 <?php
-// $html = ob_get_contents();
-// ob_end_clean();
-// $stylesheet = file_get_contents('../../assets/plugins/bootstrap/css/bootstrap.min.css'); // external css
-// $mpdf->WriteHTML($stylesheet,1);
-// $mpdf->WriteHTML($html,2);
+$html = ob_get_contents();
+ob_end_clean();
+$stylesheet = file_get_contents('../assets/plugins/bootstrap/css/bootstrap.min.css'); // external css
+$mpdf->WriteHTML($stylesheet,1);
+$mpdf->WriteHTML($html,2);
 
-// $post_file = "../../file/surat_keluar/".$id_surat_keluar.".pdf";
+$post_file = "../file/surat_keluar/".$id_surat_keluar.".pdf";
 
-// $mpdf->Output($post_file,"F");
+$mpdf->Output($post_file,"F");
 
 // update status surat keluar
 $data = array(

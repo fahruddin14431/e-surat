@@ -44,7 +44,7 @@
                             <td><?= $value['status']==0?"Pending":"Acc" ?></td>
                             <td>
                                 <a href="../file/surat_keluar/<?= $value['file_surat'] ?>" class="btn btn-info">Unduh</a>
-                                <?php if($auth->isKepalaBadan()): ?>
+                                <?php if($auth->isKepalaBadan() && $value['status']==0): ?>
                                 <a href="index.php?page=acc_surat_keluar&id_surat_keluar=<?= $value['id_surat_keluar'] ?>" class="btn btn-primary">ACC</a>
                                 <?php endif ?>
                                 <a href="index.php?page=edit_surat_keluar&id_surat_keluar=<?= $value['id_surat_keluar'] ?>" class="btn btn-warning">Ubah</a>

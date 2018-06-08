@@ -21,12 +21,14 @@
                                 $crud   = new Crud();
                                 $result = $crud->view(" SELECT DISTINCT(jabatan) FROM tb_user
                                                         INNER JOIN tb_jabatan ON tb_user.id_jabatan = tb_jabatan.id_jabatan
-                                                        INNER JOIN tb_login ON tb_user.id_user = tb_login.id_user"
+                                                        INNER JOIN tb_login ON tb_user.id_user = tb_login.id_user
+                                                        WHERE tb_jabatan.id_jabatan IN (1,2,3,4,5)"
                                                     );          
                                 foreach ($result as  $value):
                             ?>
                             <option value="<?= $value['jabatan'] ?>"><?= $value['jabatan'] ?></option>
                             <?php endforeach ?>
+                            <option value="Bidang">Bidang</option>
                         </select>                        
                     </div>                    
                     <!-- end filter -->
@@ -58,7 +60,22 @@
                         <tr>
                             <td><?= $no++."." ?></td>
                             <td><?= $value['nama'] ?></td>
-                            <td><?= $value['jabatan'] ?></td>
+                            <?php 
+                            $jabatan ="";
+                            if($value['jabatan']=="Kepala BKPPD" || 
+                               $value['jabatan']=="Sekretaris"||
+                               $value['jabatan']=="STAFF"||
+                               $value['jabatan']=="Dinas")
+                            {
+                                $jabatan = $value['jabatan'];
+                            }
+                            else
+                            {
+                                $jabatan = "Bidang";
+                            }
+
+                            ?>
+                            <td><?= $jabatan ?></td>
                             <td>
                                 <a href="index.php?page=edit&id_user=<?= $value['id_user'] ?>" class="btn btn-warning">Ubah</a>
                                 <a href="index.php?page=delete&id_user=<?= $value['id_user'] ?>" onClick="return confirm('Data Akan Dihapus !')" class="btn btn-danger">Hapus</a>

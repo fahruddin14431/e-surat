@@ -90,6 +90,7 @@
                             ?>
                             <option value="<?= $value['nama']."-".$value['nip'] ?>"><?= $value['nama']." - ".$value['jabatan'] ?></option>
                             <?php endforeach ?>
+                            <option value="NAMA BUPATI - NIP BUPATI">NAMA BUPATI - BUPATI</option>
                         </select>
 
                     </div>  
