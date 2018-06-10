@@ -95,12 +95,14 @@ $mpdf->WriteHTML($html,2);
 
 $id_surat_masuk = $_POST['id_surat_masuk'];
 
-$scan_surat      = $_FILES['scan_surat']["tmp_name"];
-$scan_surat2     = $_FILES['scan_surat2']["tmp_name"];
+$scan_surat     = $_FILES['scan_surat']["tmp_name"];
+$scan_surat2    = $_FILES['scan_surat2']["tmp_name"];
 
 $target_file    = "../../file/surat_masuk/" . $id_surat_masuk."-1.".strtolower(pathinfo(basename($_FILES["scan_surat"]["name"]),PATHINFO_EXTENSION));
-$target_file2   = "../../file/surat_masuk/" . $id_surat_masuk."-2.".strtolower(pathinfo(basename($_FILES["scan_surat2"]["name"]),PATHINFO_EXTENSION));
-$post_file      = "../../file/surat_masuk/".$id_surat_masuk.".pdf";
+if(isset($scan_surat2)){
+    $target_file2   = "../../file/surat_masuk/" . $id_surat_masuk."-2.".strtolower(pathinfo(basename($_FILES["scan_surat2"]["name"]),PATHINFO_EXTENSION));
+}
+$post_file      = "../../file/surat_masuk/" . $id_surat_masuk.".pdf";
 
 $mpdf->Output($post_file,"F");
 
@@ -118,7 +120,7 @@ if(empty($scan_surat) && empty($scan_surat2)){
         'id_jabatan'                => $_POST['id_jabatan']
     );    
 
-}else if (move_uploaded_file($scan_surat, $target_file) && move_uploaded_file($scan_surat2, $target_file2)) {
+}else if (move_uploaded_file($scan_surat, $target_file) || move_uploaded_file($scan_surat2, $target_file2)) {
     $data = array(
         'id_user'                   => $_POST['id_user'],
         'no_surat'                  => $_POST['no_surat'],
@@ -129,9 +131,11 @@ if(empty($scan_surat) && empty($scan_surat2)){
         'tanggal_surat'             => $_POST['tgl_surat'],        
         'instruksi'                 => $_POST['instruksi'],        
         'id_jabatan'                => $_POST['id_jabatan'],        
-        'scan_surat'                => $id_surat_masuk."-1.".strtolower(pathinfo(basename($_FILES["scan_surat"]["name"]),PATHINFO_EXTENSION)),
-        'scan_surat2'               => $id_surat_masuk."-2.".strtolower(pathinfo(basename($_FILES["scan_surat2"]["name"]),PATHINFO_EXTENSION)),
+        'scan_surat'                => $id_surat_masuk."-1.".strtolower(pathinfo(basename($_FILES["scan_surat"]["name"]),PATHINFO_EXTENSION))
     );    
+    if(!empty($scan_surat2)){
+        $data+=array('scan_surat2'=> $id_surat_masuk."-2.".strtolower(pathinfo(basename($_FILES["scan_surat"]["name"]),PATHINFO_EXTENSION)));
+     }
 }
 
 $res = $crud->update("tb_surat_masuk", $data, "id_surat_masuk = '$id_surat_masuk'");

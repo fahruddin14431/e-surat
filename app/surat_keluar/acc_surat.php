@@ -5,7 +5,7 @@
 include_once "helper/crud.php";
 include "../assets/mpdf/mpdf.php";
 
-$mpdf = new mPDF();
+$mpdf = new mPDF('utf-8', "LEGAL");
 $mpdf->debug = true;
 $mpdf->allow_output_buffering = true;
 

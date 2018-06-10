@@ -95,17 +95,19 @@ $stylesheet = file_get_contents('../../assets/plugins/bootstrap/css/bootstrap.mi
 $mpdf->WriteHTML($stylesheet,1);
 $mpdf->WriteHTML($html,2);
 
-$id_surat_masuk = $crud->makeId("tb_surat_masuk", "id_surat_masuk", "SUM");
+$id_surat_masuk  = $crud->makeId("tb_surat_masuk", "id_surat_masuk", "SUM");
 $scan_surat      = $_FILES['scan_surat']["tmp_name"];
 $scan_surat2     = $_FILES['scan_surat2']["tmp_name"];
 
-$target_file = "../../file/surat_masuk/" . $id_surat_masuk."-1.".strtolower(pathinfo(basename($_FILES["scan_surat"]["name"]),PATHINFO_EXTENSION));
-$target_file2 = "../../file/surat_masuk/" . $id_surat_masuk."-2.".strtolower(pathinfo(basename($_FILES["scan_surat2"]["name"]),PATHINFO_EXTENSION));
-$post_file   = "../../file/surat_masuk/".$id_surat_masuk.".pdf";
+$target_file  = "../../file/surat_masuk/" . $id_surat_masuk."-1.".strtolower(pathinfo(basename($_FILES["scan_surat"]["name"]),PATHINFO_EXTENSION));
+if(isset($scan_surat2)){
+    $target_file2 = "../../file/surat_masuk/" . $id_surat_masuk."-2.".strtolower(pathinfo(basename($_FILES["scan_surat2"]["name"]),PATHINFO_EXTENSION));
+}
+$post_file    = "../../file/surat_masuk/" . $id_surat_masuk.".pdf";
 
 $mpdf->Output($post_file,"F");
 
-if (move_uploaded_file($scan_surat, $target_file) && move_uploaded_file($scan_surat2, $target_file2)) {
+if (move_uploaded_file($scan_surat, $target_file) || move_uploaded_file($scan_surat2, $target_file2)) {
     $data = array(
         'id_surat_masuk'            => $id_surat_masuk,
         'id_user'                   => $_POST['id_user'],
@@ -117,10 +119,12 @@ if (move_uploaded_file($scan_surat, $target_file) && move_uploaded_file($scan_su
         'tanggal_surat'             => $_POST['tgl_surat'],        
         'instruksi'                 => $_POST['instruksi'],        
         'id_jabatan'                => $_POST['id_jabatan'],        
-        'scan_surat'                => $id_surat_masuk."-1.".strtolower(pathinfo(basename($_FILES["scan_surat"]["name"]),PATHINFO_EXTENSION)),
-        'scan_surat2'               => $id_surat_masuk."-2.".strtolower(pathinfo(basename($_FILES["scan_surat"]["name"]),PATHINFO_EXTENSION)),
         'file_surat'                => $id_surat_masuk.".pdf",        
+        'scan_surat'                => $id_surat_masuk."-1.".strtolower(pathinfo(basename($_FILES["scan_surat"]["name"]),PATHINFO_EXTENSION)),        
     );    
+    if(!empty($scan_surat2)){
+       $data+=array('scan_surat2'=> $id_surat_masuk."-2.".strtolower(pathinfo(basename($_FILES["scan_surat"]["name"]),PATHINFO_EXTENSION)));
+    }
 }
 $res = $crud->insert("tb_surat_masuk", $data);
 

@@ -80,7 +80,7 @@
 
                     <div class="form-group">
                         <h5>Scan Surat 2</h5>
-                        <input type="file" name="scan_surat2" required>
+                        <input type="file" name="scan_surat2" >
                     </div>
 
                     <div class="form-group">                    

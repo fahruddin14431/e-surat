@@ -176,12 +176,12 @@ if (empty($_SESSION['sess_user'])) {
 						<li> 
 							<a class="waves-effect waves-darkenvelope-open" href="index.php?page=view_surat_masuk" aria-expanded="false"><i class="fa fa-envelope-open"></i><span class="hide-menu"> Surat Masuk</span></a>
 						</li>
-						<li> 
+						<!-- <li> 
 							<a class="waves-effect waves-dark" href="index.php?page=view_laporan_surat_masuk" aria-expanded="false"><i class="fa fa-clipboard"></i><span class="hide-menu"> Laporan Surat Masuk</span></a>
 						</li>
 						<li> 
 							<a class="waves-effect waves-dark" href="index.php?page=view_laporan_surat_keluar" aria-expanded="false"><i class="fa fa-clipboard"></i><span class="hide-menu"> Laporan Surat Keluar</span></a>
-						</li>
+						</li> -->
 					<?php elseif($auth->isPegawai()): ?>
 						<li> 
 							<a class="waves-effect waves-darkenvelope-open" href="index.php?page=view_surat_masuk_tu" aria-expanded="false"><i class="fa fa-envelope-open"></i><span class="hide-menu"> Surat Masuk</span></a>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: 08 Jun 2018 pada 13.32
+-- Generation Time: 10 Jun 2018 pada 02.04
 -- Versi Server: 10.1.26-MariaDB
 -- PHP Version: 7.1.9
 
@@ -38,7 +38,8 @@ CREATE TABLE `tb_detail_surat_keluar` (
 --
 
 INSERT INTO `tb_detail_surat_keluar` (`id_surat_keluar`, `id_user`) VALUES
-('SUK1001', 'PEG1010');
+('SUK1001', 'PEG1010'),
+('SUK1002', 'PEG1010');
 
 -- --------------------------------------------------------
 
@@ -222,7 +223,8 @@ CREATE TABLE `tb_surat_keluar` (
 --
 
 INSERT INTO `tb_surat_keluar` (`id_surat_keluar`, `id_jenis_surat`, `id_format_surat`, `lampiran`, `no_surat`, `isi`, `tembusan`, `tanggal`, `file_surat`, `atas_nama`, `status`) VALUES
-('SUK1001', 5, 1, 'lampiran', 'BKPPD.890/182/VII/2017', '<p>isi</p>\r\n', '<p>tembusan</p>\r\n', '2017-05-07', 'SUK1001.pdf', 'IR. Sebastianus Wantung-192 XXXXX', 0);
+('SUK1001', 5, 1, 'lampiran', 'BKPPD.890/182/VII/2017', '<p>isi</p>\r\n', '<p>tembusan</p>\r\n', '2017-05-07', 'SUK1001.pdf', 'IR. Sebastianus Wantung-192 XXXXX', 1),
+('SUK1002', 6, 1, 'lampiran', 'BKPPD/822', '<p>Dengan ini diberitahukan bahwa berhubung dengan telah dipenuhi masa kerja dan syarat-syarat lain nya kepada :</p>\r\n\r\n<p>1. Nama&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;: .........<br />\r\n2. Nomor Induk Pegawai (NIP)&nbsp; &nbsp; &nbsp; : .........<br />\r\n3. Pangkat/Golongan Ruang Gaji &nbsp;: .........<br />\r\n4. Unit Kerja&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;: Badan Kepegawaian, Pendidikan dan Pelatihan Daerah Kabupaten Manggarai Barat<br />\r\n5. Gaji Pokok Lama&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; : Rp. ......</p>\r\n\r\n<p>&nbsp; &nbsp; (Atas dasar SKP terakhir tentang gaji/pangkat yang ditetapkan):<br />\r\n&nbsp; &nbsp;&nbsp;<br />\r\n&nbsp; &nbsp; a. Oleh Pejabat&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;: Bupati Manggarai Barat<br />\r\n&nbsp; &nbsp; b. Tanggal&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;: .......<br />\r\n&nbsp; &nbsp; c. Nomor&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;: .......<br />\r\n&nbsp; &nbsp; d. Tanggal berlakunya Gaji tersebut&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;:&nbsp;.......<br />\r\n&nbsp; &nbsp; e. Masa Kerja Golongan pada tanggal tersebut : .......</p>\r\n\r\n<p>&nbsp; &nbsp; Diberikan gaji berkala hingga memperoleh :</p>\r\n\r\n<p>6. Gaji Pokok Baru&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; : Rp. ......<br />\r\n7. Berdasarkan Maasa Kerja&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; : ......<br />\r\n8. Pangkat/Golongan ruang&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; : ......<br />\r\n9. Terhitung Mulai Tanggal&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; : ......<br />\r\n10.TMT Gaji Berkala berikutnya&nbsp; &nbsp; &nbsp; : ......</p>\r\n\r\n<p>Diharapkan agar sesuai dengan peraturan pemerintah Nomor 30 Tahun 2015, maka kepada pegawai negeri sipil tersebut dapat dibayarkan penghasilan nya sebesar gaji yang baru.</p>\r\n', '<p>asdf</p>\r\n', '2018-12-31', 'SUK1002.pdf', 'AGUSTINUS CH.DULA - XXX XXX XXX', 1);
 
 -- --------------------------------------------------------
 
@@ -252,7 +254,8 @@ CREATE TABLE `tb_surat_masuk` (
 --
 
 INSERT INTO `tb_surat_masuk` (`id_surat_masuk`, `id_user`, `no_surat`, `no_agenda`, `indeks_masalah`, `perihal`, `tanggal_surat`, `tanggal_surat_penerimaan`, `file_surat`, `scan_surat`, `scan_surat2`, `id_jabatan`, `status`, `instruksi`) VALUES
-('SUM1001', 'PEG1006', 'no surat', 'no agenda', 'indeks masalah', 'perihal', '2018-12-31', '2018-12-31', 'SUM1001.pdf', 'SUM1001-1.png', 'SUM1001-2.png', 6, 0, 'instruksi');
+('SUM1001', 'PEG1006', 'no surat', 'no agenda', 'indeks masalah', 'perihal', '2018-12-31', '2018-12-31', 'SUM1001.pdf', 'SUM1001-1.png', 'SUM1001-2.png', 6, 0, 'instruksi'),
+('SUM1002', 'PEG1012', 'no surat', 'no agenda', 'indeks masalah', 'perihal', '2018-12-31', '2018-12-31', 'SUM1002.pdf', 'SUM1002-1.png', 'SUM1002-2.png', 6, 0, 'instruksi');
 
 -- --------------------------------------------------------
 
@@ -264,75 +267,76 @@ CREATE TABLE `tb_user` (
   `id_user` varchar(11) NOT NULL,
   `nip` varchar(50) NOT NULL,
   `nama` varchar(100) NOT NULL,
-  `id_jabatan` int(11) NOT NULL
+  `id_jabatan` int(11) NOT NULL,
+  `gambar` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `tb_user`
 --
 
-INSERT INTO `tb_user` (`id_user`, `nip`, `nama`, `id_jabatan`) VALUES
-('PEG1001', '192 XXXXX', 'IR. Sebastianus Wantung', 1),
-('PEG1002', '', 'MAKSIMUS E. JAPEN, SE', 4),
-('PEG1004', '', 'WILHELMINA O. JAMI', 4),
-('PEG1006', '', 'Dinas Pendidikan Pemuda dan Olahraga', 5),
-('PEG1010', '', 'Bagian Administrasi Umum', 5),
-('PEG1011', '', 'Bagian Humas dan Protokol', 5),
-('PEG1012', '', 'Bagian Hukum', 5),
-('PEG1013', '', 'Bagian Organisasi', 5),
-('PEG1014', '', 'Bagian Adm.Kesejahteraan Rakyat dan Kemasyarakatan', 5),
-('PEG1015', '', 'Bagian Adm.Perekonomian dan Sumber Daya Alam', 5),
-('PEG1016', '', 'Bagian Administrasi Pembangunan', 5),
-('PEG1017', '', 'Bagian Adm.Pemerintahan Umum', 5),
-('PEG1018', '', 'Sekertariat Dewan Perwakilan Rakyat ', 5),
-('PEG1019', '', 'Sekertariat KORPRI', 5),
-('PEG1020', '', 'Satuan Polisi Pamong Praja', 5),
-('PEG1021', '', 'Inspektorat', 5),
-('PEG1022', '', 'RSUD Komodo', 5),
-('PEG1023', '', 'Badan Perencanaan Pembangunan, Penelitian dan Pengembangan Daerah', 5),
-('PEG1024', '', 'Badan Kesatuan Bangsa dan Politik', 5),
-('PEG1025', '', 'Badan Penanggulangan Bencana Daerah', 5),
-('PEG1026', '', 'Badan Pengelolah Keuangan Daerah', 5),
-('PEG1027', '', 'Dinas Pekerjaan Umum dan Penata Ruang', 5),
-('PEG1028', '', 'Dinas Komunikasi dan Informatika', 5),
-('PEG1029', '', 'Dinas Kearsipan dan Perpustakaan ', 5),
-('PEG1030', '', 'Dinas Kesehatan', 5),
-('PEG1031', '', 'Dinas Ketahanan Pangan dan Perikanan', 5),
-('PEG1032', '', 'Dinas Penanaman Modal dan Pelayanan Terpadu Satu Pintu', 5),
-('PEG1033', '', 'Dinas Tanaman Pangan,Holtikultura dan Perkebunan', 5),
-('PEG1034', '', 'Dinas Lingkungan Hidup dan Kebersihan', 5),
-('PEG1035', '', 'Dinas Perhubungan', 5),
-('PEG1036', '', 'Dinas Kependudukan dan Pencatatan Sipil', 5),
-('PEG1037', '', 'Dinas Sosial', 5),
-('PEG1038', '', 'Dinas Tenaga Kerja dan Transmigrasi', 5),
-('PEG1039', '', 'Dinas Pariwisata dan Kebudayaan', 5),
-('PEG1040', '', 'Dinas Perumahan Rakyat Kawasan Pemukiman dan Pertanahan', 5),
-('PEG1041', '', 'Dinas Perdagangan dan Perindustrian, Koperasi dan Usaha Kecil Menengah', 5),
-('PEG1042', '', 'Dinas Peternakan dan Kesehatan Hewan', 5),
-('PEG1043', '', 'Dinas Pemberdayaan Masyarakat dan Desa', 5),
-('PEG1044', '', 'Dinas Pengendalian Penduduk, Keluarga Berencana Pemberdayaan Perempuan dan Perlindungan Anak', 5),
-('PEG1045', '', 'Kecamatan Komodo', 5),
-('PEG1046', '', 'Kecamatan Mbeliling', 5),
-('PEG1047', '', 'Kecamatam Boleng', 5),
-('PEG1048', '', 'Kecamatan Sano Nggoang', 5),
-('PEG1049', '', 'Kecamatan Lembor', 5),
-('PEG1050', '', 'Kecamatan Lembor Selatan', 5),
-('PEG1051', '', 'Kecamatan Kuwus', 5),
-('PEG1052', '', 'Kecamatan Welak', 5),
-('PEG1053', '', 'Kecamatan Ndoso', 5),
-('PEG1054', '', 'Kecamatan Macang Pacar', 5),
-('PEG1055', '', 'Kecamatan Pacar', 5),
-('PEG1056', '', 'Kecamatan Kuwus Barat', 5),
-('PEG1057', '', 'Kelurahan Labuah Bajo', 5),
-('PEG1058', '', 'Kelurahan Wae Kelambu', 5),
-('PEG1059', '', 'Kelurahan Nantal', 5),
-('PEG1060', '', 'Kelurahan Tangge', 5),
-('PEG1061', '', 'Wihelmina Imelda Pano, SE', 6),
-('PEG1062', '', 'Timotius Patrik Mariahma,SE', 7),
-('PEG1063', '', 'Viktor Budi,SH', 8),
-('PEG1064', '', 'Herman Nantu,S.IP', 10),
-('PEG1065', '', 'Kristina Nala, SH', 9),
-('PEG1066', '', 'Marselina J.Endang, SE', 4);
+INSERT INTO `tb_user` (`id_user`, `nip`, `nama`, `id_jabatan`, `gambar`) VALUES
+('PEG1001', '192 XXXXX', 'IR. Sebastianus Wantung', 1, ''),
+('PEG1002', '', 'MAKSIMUS E. JAPEN, SE', 4, ''),
+('PEG1004', '', 'WILHELMINA O. JAMI', 4, ''),
+('PEG1006', '', 'Dinas Pendidikan Pemuda dan Olahraga', 5, 'pko.png'),
+('PEG1010', '', 'Bagian Administrasi Umum', 5, ''),
+('PEG1011', '', 'Bagian Humas dan Protokol', 5, ''),
+('PEG1012', '', 'Bagian Hukum', 5, ''),
+('PEG1013', '', 'Bagian Organisasi', 5, ''),
+('PEG1014', '', 'Bagian Adm.Kesejahteraan Rakyat dan Kemasyarakatan', 5, ''),
+('PEG1015', '', 'Bagian Adm.Perekonomian dan Sumber Daya Alam', 5, ''),
+('PEG1016', '', 'Bagian Administrasi Pembangunan', 5, ''),
+('PEG1017', '', 'Bagian Adm.Pemerintahan Umum', 5, ''),
+('PEG1018', '', 'Sekertariat Dewan Perwakilan Rakyat ', 5, ''),
+('PEG1019', '', 'Sekertariat KORPRI', 5, ''),
+('PEG1020', '', 'Satuan Polisi Pamong Praja', 5, 'pamong_praja.png'),
+('PEG1021', '', 'Inspektorat', 5, ''),
+('PEG1022', '', 'RSUD Komodo', 5, 'rsud_komodo.png'),
+('PEG1023', '', 'Badan Perencanaan Pembangunan, Penelitian dan Pengembangan Daerah', 5, 'perencanaan.png'),
+('PEG1024', '', 'Badan Kesatuan Bangsa dan Politik', 5, 'kesatuan_bangsa.png'),
+('PEG1025', '', 'Badan Penanggulangan Bencana Daerah', 5, ''),
+('PEG1026', '', 'Badan Pengelolah Keuangan Daerah', 5, 'pengelola_keuangan.png'),
+('PEG1027', '', 'Dinas Pekerjaan Umum dan Penata Ruang', 5, 'pekerjaan_umum.png'),
+('PEG1028', '', 'Dinas Komunikasi dan Informatika', 5, 'kominfo.png'),
+('PEG1029', '', 'Dinas Kearsipan dan Perpustakaan ', 5, 'kearsiapan.png'),
+('PEG1030', '', 'Dinas Kesehatan', 5, 'dinkes.png'),
+('PEG1031', '', 'Dinas Ketahanan Pangan dan Perikanan', 5, 'ketahanan_pangan.png'),
+('PEG1032', '', 'Dinas Penanaman Modal dan Pelayanan Terpadu Satu Pintu', 5, 'penanaman_modal.png'),
+('PEG1033', '', 'Dinas Tanaman Pangan,Holtikultura dan Perkebunan', 5, 'tanaman_pangan.png'),
+('PEG1034', '', 'Dinas Lingkungan Hidup dan Kebersihan', 5, 'lingkungan_hidup.png'),
+('PEG1035', '', 'Dinas Perhubungan', 5, 'dishbub.png'),
+('PEG1036', '', 'Dinas Kependudukan dan Pencatatan Sipil', 5, 'dispenduk.png'),
+('PEG1037', '', 'Dinas Sosial', 5, 'dinsos.png'),
+('PEG1038', '', 'Dinas Tenaga Kerja dan Transmigrasi', 5, 'tenaga_kerja.png'),
+('PEG1039', '', 'Dinas Pariwisata dan Kebudayaan', 5, 'pariwisata.png'),
+('PEG1040', '', 'Dinas Perumahan Rakyat Kawasan Pemukiman dan Pertanahan', 5, 'perumahan_rakyat.png'),
+('PEG1041', '', 'Dinas Perdagangan dan Perindustrian, Koperasi dan Usaha Kecil Menengah', 5, 'perdangangan.png'),
+('PEG1042', '', 'Dinas Peternakan dan Kesehatan Hewan', 5, 'peternakan.png'),
+('PEG1043', '', 'Dinas Pemberdayaan Masyarakat dan Desa', 5, 'pemberdayaan_masyarakat.png'),
+('PEG1044', '', 'Dinas Pengendalian Penduduk, Keluarga Berencana Pemberdayaan Perempuan dan Perlindungan Anak', 5, 'pengendalian_penduduk.png'),
+('PEG1045', '', 'Kecamatan Komodo', 5, ''),
+('PEG1046', '', 'Kecamatan Mbeliling', 5, ''),
+('PEG1047', '', 'Kecamatam Boleng', 5, ''),
+('PEG1048', '', 'Kecamatan Sano Nggoang', 5, ''),
+('PEG1049', '', 'Kecamatan Lembor', 5, ''),
+('PEG1050', '', 'Kecamatan Lembor Selatan', 5, ''),
+('PEG1051', '', 'Kecamatan Kuwus', 5, ''),
+('PEG1052', '', 'Kecamatan Welak', 5, ''),
+('PEG1053', '', 'Kecamatan Ndoso', 5, ''),
+('PEG1054', '', 'Kecamatan Macang Pacar', 5, ''),
+('PEG1055', '', 'Kecamatan Pacar', 5, ''),
+('PEG1056', '', 'Kecamatan Kuwus Barat', 5, ''),
+('PEG1057', '', 'Kelurahan Labuah Bajo', 5, ''),
+('PEG1058', '', 'Kelurahan Wae Kelambu', 5, ''),
+('PEG1059', '', 'Kelurahan Nantal', 5, ''),
+('PEG1060', '', 'Kelurahan Tangge', 5, ''),
+('PEG1061', '', 'Wihelmina Imelda Pano, SE', 6, ''),
+('PEG1062', '', 'Timotius Patrik Mariahma,SE', 7, ''),
+('PEG1063', '', 'Viktor Budi,SH', 8, ''),
+('PEG1064', '', 'Herman Nantu,S.IP', 10, ''),
+('PEG1065', '', 'Kristina Nala, SH', 9, ''),
+('PEG1066', '', 'Marselina J.Endang, SE', 4, '');
 
 --
 -- Indexes for dumped tables
@@ -451,7 +455,3 @@ ALTER TABLE `tb_surat_keluar`
 ALTER TABLE `tb_surat_masuk`
   ADD CONSTRAINT `tb_surat_masuk_ibfk_1` FOREIGN KEY (`id_jabatan`) REFERENCES `tb_jabatan` (`id_jabatan`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `tb_surat_masuk_ibfk_2` FOREIGN KEY (`id_user`) REFERENCES `tb_user` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Ketidakleluasaan untuk tabel `tb_user`
---
