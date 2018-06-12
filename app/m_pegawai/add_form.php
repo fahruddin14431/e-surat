@@ -21,10 +21,10 @@
                 </div>
 
                 <div class="form-group">
-                    <h5>Jabatan</h5>
+                    <h5>Hak Akses</h5>
 
                     <select required name="id_jabatan" class="form-control">
-                        <option value=""> -- Pilih Jabatan -- </option>
+                        <option value=""> -- Pilih Hak Akses -- </option>
                         <?php 
                             $crud   = new Crud();
                             $result = $crud->view("SELECT * FROM tb_jabatan");          

@@ -12,16 +12,14 @@ $mpdf->allow_output_buffering = true;
 // format surat
 $crud   = new Crud();
 $id_surat_keluar = $_GET['id_surat_keluar'];
-$result = $crud->view("SELECT * FROM tb_format_surat")[0];
-
-$logo           = "../assets/images/" . $result['logo'];
-$kop            = $result['kop_surat'];
-
-
 $result = $crud->view(" SELECT * FROM tb_surat_keluar
                         INNER JOIN tb_jenis_surat ON tb_surat_keluar.id_jenis_surat = tb_jenis_surat.id_jenis_surat
                         INNER JOIN tb_detail_surat_keluar ON tb_surat_keluar.id_surat_keluar = tb_detail_surat_keluar.id_surat_keluar
                         WHERE tb_surat_keluar.id_surat_keluar='$id_surat_keluar'")[0];
+
+$result1 = $crud->view("SELECT * FROM tb_format_surat WHERE id_format_surat='".$result['id_format_surat']."'")[0];
+$logo    = "../assets/images/" . $result1['logo'];
+$kop     = $result1['kop_surat'];
 
 ob_end_clean();
 ob_start();
@@ -29,10 +27,10 @@ ob_start();
 <!-- start template -->
 <table class="table">
     <tr>
-        <td colspan="2" class="text-center">
+        <td colspan="1" class="text-center">
             <img src="<?= $logo ?>" width="100px" height="100px">
         </td>
-        <td colspan="10" class="text-center">
+        <td colspan="11" class="text-center">
         <?= $kop ?>
         </td>
     </tr>
@@ -79,11 +77,11 @@ ob_start();
                 Kepala Badan Kepegawaian Pendidikan dan Pelatihan<br>
                 Daerah Kabupaten Manggarai Barat 
                 <br><br>
-                <img src="../assets/ttd/ttd_kepala.jpeg" width="160px" height="160px">
-                <br><br>
                 <?php 
                 $data = explode("-",$result['atas_nama']);
                 ?>
+                <img src="../assets/ttd/<?= $data[0]=="IR. Sebastianus Wantung"?"ttd_kepala.jpeg":"ttd_bupati.jpeg" ?>" width="160px" height="160px">
+                <br><br>                
                 <b><u><?= $data[0] ?></u></b><br>
                 Pembina Utama Muda <br>
                 NIP. <?= $data[1] ?>

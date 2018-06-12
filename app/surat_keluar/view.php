@@ -6,7 +6,9 @@
 
                 <h3>
                     Surat Keluar
+                    <?php if($auth->isTU()):?>
                     <a href="index.php?page=add_surat_keluar" class="btn btn-success">Tambah</a>
+                    <?php endif ?>
                 </h3>
 
                 <table class="table table-stripped table-bordered" id="data_table">
@@ -45,9 +47,11 @@
                             <td>
                                 <a href="../file/surat_keluar/<?= $value['file_surat'] ?>" class="btn btn-info">Unduh</a>
                                 <?php if($auth->isKepalaBadan() && $value['status']==0): ?>
-                                <a href="index.php?page=acc_surat_keluar&id_surat_keluar=<?= $value['id_surat_keluar'] ?>" class="btn btn-primary">ACC</a>
+                                <a href="index.php?page=acc_surat_keluar&id_surat_keluar=<?= $value['id_surat_keluar'] ?>" onClick="return confirm('Acc Surat Keluar !')" class="btn btn-primary">ACC</a>
                                 <?php endif ?>
+                                <?php if($auth->isTU() && $value['status']==0 ):?>
                                 <a href="index.php?page=edit_surat_keluar&id_surat_keluar=<?= $value['id_surat_keluar'] ?>" class="btn btn-warning">Ubah</a>
+                                <?php endif ?>
                                 <a href="index.php?page=delete_surat_keluar&id_surat_keluar=<?= $value['id_surat_keluar'] ?>" onClick="return confirm('Data Akan Dihapus !')" class="btn btn-danger">Hapus</a>
                             </td>
                         </tr>
