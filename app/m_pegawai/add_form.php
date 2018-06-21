@@ -51,7 +51,8 @@
                     <select required name="status" class="form-control">
                         <option value=""> -- Pilih Status -- </option>
                         <?php 
-                            $result = array('KEPALA BADAN', 'ADMIN', 'TU', 'PEGAWAI','DINAS');
+                            // $result = array('KEPALA BADAN', 'ADMIN', 'TU', 'PEGAWAI','DINAS');
+                            $result = array('KEPALA BADAN', 'ADMIN', 'TU', 'BIDANG','INSTANSI');
                             foreach ($result as  $value):
                         ?>
                         <option value="<?= $value ?>"><?= $value ?></option>

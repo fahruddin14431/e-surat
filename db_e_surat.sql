@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: 10 Jun 2018 pada 02.04
+-- Generation Time: 21 Jun 2018 pada 14.47
 -- Versi Server: 10.1.26-MariaDB
 -- PHP Version: 7.1.9
 
@@ -38,8 +38,7 @@ CREATE TABLE `tb_detail_surat_keluar` (
 --
 
 INSERT INTO `tb_detail_surat_keluar` (`id_surat_keluar`, `id_user`) VALUES
-('SUK1001', 'PEG1010'),
-('SUK1002', 'PEG1010');
+('SUK1001', 'PEG1012');
 
 -- --------------------------------------------------------
 
@@ -59,8 +58,7 @@ CREATE TABLE `tb_format_surat` (
 --
 
 INSERT INTO `tb_format_surat` (`id_format_surat`, `nama_kop`, `kop_surat`, `logo`) VALUES
-(1, 'Kop Bupati Manggarai Barat', '<h2 style=\"text-align:center\"><span style=\"font-size:14px\"><strong>PEMERINTAH KEBUPATEN MANGGARAI BARAT BADANG KEPEGAWAIAN PENDIDIKAN DAN PELATAHIAN DAERAH Jln. Frans Sales Lega Labuhan Bajo NTT, email:bkdmabar@gmail.com</strong></span></h2>\r\n', 'logo.jpg'),
-(2, 'Kop Sekretariat Daerah Manggarai Barat', '<p style=\"text-align:center\"><strong>Kop baru</strong></p>\r\n', '20170506122014666200.jpg');
+(1, 'Kop Surat BKPPD Manggarai Barat', '<h2 style=\"text-align:center\"><span style=\"font-size:14px\"><strong>PEMERINTAH KEBUPATEN MANGGARAI BARAT BADANG KEPEGAWAIAN PENDIDIKAN DAN PELATAHIAN DAERAH Jln. Frans Sales Lega Labuhan Bajo NTT, email:bkdmabar@gmail.com</strong></span></h2>\r\n', 'logo.jpg');
 
 -- --------------------------------------------------------
 
@@ -81,7 +79,7 @@ INSERT INTO `tb_jabatan` (`id_jabatan`, `jabatan`) VALUES
 (1, 'Kepala BKPPD'),
 (2, 'Sekretaris'),
 (4, 'STAFF'),
-(5, 'Dinas'),
+(5, 'Instansi'),
 (6, 'Kasubag Umum, Kepegawaian dan Perlengkapan'),
 (7, 'Kasubag Keuangan dan Pelaporan'),
 (8, 'Kepala BidangINKA & Pemeberhentian PNS'),
@@ -129,7 +127,7 @@ CREATE TABLE `tb_login` (
   `nama_pengguna` varchar(20) NOT NULL,
   `kata_sandi` varchar(50) NOT NULL,
   `id_user` varchar(11) NOT NULL,
-  `status` enum('ADMIN','TU','DINAS','KEPALA BADAN','PEGAWAI') NOT NULL
+  `status` enum('ADMIN','TU','INSTANSI','KEPALA BADAN','BIDANG') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -139,63 +137,63 @@ CREATE TABLE `tb_login` (
 INSERT INTO `tb_login` (`id`, `nama_pengguna`, `kata_sandi`, `id_user`, `status`) VALUES
 (1, 'kepala', 'kepala', 'PEG1001', 'KEPALA BADAN'),
 (2, 'admin', 'admin', 'PEG1002', 'ADMIN'),
-(11, 'dispen', 'dispen', 'PEG1006', 'DINAS'),
-(15, 'BAU', 'BAU', 'PEG1010', 'DINAS'),
-(16, 'humas', 'HUMAS', 'PEG1011', 'DINAS'),
-(17, 'hukum', 'hukum', 'PEG1012', 'DINAS'),
-(18, 'organisasi', 'organisasi', 'PEG1013', 'DINAS'),
-(19, 'kesra', 'kesra', 'PEG1014', 'DINAS'),
-(20, 'SDA', 'sda', 'PEG1015', 'DINAS'),
-(21, 'pembangunan', 'pembangunan', 'PEG1016', 'DINAS'),
-(22, 'pemerintahan', 'pemerintahan', 'PEG1017', 'DINAS'),
-(23, 'sekwan', 'sekwan', 'PEG1018', 'DINAS'),
-(24, 'korpri', 'korpri', 'PEG1019', 'DINAS'),
-(25, 'polpp', 'polpp', 'PEG1020', 'DINAS'),
-(26, 'inspektorat', 'inspektorat', 'PEG1021', 'DINAS'),
-(27, 'rsud', 'rsud', 'PEG1022', 'DINAS'),
-(28, 'bapeda', 'bapeda', 'PEG1023', 'DINAS'),
-(29, 'kesbangpol', 'kesbangpol', 'PEG1024', 'DINAS'),
-(30, 'bencana', 'bencana', 'PEG1025', 'DINAS'),
-(31, 'keuangan', 'keuangan', 'PEG1026', 'DINAS'),
-(32, 'pu', 'pu', 'PEG1027', 'DINAS'),
-(33, 'infokom', 'infokom', 'PEG1028', 'DINAS'),
-(34, 'dipe', 'dipe', 'PEG1029', 'DINAS'),
-(35, 'dinkes', 'dinkes', 'PEG1030', 'DINAS'),
-(36, 'ketahanan ', 'ketahanan', 'PEG1031', 'DINAS'),
-(37, 'diperizinan', 'diperizinan', 'PEG1032', 'DINAS'),
-(38, 'perkebunan', 'perkebunan', 'PEG1033', 'DINAS'),
-(39, 'LHK', 'LHK', 'PEG1034', 'DINAS'),
-(40, 'perhubungan', 'perhubungan', 'PEG1035', 'DINAS'),
-(41, 'capil', 'capil', 'PEG1036', 'DINAS'),
-(42, 'sosial', 'sosial', 'PEG1037', 'DINAS'),
-(43, 'nakertrans', 'nakertrans', 'PEG1038', 'DINAS'),
-(44, 'pariwisata', 'pariwisata', 'PEG1039', 'DINAS'),
-(45, 'perumahan', 'perumahan', 'PEG1040', 'DINAS'),
-(46, 'perindagkop', 'perindagkop', 'PEG1041', 'DINAS'),
-(47, 'peternakan', 'peternakan', 'PEG1042', 'DINAS'),
-(48, 'pemberdayaan', 'pemberdayaan', 'PEG1043', 'DINAS'),
-(49, 'kb', 'kb', 'PEG1044', 'DINAS'),
-(50, 'Komodo', 'Komodo', 'PEG1045', 'DINAS'),
-(51, ' Mbeliling', ' Mbeliling', 'PEG1046', 'DINAS'),
-(52, 'Boleng', 'Boleng', 'PEG1047', 'DINAS'),
-(53, 'Sano Nggoang', 'Sano Nggoang', 'PEG1048', 'DINAS'),
-(54, 'Lembor', 'Lembor', 'PEG1049', 'DINAS'),
-(55, 'Lembor Selatan', 'Lembor Selatan', 'PEG1050', 'DINAS'),
-(56, 'Kuwus', 'Kuwus', 'PEG1051', 'DINAS'),
-(57, 'Welak', 'Welak', 'PEG1052', 'DINAS'),
-(58, 'Ndoso', 'Ndoso', 'PEG1053', 'DINAS'),
-(59, 'Macang Pacar', 'Macang Pacar', 'PEG1054', 'DINAS'),
-(60, 'Pacar', 'Pacar', 'PEG1055', 'DINAS'),
-(61, 'Kuwus Barat', 'Kuwus Barat', 'PEG1056', 'DINAS'),
-(62, 'Labuah Bajo', 'Labuah Bajo', 'PEG1057', 'DINAS'),
-(63, 'Wae Kelambu', 'Wae Kelambu', 'PEG1058', 'DINAS'),
-(64, 'Nantal', 'Nantal', 'PEG1059', 'DINAS'),
-(65, 'Tangge', 'Tangge', 'PEG1060', 'DINAS'),
+(11, 'dispen', 'dispen', 'PEG1006', 'INSTANSI'),
+(15, 'BAU', 'BAU', 'PEG1010', 'INSTANSI'),
+(16, 'humas', 'HUMAS', 'PEG1011', 'INSTANSI'),
+(17, 'hukum', 'hukum', 'PEG1012', 'INSTANSI'),
+(18, 'organisasi', 'organisasi', 'PEG1013', 'INSTANSI'),
+(19, 'kesra', 'kesra', 'PEG1014', 'INSTANSI'),
+(20, 'SDA', 'sda', 'PEG1015', 'INSTANSI'),
+(21, 'pembangunan', 'pembangunan', 'PEG1016', 'INSTANSI'),
+(22, 'pemerintahan', 'pemerintahan', 'PEG1017', 'INSTANSI'),
+(23, 'sekwan', 'sekwan', 'PEG1018', 'INSTANSI'),
+(24, 'korpri', 'korpri', 'PEG1019', 'INSTANSI'),
+(25, 'polpp', 'polpp', 'PEG1020', 'INSTANSI'),
+(26, 'inspektorat', 'inspektorat', 'PEG1021', 'INSTANSI'),
+(27, 'rsud', 'rsud', 'PEG1022', 'INSTANSI'),
+(28, 'bapeda', 'bapeda', 'PEG1023', 'INSTANSI'),
+(29, 'kesbangpol', 'kesbangpol', 'PEG1024', 'INSTANSI'),
+(30, 'bencana', 'bencana', 'PEG1025', 'INSTANSI'),
+(31, 'keuangan', 'keuangan', 'PEG1026', 'INSTANSI'),
+(32, 'pu', 'pu', 'PEG1027', 'INSTANSI'),
+(33, 'infokom', 'infokom', 'PEG1028', 'INSTANSI'),
+(34, 'dipe', 'dipe', 'PEG1029', 'INSTANSI'),
+(35, 'dinkes', 'dinkes', 'PEG1030', 'INSTANSI'),
+(36, 'ketahanan ', 'ketahanan', 'PEG1031', 'INSTANSI'),
+(37, 'diperizinan', 'diperizinan', 'PEG1032', 'INSTANSI'),
+(38, 'perkebunan', 'perkebunan', 'PEG1033', 'INSTANSI'),
+(39, 'LHK', 'LHK', 'PEG1034', 'INSTANSI'),
+(40, 'perhubungan', 'perhubungan', 'PEG1035', 'INSTANSI'),
+(41, 'capil', 'capil', 'PEG1036', 'INSTANSI'),
+(42, 'sosial', 'sosial', 'PEG1037', 'INSTANSI'),
+(43, 'nakertrans', 'nakertrans', 'PEG1038', 'INSTANSI'),
+(44, 'pariwisata', 'pariwisata', 'PEG1039', 'INSTANSI'),
+(45, 'perumahan', 'perumahan', 'PEG1040', 'INSTANSI'),
+(46, 'perindagkop', 'perindagkop', 'PEG1041', 'INSTANSI'),
+(47, 'peternakan', 'peternakan', 'PEG1042', 'INSTANSI'),
+(48, 'pemberdayaan', 'pemberdayaan', 'PEG1043', 'INSTANSI'),
+(49, 'kb', 'kb', 'PEG1044', 'INSTANSI'),
+(50, 'Komodo', 'Komodo', 'PEG1045', 'INSTANSI'),
+(51, ' Mbeliling', ' Mbeliling', 'PEG1046', 'INSTANSI'),
+(52, 'Boleng', 'Boleng', 'PEG1047', 'INSTANSI'),
+(53, 'Sano Nggoang', 'Sano Nggoang', 'PEG1048', 'INSTANSI'),
+(54, 'Lembor', 'Lembor', 'PEG1049', 'INSTANSI'),
+(55, 'Lembor Selatan', 'Lembor Selatan', 'PEG1050', 'INSTANSI'),
+(56, 'Kuwus', 'Kuwus', 'PEG1051', 'INSTANSI'),
+(57, 'Welak', 'Welak', 'PEG1052', 'INSTANSI'),
+(58, 'Ndoso', 'Ndoso', 'PEG1053', 'INSTANSI'),
+(59, 'Macang Pacar', 'Macang Pacar', 'PEG1054', 'INSTANSI'),
+(60, 'Pacar', 'Pacar', 'PEG1055', 'INSTANSI'),
+(61, 'Kuwus Barat', 'Kuwus Barat', 'PEG1056', 'INSTANSI'),
+(62, 'Labuah Bajo', 'Labuah Bajo', 'PEG1057', 'INSTANSI'),
+(63, 'Wae Kelambu', 'Wae Kelambu', 'PEG1058', 'INSTANSI'),
+(64, 'Nantal', 'Nantal', 'PEG1059', 'INSTANSI'),
+(65, 'Tangge', 'Tangge', 'PEG1060', 'INSTANSI'),
 (66, 'Bagian Umum', 'BagianUmum', 'PEG1061', 'TU'),
-(67, 'Bagian Keuangan', 'BagianKeuangan', 'PEG1062', 'PEGAWAI'),
-(68, 'INKA', 'INKA', 'PEG1063', 'PEGAWAI'),
-(69, 'Bidang Diklat', 'BidangDiklat', 'PEG1064', 'PEGAWAI'),
-(70, 'mutasi', 'mutasi', 'PEG1065', 'PEGAWAI'),
+(67, 'Bagian Keuangan', 'BagianKeuangan', 'PEG1062', 'BIDANG'),
+(68, 'INKA', 'INKA', 'PEG1063', 'BIDANG'),
+(69, 'Bidang Diklat', 'BidangDiklat', 'PEG1064', 'BIDANG'),
+(70, 'mutasi', 'mutasi', 'PEG1065', 'BIDANG'),
 (71, 'tu', 'tu', 'PEG1066', 'TU');
 
 -- --------------------------------------------------------
@@ -223,8 +221,7 @@ CREATE TABLE `tb_surat_keluar` (
 --
 
 INSERT INTO `tb_surat_keluar` (`id_surat_keluar`, `id_jenis_surat`, `id_format_surat`, `lampiran`, `no_surat`, `isi`, `tembusan`, `tanggal`, `file_surat`, `atas_nama`, `status`) VALUES
-('SUK1001', 5, 1, 'lampiran', 'BKPPD.890/182/VII/2017', '<p>isi</p>\r\n', '<p>tembusan</p>\r\n', '2017-05-07', 'SUK1001.pdf', 'IR. Sebastianus Wantung-192 XXXXX', 1),
-('SUK1002', 6, 1, 'lampiran', 'BKPPD/822', '<p>Dengan ini diberitahukan bahwa berhubung dengan telah dipenuhi masa kerja dan syarat-syarat lain nya kepada :</p>\r\n\r\n<p>1. Nama&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;: .........<br />\r\n2. Nomor Induk Pegawai (NIP)&nbsp; &nbsp; &nbsp; : .........<br />\r\n3. Pangkat/Golongan Ruang Gaji &nbsp;: .........<br />\r\n4. Unit Kerja&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;: Badan Kepegawaian, Pendidikan dan Pelatihan Daerah Kabupaten Manggarai Barat<br />\r\n5. Gaji Pokok Lama&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; : Rp. ......</p>\r\n\r\n<p>&nbsp; &nbsp; (Atas dasar SKP terakhir tentang gaji/pangkat yang ditetapkan):<br />\r\n&nbsp; &nbsp;&nbsp;<br />\r\n&nbsp; &nbsp; a. Oleh Pejabat&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;: Bupati Manggarai Barat<br />\r\n&nbsp; &nbsp; b. Tanggal&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;: .......<br />\r\n&nbsp; &nbsp; c. Nomor&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;: .......<br />\r\n&nbsp; &nbsp; d. Tanggal berlakunya Gaji tersebut&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;:&nbsp;.......<br />\r\n&nbsp; &nbsp; e. Masa Kerja Golongan pada tanggal tersebut : .......</p>\r\n\r\n<p>&nbsp; &nbsp; Diberikan gaji berkala hingga memperoleh :</p>\r\n\r\n<p>6. Gaji Pokok Baru&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; : Rp. ......<br />\r\n7. Berdasarkan Maasa Kerja&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; : ......<br />\r\n8. Pangkat/Golongan ruang&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; : ......<br />\r\n9. Terhitung Mulai Tanggal&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; : ......<br />\r\n10.TMT Gaji Berkala berikutnya&nbsp; &nbsp; &nbsp; : ......</p>\r\n\r\n<p>Diharapkan agar sesuai dengan peraturan pemerintah Nomor 30 Tahun 2015, maka kepada pegawai negeri sipil tersebut dapat dibayarkan penghasilan nya sebesar gaji yang baru.</p>\r\n', '<p>asdf</p>\r\n', '2018-12-31', 'SUK1002.pdf', 'AGUSTINUS CH.DULA - XXX XXX XXX', 1);
+('SUK1001', 5, 1, 'asdf u', 'BKPPD.890/182/VII/2017', '<p style=\"text-align:justify\">&nbsp; &nbsp; &nbsp; &nbsp;Sesuai perihal surat diatas, maka dengna ini disampaikan bahwa&nbsp;Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellat totam ipsum iure accusamus officia quod veniam laborum. Rerum libero consequatur quo laborum reiciendis officia id? Aperiam similique dicta quod vitae.&nbsp;Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellat totam ipsum iure accusamus officia quod veniam laborum. Rerum libero consequatur quo laborum reiciendis officia id? Aperiam similique dicta quod vitae.&nbsp;Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellat totam ipsum iure accusamus officia quod veniam laborum. Rerum libero consequatur quo laborum reiciendis officia id? Aperiam similique dicta quod vitae.</p>\r\n\r\n<p style=\"text-align:justify\">Demikian untuk maklum dan atas kerjasamanya diucapkan terima kasih.</p>\r\n', '<p>asdf</p>\r\n', '2018-12-31', 'SUK1001.pdf', 'Drs.Bernadus Dandur,M.S-19630404 19610 1 001', 1);
 
 -- --------------------------------------------------------
 
@@ -248,14 +245,6 @@ CREATE TABLE `tb_surat_masuk` (
   `status` int(11) NOT NULL DEFAULT '0',
   `instruksi` text
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data untuk tabel `tb_surat_masuk`
---
-
-INSERT INTO `tb_surat_masuk` (`id_surat_masuk`, `id_user`, `no_surat`, `no_agenda`, `indeks_masalah`, `perihal`, `tanggal_surat`, `tanggal_surat_penerimaan`, `file_surat`, `scan_surat`, `scan_surat2`, `id_jabatan`, `status`, `instruksi`) VALUES
-('SUM1001', 'PEG1006', 'no surat', 'no agenda', 'indeks masalah', 'perihal', '2018-12-31', '2018-12-31', 'SUM1001.pdf', 'SUM1001-1.png', 'SUM1001-2.png', 6, 0, 'instruksi'),
-('SUM1002', 'PEG1012', 'no surat', 'no agenda', 'indeks masalah', 'perihal', '2018-12-31', '2018-12-31', 'SUM1002.pdf', 'SUM1002-1.png', 'SUM1002-2.png', 6, 0, 'instruksi');
 
 -- --------------------------------------------------------
 
@@ -336,7 +325,8 @@ INSERT INTO `tb_user` (`id_user`, `nip`, `nama`, `id_jabatan`, `gambar`) VALUES
 ('PEG1063', '', 'Viktor Budi,SH', 8, ''),
 ('PEG1064', '', 'Herman Nantu,S.IP', 10, ''),
 ('PEG1065', '', 'Kristina Nala, SH', 9, ''),
-('PEG1066', '', 'Marselina J.Endang, SE', 4, '');
+('PEG1066', '', 'Marselina J.Endang, SE', 4, ''),
+('PEG1067', '19630404 19610 1 001', 'Drs.Bernadus Dandur,M.S', 2, '');
 
 --
 -- Indexes for dumped tables
@@ -455,3 +445,14 @@ ALTER TABLE `tb_surat_keluar`
 ALTER TABLE `tb_surat_masuk`
   ADD CONSTRAINT `tb_surat_masuk_ibfk_1` FOREIGN KEY (`id_jabatan`) REFERENCES `tb_jabatan` (`id_jabatan`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `tb_surat_masuk_ibfk_2` FOREIGN KEY (`id_user`) REFERENCES `tb_user` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Ketidakleluasaan untuk tabel `tb_user`
+--
+ALTER TABLE `tb_user`
+  ADD CONSTRAINT `tb_user_ibfk_1` FOREIGN KEY (`id_jabatan`) REFERENCES `tb_jabatan` (`id_jabatan`) ON DELETE CASCADE ON UPDATE CASCADE;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

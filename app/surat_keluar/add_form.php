@@ -8,7 +8,7 @@
 
                 <form action="surat_keluar/add.php" method="POST">
 
-                    <div class="form-group">
+                    <!-- <div class="form-group">
                         <h5>Kop Surat</h5>
 
                         <select required name="id_format_surat" class="form-control">
@@ -21,7 +21,7 @@
                             <option value="<?= $value['id_format_surat'] ?>"><?= $value['nama_kop'] ?></option>
                             <?php endforeach ?>
                         </select>
-                    </div>
+                    </div> -->
 
                     <div class="form-group">
                         <h5>Tanggal Surat Dibuat</h5>
@@ -90,7 +90,6 @@
                             ?>
                             <option value="<?= $value['nama']."-".$value['nip'] ?>"><?= $value['nama']." - ".$value['jabatan'] ?></option>
                             <?php endforeach ?>
-                            <option value="AGUSTINUS CH.DULA - XXX XXX XXX">AGUSTINUS CH.DULA - BUPATI</option>
                         </select>
 
                     </div>  

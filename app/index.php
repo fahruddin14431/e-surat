@@ -172,7 +172,7 @@ if (empty($_SESSION['sess_user'])) {
 						<li> 
 							<a class="waves-effect waves-dark" href="index.php?page=view_laporan_surat_keluar" aria-expanded="false"><i class="fa fa-clipboard"></i><span class="hide-menu"> Laporan Surat Keluar</span></a>
 						</li>
-					<?php elseif($auth->isDinas()): ?>
+					<?php elseif($auth->isInstansi()): ?>
 						<li> 
 							<a class="waves-effect waves-darkenvelope-open" href="index.php?page=view_surat_masuk" aria-expanded="false"><i class="fa fa-envelope-open"></i><span class="hide-menu"> Surat Masuk</span></a>
 						</li>
@@ -182,7 +182,8 @@ if (empty($_SESSION['sess_user'])) {
 						<li> 
 							<a class="waves-effect waves-dark" href="index.php?page=view_laporan_surat_keluar" aria-expanded="false"><i class="fa fa-clipboard"></i><span class="hide-menu"> Laporan Surat Keluar</span></a>
 						</li> -->
-					<?php elseif($auth->isPegawai()): ?>
+					<?php elseif($auth->isBidang()): ?>
+					
 						<li> 
 							<a class="waves-effect waves-darkenvelope-open" href="index.php?page=view_surat_masuk_tu" aria-expanded="false"><i class="fa fa-envelope-open"></i><span class="hide-menu"> Surat Masuk</span></a>
 						</li>

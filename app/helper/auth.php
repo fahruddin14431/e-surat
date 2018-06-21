@@ -18,12 +18,12 @@ class Auth {
 		return ($_SESSION['sess_user']['sess_status'] == "TU");
 	}
 
-	public function isDinas(){
-		return ($_SESSION['sess_user']['sess_status'] == "DINAS");
+	public function isInstansi(){
+		return ($_SESSION['sess_user']['sess_status'] == "INSTANSI");
 	}
 
-	public function isPegawai(){
-		return ($_SESSION['sess_user']['sess_status'] == "PEGAWAI");
+	public function isBidang(){
+		return ($_SESSION['sess_user']['sess_status'] == "BIDANG");
 	}
 
 	public function getUser($id_user){

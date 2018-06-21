@@ -17,7 +17,7 @@ $result2         = $crud->view(" SELECT * FROM tb_detail_surat_keluar
 
                 <form action="surat_keluar/edit.php" method="POST">
 
-                    <div class="form-group">
+                    <!-- <div class="form-group">
                         <h5>Kop Surat</h5>
 
                         <select required name="id_format_surat" class="form-control">
@@ -30,7 +30,7 @@ $result2         = $crud->view(" SELECT * FROM tb_detail_surat_keluar
                             <option <?= $result1['id_format_surat']==$value['id_format_surat']?"selected":"" ?> value="<?= $value['id_format_surat'] ?>"><?= $value['nama_kop'] ?></option>
                             <?php endforeach ?>
                         </select>
-                    </div>
+                    </div> -->
 
                     <div class="form-group">
                         <h5>Tanggal Surat Dibuat</h5>
