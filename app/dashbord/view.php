@@ -4,7 +4,9 @@
 		<div class="box box-danger">
 			<div class="inner">
 				<h2 class="white-text strong">
+					<?php if(!$auth->isInstansi()):?>
 					Badan Kepegawaian Pendidikan dan Pelatihan Daerah Kabupaten Manggarai Barat-Flores – NTT 
+					<?php endif;?>
 					<br>
 					<?= $auth->getUser($_SESSION['sess_user']['sess_id_user']) ?>
 				</h2>

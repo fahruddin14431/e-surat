@@ -32,7 +32,7 @@ ob_start();
             <p>KARTU DISPOSISI</p>
         </td>
         <td colspan="6">
-            <p>Tanggal : <?= $_POST['tgl_penerimaan'] ?></p>
+            <p>Tanggal : <?= date("d-m-Y", strtotime($_POST['tgl_penerimaan'])); ?></p>
         </td>
     </tr>
     <tr>
@@ -59,7 +59,7 @@ ob_start();
     </tr>
     <tr>
         <td colspan="6">      
-            <p>Tanggal Surat : <?= $_POST['tgl_surat'] ?></p>
+            <p>Tanggal Surat : <?= date("d-m-Y", strtotime($_POST['tgl_surat'])); ?></p>
         </td>
         <td colspan="6">
             <p>No Surat : <?= $_POST['no_surat'] ?></p>

@@ -43,7 +43,7 @@ ob_start();
     <tr>
         <td colspan="8"></td>
         <td colspan="4">
-            <p class="pull-right">Labuan Bajo, <?= $tanggal ?></p>
+            <p class="pull-right"><?= $_POST['dari']?>, <?= date("d-m-Y", strtotime($tanggal)); ?></p>
         </td>
     </tr>
     <tr>
@@ -66,7 +66,7 @@ ob_start();
                 }
                 ?>
                 <br>
-                <p>di Labuhan Bajo</p>
+            <p>di Labuhan Bajo</p>
         </td>
     </tr>
     <tr>
@@ -79,12 +79,12 @@ ob_start();
         <td></td>
         <td></td>
         <td colspan="9" class="text-center">
-            <p>
-                Kepala Badan Kepegawaian Pendidikan dan Pelatihan<br>
-                Daerah Kabupaten Manggarai Barat <br><br><br><br>
+            <p>                
                 <?php 
-                $data = explode("-",$_POST['atas_nama']);
+                    $data = explode("-",$_POST['atas_nama']);
                 ?>
+                A.n Kepala Badan Kepegawaian Pendidikan dan Pelatihan<br>
+                Daerah Kabupaten Manggarai Barat <br><br>               
                 <b><u><?= $data[0] ?></u></b><br>
                 Pembina Utama Muda <br>
                 NIP. <?= $data[1] ?>
@@ -134,8 +134,9 @@ $res = $crud->insert("tb_surat_keluar",$data);
 
 foreach ($_POST['id_user'] as $id_user) {
     $data1 = array(
-        'id_user'      => $id_user,
-        'id_surat_keluar' => $id_surat_keluar    
+        'id_user'         => $id_user,
+        'id_surat_keluar' => $id_surat_keluar,
+        'id_jabatan'      => $_POST['id_jabatan']
     );
     
     $res1 = $crud->insert("tb_detail_surat_keluar",$data1);

@@ -28,11 +28,19 @@
                     <tbody>
                         <?php 
                             $crud   = new Crud();
-                            $result = $crud->view(" SELECT *, tb_surat_keluar.no_surat as fix_no_surat FROM tb_surat_keluar
-                                                    INNER JOIN tb_jenis_surat ON tb_surat_keluar.id_jenis_surat = tb_jenis_surat.id_jenis_surat
-                                                    INNER JOIN tb_detail_surat_keluar ON tb_surat_keluar.id_surat_keluar = tb_detail_surat_keluar.id_surat_keluar
-                                                    INNER JOIN tb_user ON tb_user.id_user = tb_detail_surat_keluar.id_user
-                                               ");            
+                            
+                            $sql = "SELECT *, tb_surat_keluar.no_surat as fix_no_surat FROM tb_surat_keluar
+                                    INNER JOIN tb_jenis_surat ON tb_surat_keluar.id_jenis_surat = tb_jenis_surat.id_jenis_surat
+                                    INNER JOIN tb_detail_surat_keluar ON tb_surat_keluar.id_surat_keluar = tb_detail_surat_keluar.id_surat_keluar
+                                    INNER JOIN tb_user ON tb_user.id_user = tb_detail_surat_keluar.id_user";
+                            // condition bidang
+                            // ambil data dari session bidang
+                            $sess_id_jabatan = $_SESSION['sess_user']['sess_id_user'];
+                            $id_jabatan      = $crud->view("SELECT id_jabatan FROM tb_user WHERE id_user='$sess_id_jabatan'")[0]['id_jabatan'];
+                            if($auth->isBidang()){
+                                $sql .=" WHERE tb_detail_surat_keluar.id_jabatan = '$id_jabatan'";
+                            }
+                            $result = $crud->view($sql);            
                             $no = 1;
                             foreach ($result as $value):
                         ?>
@@ -52,7 +60,9 @@
                                 <?php if($auth->isTU() && $value['status']==0 ):?>
                                 <a href="index.php?page=edit_surat_keluar&id_surat_keluar=<?= $value['id_surat_keluar'] ?>" class="btn btn-warning">Ubah</a>
                                 <?php endif ?>
+                                <?php if(!$auth->isBidang()):?>
                                 <a href="index.php?page=delete_surat_keluar&id_surat_keluar=<?= $value['id_surat_keluar'] ?>" onClick="return confirm('Data Akan Dihapus !')" class="btn btn-danger">Hapus</a>
+                                <?php endif ?>
                             </td>
                         </tr>
                         <?php endforeach ?>

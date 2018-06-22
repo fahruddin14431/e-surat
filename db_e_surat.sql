@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: 21 Jun 2018 pada 14.47
+-- Generation Time: 22 Jun 2018 pada 10.13
 -- Versi Server: 10.1.26-MariaDB
 -- PHP Version: 7.1.9
 
@@ -29,16 +29,18 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `tb_detail_surat_keluar` (
+  `id` int(11) NOT NULL,
   `id_surat_keluar` varchar(11) NOT NULL,
-  `id_user` varchar(11) NOT NULL
+  `id_user` varchar(11) NOT NULL,
+  `id_jabatan` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `tb_detail_surat_keluar`
 --
 
-INSERT INTO `tb_detail_surat_keluar` (`id_surat_keluar`, `id_user`) VALUES
-('SUK1001', 'PEG1012');
+INSERT INTO `tb_detail_surat_keluar` (`id`, `id_surat_keluar`, `id_user`, `id_jabatan`) VALUES
+(6, 'SUK1001', 'PEG1012', 6);
 
 -- --------------------------------------------------------
 
@@ -213,15 +215,16 @@ CREATE TABLE `tb_surat_keluar` (
   `tanggal` date NOT NULL,
   `file_surat` varchar(100) NOT NULL,
   `atas_nama` varchar(100) NOT NULL,
-  `status` int(1) NOT NULL DEFAULT '0'
+  `status` int(1) NOT NULL DEFAULT '0',
+  `dari` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `tb_surat_keluar`
 --
 
-INSERT INTO `tb_surat_keluar` (`id_surat_keluar`, `id_jenis_surat`, `id_format_surat`, `lampiran`, `no_surat`, `isi`, `tembusan`, `tanggal`, `file_surat`, `atas_nama`, `status`) VALUES
-('SUK1001', 5, 1, 'asdf u', 'BKPPD.890/182/VII/2017', '<p style=\"text-align:justify\">&nbsp; &nbsp; &nbsp; &nbsp;Sesuai perihal surat diatas, maka dengna ini disampaikan bahwa&nbsp;Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellat totam ipsum iure accusamus officia quod veniam laborum. Rerum libero consequatur quo laborum reiciendis officia id? Aperiam similique dicta quod vitae.&nbsp;Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellat totam ipsum iure accusamus officia quod veniam laborum. Rerum libero consequatur quo laborum reiciendis officia id? Aperiam similique dicta quod vitae.&nbsp;Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellat totam ipsum iure accusamus officia quod veniam laborum. Rerum libero consequatur quo laborum reiciendis officia id? Aperiam similique dicta quod vitae.</p>\r\n\r\n<p style=\"text-align:justify\">Demikian untuk maklum dan atas kerjasamanya diucapkan terima kasih.</p>\r\n', '<p>asdf</p>\r\n', '2018-12-31', 'SUK1001.pdf', 'Drs.Bernadus Dandur,M.S-19630404 19610 1 001', 1);
+INSERT INTO `tb_surat_keluar` (`id_surat_keluar`, `id_jenis_surat`, `id_format_surat`, `lampiran`, `no_surat`, `isi`, `tembusan`, `tanggal`, `file_surat`, `atas_nama`, `status`, `dari`) VALUES
+('SUK1001', 5, 1, 'asdf', 'BKPPD.890/182/VII/2017', '', '', '2018-12-31', 'SUK1001.pdf', 'IR. Sebastianus Wantung-19650804 199703 1 002', 0, '');
 
 -- --------------------------------------------------------
 
@@ -246,6 +249,13 @@ CREATE TABLE `tb_surat_masuk` (
   `instruksi` text
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data untuk tabel `tb_surat_masuk`
+--
+
+INSERT INTO `tb_surat_masuk` (`id_surat_masuk`, `id_user`, `no_surat`, `no_agenda`, `indeks_masalah`, `perihal`, `tanggal_surat`, `tanggal_surat_penerimaan`, `file_surat`, `scan_surat`, `scan_surat2`, `id_jabatan`, `status`, `instruksi`) VALUES
+('SUM1001', 'PEG1006', 'asdf', 'asdf', 'asdf', 'asdf', '2018-12-31', '2018-12-31', 'SUM1001.pdf', 'SUM1001-1.jpeg', 'SUM1001-2.jpeg', 6, 0, 'asdf');
+
 -- --------------------------------------------------------
 
 --
@@ -265,7 +275,7 @@ CREATE TABLE `tb_user` (
 --
 
 INSERT INTO `tb_user` (`id_user`, `nip`, `nama`, `id_jabatan`, `gambar`) VALUES
-('PEG1001', '192 XXXXX', 'IR. Sebastianus Wantung', 1, ''),
+('PEG1001', '19650804 199703 1 002', 'IR. Sebastianus Wantung', 1, ''),
 ('PEG1002', '', 'MAKSIMUS E. JAPEN, SE', 4, ''),
 ('PEG1004', '', 'WILHELMINA O. JAMI', 4, ''),
 ('PEG1006', '', 'Dinas Pendidikan Pemuda dan Olahraga', 5, 'pko.png'),
@@ -336,8 +346,10 @@ INSERT INTO `tb_user` (`id_user`, `nip`, `nama`, `id_jabatan`, `gambar`) VALUES
 -- Indexes for table `tb_detail_surat_keluar`
 --
 ALTER TABLE `tb_detail_surat_keluar`
+  ADD PRIMARY KEY (`id`),
   ADD KEY `id_surat_keluar` (`id_surat_keluar`),
-  ADD KEY `id_pegawai` (`id_user`);
+  ADD KEY `id_pegawai` (`id_user`),
+  ADD KEY `id_jabatan` (`id_jabatan`);
 
 --
 -- Indexes for table `tb_format_surat`
@@ -392,6 +404,12 @@ ALTER TABLE `tb_user`
 --
 
 --
+-- AUTO_INCREMENT for table `tb_detail_surat_keluar`
+--
+ALTER TABLE `tb_detail_surat_keluar`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
 -- AUTO_INCREMENT for table `tb_format_surat`
 --
 ALTER TABLE `tb_format_surat`
@@ -424,7 +442,8 @@ ALTER TABLE `tb_login`
 --
 ALTER TABLE `tb_detail_surat_keluar`
   ADD CONSTRAINT `tb_detail_surat_keluar_ibfk_2` FOREIGN KEY (`id_user`) REFERENCES `tb_user` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `tb_detail_surat_keluar_ibfk_3` FOREIGN KEY (`id_surat_keluar`) REFERENCES `tb_surat_keluar` (`id_surat_keluar`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `tb_detail_surat_keluar_ibfk_3` FOREIGN KEY (`id_surat_keluar`) REFERENCES `tb_surat_keluar` (`id_surat_keluar`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `tb_detail_surat_keluar_ibfk_4` FOREIGN KEY (`id_jabatan`) REFERENCES `tb_jabatan` (`id_jabatan`);
 
 --
 -- Ketidakleluasaan untuk tabel `tb_login`

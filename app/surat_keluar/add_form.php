@@ -60,16 +60,29 @@
                             <?php 
                                 $sess_dinas = $_SESSION['sess_user']['sess_id_user'];
                                 $crud   = new Crud();
-                                $result = $crud->view(" SELECT * FROM `tb_user` 
-                                                        WHERE `id_jabatan`='5'
-                                                    ");          
+                                $result = $crud->view("SELECT * FROM `tb_user` WHERE `id_jabatan`='5'");          
                                 foreach ($result as  $value):
                             ?>
                             <option value="<?= $value['id_user'] ?>"><?= $value['nama'] ?></option>
                             <?php endforeach ?>
                         </select>
 
-                    </div>     
+                    </div>    
+
+                    <div class="form-group">
+                        <h5>Arsip Bidang</h5>
+
+                        <select required name="id_jabatan" class="form-control">                            
+                            <option value="">-- Pilih Arsip Bidang -- </option>
+                            <?php 
+                                $result = $crud->view("SELECT * FROM tb_jabatan WHERE id_jabatan IN(6,7,8,9,10)");                   
+                                foreach ($result as  $value):
+                            ?>
+                            <option value="<?= $value['id_jabatan'] ?>"><?= $value['jabatan'] ?></option>
+                            <?php endforeach ?>
+                        </select>
+
+                    </div>   
 
                     <div class="form-group">
                         <h5>Isi Surat Keluar</h5>
@@ -93,6 +106,11 @@
                         </select>
 
                     </div>  
+
+                    <div class="form-group">
+                        <h5>Dari</h5>
+                        <input type="text" name="dari" class="form-control" required placeholder="Dari">
+                    </div>
 
                     <div class="form-group">
                         <h5>Tembusan</h5>
