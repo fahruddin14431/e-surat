@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: 22 Jun 2018 pada 10.13
+-- Generation Time: 22 Jun 2018 pada 11.21
 -- Versi Server: 10.1.26-MariaDB
 -- PHP Version: 7.1.9
 
@@ -34,13 +34,6 @@ CREATE TABLE `tb_detail_surat_keluar` (
   `id_user` varchar(11) NOT NULL,
   `id_jabatan` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data untuk tabel `tb_detail_surat_keluar`
---
-
-INSERT INTO `tb_detail_surat_keluar` (`id`, `id_surat_keluar`, `id_user`, `id_jabatan`) VALUES
-(6, 'SUK1001', 'PEG1012', 6);
 
 -- --------------------------------------------------------
 
@@ -191,7 +184,7 @@ INSERT INTO `tb_login` (`id`, `nama_pengguna`, `kata_sandi`, `id_user`, `status`
 (63, 'Wae Kelambu', 'Wae Kelambu', 'PEG1058', 'INSTANSI'),
 (64, 'Nantal', 'Nantal', 'PEG1059', 'INSTANSI'),
 (65, 'Tangge', 'Tangge', 'PEG1060', 'INSTANSI'),
-(66, 'Bagian Umum', 'BagianUmum', 'PEG1061', 'TU'),
+(66, 'Bagian Umum', 'BagianUmum', 'PEG1061', 'BIDANG'),
 (67, 'Bagian Keuangan', 'BagianKeuangan', 'PEG1062', 'BIDANG'),
 (68, 'INKA', 'INKA', 'PEG1063', 'BIDANG'),
 (69, 'Bidang Diklat', 'BidangDiklat', 'PEG1064', 'BIDANG'),
@@ -219,13 +212,6 @@ CREATE TABLE `tb_surat_keluar` (
   `dari` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data untuk tabel `tb_surat_keluar`
---
-
-INSERT INTO `tb_surat_keluar` (`id_surat_keluar`, `id_jenis_surat`, `id_format_surat`, `lampiran`, `no_surat`, `isi`, `tembusan`, `tanggal`, `file_surat`, `atas_nama`, `status`, `dari`) VALUES
-('SUK1001', 5, 1, 'asdf', 'BKPPD.890/182/VII/2017', '', '', '2018-12-31', 'SUK1001.pdf', 'IR. Sebastianus Wantung-19650804 199703 1 002', 0, '');
-
 -- --------------------------------------------------------
 
 --
@@ -248,13 +234,6 @@ CREATE TABLE `tb_surat_masuk` (
   `status` int(11) NOT NULL DEFAULT '0',
   `instruksi` text
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data untuk tabel `tb_surat_masuk`
---
-
-INSERT INTO `tb_surat_masuk` (`id_surat_masuk`, `id_user`, `no_surat`, `no_agenda`, `indeks_masalah`, `perihal`, `tanggal_surat`, `tanggal_surat_penerimaan`, `file_surat`, `scan_surat`, `scan_surat2`, `id_jabatan`, `status`, `instruksi`) VALUES
-('SUM1001', 'PEG1006', 'asdf', 'asdf', 'asdf', 'asdf', '2018-12-31', '2018-12-31', 'SUM1001.pdf', 'SUM1001-1.jpeg', 'SUM1001-2.jpeg', 6, 0, 'asdf');
 
 -- --------------------------------------------------------
 
@@ -407,13 +386,13 @@ ALTER TABLE `tb_user`
 -- AUTO_INCREMENT for table `tb_detail_surat_keluar`
 --
 ALTER TABLE `tb_detail_surat_keluar`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `tb_format_surat`
 --
 ALTER TABLE `tb_format_surat`
-  MODIFY `id_format_surat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_format_surat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `tb_jabatan`

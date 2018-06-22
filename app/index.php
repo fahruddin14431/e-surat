@@ -190,7 +190,7 @@ if (empty($_SESSION['sess_user'])) {
 							<a class="waves-effect waves-darkenvelope-open" href="index.php?page=view_surat_keluar" aria-expanded="false"><i class="fa fa-envelope"></i><span class="hide-menu"> Surat Keluar</span></a>
 						</li>
 						<li> 
-							<a class="waves-effect waves-dark" href="index.php?page=view_laporan" aria-expanded="false"><i class="fa fa-clipboard"></i><span class="hide-menu"> Laporan</span></a>
+							<a class="waves-effect waves-dark" href="index.php?page=view_laporan_surat_keluar" aria-expanded="false"><i class="fa fa-clipboard"></i><span class="hide-menu"> Laporan Surat Keluar</span></a>
 						</li>
 					<?php endif ?>
 					
