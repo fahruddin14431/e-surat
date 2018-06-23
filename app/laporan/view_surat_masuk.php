@@ -57,6 +57,15 @@
                                 $sql.= " AND tanggal_surat BETWEEN '$tgl_awal' AND '$tgl_akhir' ";
                             }
 
+                            // condition bidang
+                            // ambil data dari session bidang
+                            $sess_id_jabatan = $_SESSION['sess_user']['sess_id_user'];
+                            $id_jabatan      = $crud->view("SELECT id_jabatan FROM tb_user WHERE id_user='$sess_id_jabatan'")[0]['id_jabatan'];
+                            if($auth->isBidang()){
+                                $sql .=" AND tb_user.id_jabatan = '$id_jabatan'";
+                            }
+                            print_r($sql);
+
                             $result = $crud->view($sql);                     
                             $no = 1;
                             foreach ($result as $value):

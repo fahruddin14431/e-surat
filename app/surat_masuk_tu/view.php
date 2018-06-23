@@ -37,7 +37,16 @@
                             $sql = "SELECT * FROM tb_surat_masuk
                                     INNER JOIN tb_jabatan ON tb_surat_masuk.id_jabatan = tb_jabatan.id_jabatan 
                                     INNER JOIN tb_user ON tb_surat_masuk.id_user = tb_user.id_user
-                                    WHERE status='0'";                                    
+                                    WHERE status='0'";     
+
+                            // condition bidang
+                            // ambil data dari session bidang
+                            $sess_id_jabatan = $_SESSION['sess_user']['sess_id_user'];
+                            $id_jabatan      = $crud->view("SELECT id_jabatan FROM tb_user WHERE id_user='$sess_id_jabatan'")[0]['id_jabatan'];
+                            
+                            if($auth->isBidang()){
+                                $sql .= " AND tb_surat_masuk.id_jabatan = '$id_jabatan' ";
+                            }
 
                             $result = $crud->view($sql);                     
                             $no = 1;
