@@ -1,22 +1,17 @@
 <!-- Bootstrap Core CSS -->
 <link href="../../assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 <?php 
-
 include "../helper/crud.php";
 include "../../assets/mpdf/mpdf.php";
-
 $mpdf = new mPDF();
 $mpdf->debug = true;
 $mpdf->allow_output_buffering = true;
-
 // format surat
 $crud   = new Crud();
-
 $id_format_surat= 1;//$_POST['id_format_surat'];
 $result         = $crud->view("SELECT * FROM tb_format_surat WHERE id_format_surat='$id_format_surat'")[0];
 $logo           = "../../assets/images/" . $result['logo'];
 $kop            = $result['kop_surat'];
-
 $tanggal        = $_POST['tanggal_surat_dibuat'];
 $lampiran       = $_POST['lampiran'];
 $id_jenis_surat = $_POST['id_jenis_surat'];
@@ -24,9 +19,7 @@ $isi            = $_POST['isi_surat'];
 $dinas          = $_POST['id_user'];
 $no_surat       = $_POST['no_surat'];
 $tembusan       = $_POST['tembusan'];
-
 $get_jenis_surat = $crud->view("SELECT * FROM tb_jenis_surat WHERE id_jenis_surat='$id_jenis_surat'")[0];
-
 ob_start();
 ?>
 
@@ -43,7 +36,7 @@ ob_start();
     <tr>
         <td colspan="8"></td>
         <td colspan="4">
-            <p class="pull-right"><?= $_POST['dari']?>, <?= date("d-m-Y", strtotime($tanggal)); ?></p>
+           <p>Labuan Bajo, <?= date("d-m-Y", strtotime($tanggal)); ?></p>
         </td>
     </tr>
     <tr>
@@ -65,8 +58,9 @@ ob_start();
                     echo $key.".".$get_nama_dinas['nama']."<br>";
                 }
                 ?>
-                <br>
-            <p>di Labuhan Bajo</p>
+				<br>
+				<p>Di</p>
+			    <p class="pull-right"><?= $_POST['dari']?></p>
         </td>
     </tr>
     <tr>
@@ -105,17 +99,13 @@ ob_start();
 
 <?php 
 $id_surat_keluar = $crud->makeId("tb_surat_keluar", "id_surat_keluar", "SUK");
-
 $html = ob_get_contents();
 ob_end_clean();
 $stylesheet = file_get_contents('../../assets/plugins/bootstrap/css/bootstrap.min.css'); // external css
 $mpdf->WriteHTML($stylesheet,1);
 $mpdf->WriteHTML($html,2);
-
 $post_file = "../../file/surat_keluar/".$id_surat_keluar.".pdf";
-
 $mpdf->Output($post_file,"F");
-
 // insert surat keluar
 $data = array(
     'id_surat_keluar' => $id_surat_keluar,
@@ -127,11 +117,10 @@ $data = array(
     'lampiran'        => $lampiran,
     'tembusan'        => $tembusan,
     'file_surat'      => $id_surat_keluar.".pdf",
-    'atas_nama'       => $_POST['atas_nama']
+    'atas_nama'       => $_POST['atas_nama'],
+    'dari'            => $_POST['dari']
 );
-
 $res = $crud->insert("tb_surat_keluar",$data);
-
 foreach ($_POST['id_user'] as $id_user) {
     $data1 = array(
         'id_user'         => $id_user,
@@ -141,10 +130,7 @@ foreach ($_POST['id_user'] as $id_user) {
     
     $res1 = $crud->insert("tb_detail_surat_keluar",$data1);
 }
-
 if ($res && $res1) {
     header("location:../index.php?page=view_surat_keluar");
 }
-
-
 ?>

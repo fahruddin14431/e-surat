@@ -10,7 +10,6 @@
 
                     <!-- <div class="form-group">
                         <h5>Kop Surat</h5>
-
                         <select required name="id_format_surat" class="form-control">
                             <option value=""> -- Pilih Kop Surat -- </option>
                             <?php 
@@ -108,8 +107,8 @@
                     </div>  
 
                     <div class="form-group">
-                        <h5>Dari</h5>
-                        <input type="text" name="dari" class="form-control" required placeholder="Dari">
+                        <h5>Alamat</h5>
+                        <input type="text" name="dari" class="form-control" required placeholder="Alamat">
                     </div>
 
                     <div class="form-group">
@@ -128,19 +127,14 @@
     </div>
 </div> 
 <script>
-
 // config ckeditor
 CKEDITOR.replace( 'editor', {
     height: 400
 });
-
 CKEDITOR.replace( 'editor1', {
     height: 400
 });
-
-
 $(document).ready(function() {
-
     // ajax change isi surat
     $("#id_jenis_surat").change(function(){
         
@@ -159,15 +153,10 @@ $(document).ready(function() {
             }
         });
     });
-
     // select2
     $('.js-example-basic-multiple').select2({
         placeholder:"-- Kepada --",
         width: '100%'
     });
-
-
 });
 </script>
-
-

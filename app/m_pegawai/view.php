@@ -65,7 +65,7 @@
                             if($value['jabatan']=="Kepala BKPPD" || 
                                $value['jabatan']=="Sekretaris"||
                                $value['jabatan']=="STAFF"||
-                               $value['jabatan']=="Dinas")
+                               $value['jabatan']=="Instansi")
                             {
                                 $jabatan = $value['jabatan'];
                             }

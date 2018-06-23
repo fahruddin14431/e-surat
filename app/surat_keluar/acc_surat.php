@@ -37,7 +37,7 @@ ob_start();
     <tr>
         <td colspan="8"></td>
         <td colspan="4">
-            <p class="pull-right">Labuan Bajo, <?= $result['tanggal'] ?></p>
+            <p class="pull-right">Labuan Bajo, <?= date("d-m-Y", strtotime($tanggal)); ?></p>
         </td>
     </tr>
     <tr>
@@ -60,7 +60,8 @@ ob_start();
                 }
                 ?>
                 <br>
-                <p>di Labuhan Bajo</p>
+                <p>Di</p>
+                <p class="pull-right"><?= $result['dari']?></p>
         </td>
     </tr>
     <tr>
@@ -76,12 +77,12 @@ ob_start();
             <p>
                 Kepala Badan Kepegawaian Pendidikan dan Pelatihan<br>
                 Daerah Kabupaten Manggarai Barat 
-                <br><br>
+                <br>
                 <?php 
                 $data = explode("-",$result['atas_nama']);
                 ?>
                 <img src="../assets/ttd/<?= $data[0]=="IR. Sebastianus Wantung"?"ttd_kepala.jpeg":"ttd_bupati.jpeg" ?>" width="160px" height="160px">
-                <br><br>                
+                <br>             
                 <b><u><?= $data[0] ?></u></b><br>
                 Pembina Utama Muda <br>
                 NIP. <?= $data[1] ?>
