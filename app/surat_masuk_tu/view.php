@@ -47,6 +47,7 @@
                             if($auth->isBidang()){
                                 $sql .= " AND tb_surat_masuk.id_jabatan = '$id_jabatan' ";
                             }
+                            
 
                             $result = $crud->view($sql);                     
                             $no = 1;

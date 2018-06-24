@@ -77,7 +77,7 @@ ob_start();
                 <?php 
                     $data = explode("-",$_POST['atas_nama']);
                 ?>
-                A.n Kepala Badan Kepegawaian Pendidikan dan Pelatihan<br>
+                <?= $data[0]=="IR. Sebastianus Wantung"?"":"A.n " ?>Kepala Badan Kepegawaian Pendidikan dan Pelatihan<br>
                 Daerah Kabupaten Manggarai Barat <br><br>               
                 <b><u><?= $data[0] ?></u></b><br>
                 Pembina Utama Muda <br>

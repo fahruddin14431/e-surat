@@ -75,12 +75,12 @@ ob_start();
         <td></td>
         <td colspan="9" class="text-center pull-right">
             <p>
-                Kepala Badan Kepegawaian Pendidikan dan Pelatihan<br>
-                Daerah Kabupaten Manggarai Barat 
-                <br>
                 <?php 
                 $data = explode("-",$result['atas_nama']);
                 ?>
+                <?= $data[0]=="IR. Sebastianus Wantung"?"":"A.n " ?>Kepala Badan Kepegawaian Pendidikan dan Pelatihan<br>
+                Daerah Kabupaten Manggarai Barat 
+                <br>                
                 <img src="../assets/ttd/<?= $data[0]=="IR. Sebastianus Wantung"?"ttd_kepala.jpeg":"ttd_bupati.jpeg" ?>" width="160px" height="160px">
                 <br>             
                 <b><u><?= $data[0] ?></u></b><br>
