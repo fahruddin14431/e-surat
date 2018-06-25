@@ -12,7 +12,7 @@ $mpdf->allow_output_buffering = true;
 // format surat
 $crud   = new Crud();
 $id_surat_keluar = $_GET['id_surat_keluar'];
-$result = $crud->view(" SELECT * FROM tb_surat_keluar
+$result = $crud->view(" SELECT *, tb_surat_keluar.no_surat as fix_no_surat FROM tb_surat_keluar
                         INNER JOIN tb_jenis_surat ON tb_surat_keluar.id_jenis_surat = tb_jenis_surat.id_jenis_surat
                         INNER JOIN tb_detail_surat_keluar ON tb_surat_keluar.id_surat_keluar = tb_detail_surat_keluar.id_surat_keluar
                         WHERE tb_surat_keluar.id_surat_keluar='$id_surat_keluar'")[0];
@@ -42,7 +42,7 @@ ob_start();
     </tr>
     <tr>
         <td colspan="6">
-            <p>Nomor : <?= $result['no_surat']?> </p>
+            <p>Nomor : <?= $result['fix_no_surat']?> </p>
             <br>
             <p>Lampiran : <?= $result['lampiran'] ?></p>
             <br>
