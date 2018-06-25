@@ -267,6 +267,8 @@ if (empty($_SESSION['sess_user'])) {
 						include "m_format_surat/view.php";		
 					}else if($page == "add_format_surat"){
 						include "m_format_surat/add_form.php";		
+					}else if($page == "edit_format_surat"){
+						include "m_format_surat/edit_form.php";		
 					}else if($page == "delete_format_surat"){
 						include "m_format_surat/delete.php";		
 					}

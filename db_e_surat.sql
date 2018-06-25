@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: 24 Jun 2018 pada 13.17
+-- Generation Time: 25 Jun 2018 pada 04.44
 -- Versi Server: 10.1.26-MariaDB
 -- PHP Version: 7.1.9
 
@@ -40,8 +40,7 @@ CREATE TABLE `tb_detail_surat_keluar` (
 --
 
 INSERT INTO `tb_detail_surat_keluar` (`id`, `id_surat_keluar`, `id_user`, `id_jabatan`) VALUES
-(4, 'SUK1001', 'PEG1006', 6),
-(5, 'SUK1002', 'PEG1006', 6);
+(1, 'SUK1001', 'PEG1012', 6);
 
 -- --------------------------------------------------------
 
@@ -225,8 +224,7 @@ CREATE TABLE `tb_surat_keluar` (
 --
 
 INSERT INTO `tb_surat_keluar` (`id_surat_keluar`, `id_jenis_surat`, `id_format_surat`, `lampiran`, `no_surat`, `isi`, `tembusan`, `tanggal`, `file_surat`, `atas_nama`, `status`, `dari`) VALUES
-('SUK1001', 5, 1, 'asdf', 'asdaf', 'asdf', 'asdf', '2018-10-31', 'SUK1001.pdf', 'IR. Sebastianus Wantung-19650804 199703 1 002', 1, 'asdf'),
-('SUK1002', 5, 1, 'adsf', 'asdf', 'asdf', 'asdf', '2018-12-31', 'SUK1002.pdf', 'Drs.Bernadus Dandur,M.S-19630404 19610 1 001', 1, 'asdf');
+('SUK1001', 5, 1, 'lampiran', 'BKPPD.890/182/VII/2017', '<p style=\"text-align:justify\">&nbsp; &nbsp; &nbsp; &nbsp;Sesuai perihal surat diatas, maka dengna ini disampaikan bahwa&nbsp;Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellat totam ipsum iure accusamus officia quod veniam laborum. Rerum libero consequatur quo laborum reiciendis officia id? Aperiam similique dicta quod vitae.&nbsp;Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellat totam ipsum iure accusamus officia quod veniam laborum. Rerum libero consequatur quo laborum reiciendis officia id? Aperiam similique dicta quod vitae.&nbsp;Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellat totam ipsum iure accusamus officia quod veniam laborum. Rerum libero consequatur quo laborum reiciendis officia id? Aperiam similique dicta quod vitae.</p>\r\n\r\n<p style=\"text-align:justify\">Demikian untuk maklum dan atas kerjasamanya diucapkan terima kasih.</p>\r\n', '<p>asdf</p>\r\n', '2018-12-31', 'SUK1001.pdf', 'IR. Sebastianus Wantung-19650804 199703 1 002', 1, 'asdf');
 
 -- --------------------------------------------------------
 
@@ -338,7 +336,7 @@ INSERT INTO `tb_user` (`id_user`, `nip`, `nama`, `id_jabatan`, `gambar`) VALUES
 ('PEG1064', '', 'Herman Nantu,S.IP', 10, ''),
 ('PEG1065', '', 'Kristina Nala, SH', 9, ''),
 ('PEG1066', '', 'Marselina J.Endang, SE', 4, ''),
-('PEG1067', '19630404 19610 1 001', 'Drs.Bernadus Dandur,M.S', 2, '');
+('PEG1067', '19630404 19610 1 001', 'Drs.Bernadus Dandur, M.Si', 2, '');
 
 --
 -- Indexes for dumped tables
@@ -409,7 +407,7 @@ ALTER TABLE `tb_user`
 -- AUTO_INCREMENT for table `tb_detail_surat_keluar`
 --
 ALTER TABLE `tb_detail_surat_keluar`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `tb_format_surat`
@@ -453,4 +451,6 @@ ALTER TABLE `tb_detail_surat_keluar`
 ALTER TABLE `tb_login`
   ADD CONSTRAINT `tb_login_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `tb_user` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE;
 
+--
+-- Ketidakleluasaan untuk tabel `tb_surat_keluar`
 --

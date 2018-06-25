@@ -37,7 +37,7 @@ ob_start();
     <tr>
         <td colspan="8"></td>
         <td colspan="4">
-            <p class="pull-right">Labuan Bajo, <?= date("d-m-Y", strtotime($tanggal)); ?></p>
+            <p class="pull-right">Labuan Bajo, <?= date("d-m-Y", strtotime($result['tanggal'])); ?></p>
         </td>
     </tr>
     <tr>
