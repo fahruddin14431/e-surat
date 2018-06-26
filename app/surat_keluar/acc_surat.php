@@ -25,7 +25,7 @@ ob_end_clean();
 ob_start();
 ?>
 <!-- start template -->
-<table class="table">
+<table>
     <tr>
         <td colspan="1" class="text-center">
             <img src="<?= $logo ?>" width="100px" height="100px">
@@ -33,6 +33,9 @@ ob_start();
         <td colspan="11" class="text-center">
         <?= $kop ?>
         </td>
+    </tr>
+    <tr>
+        <td colspan="12"><hr></td>
     </tr>
     <tr>
         <td colspan="8"></td>
@@ -64,11 +67,13 @@ ob_start();
                 <p class="pull-right"><?= $result['dari']?></p>
         </td>
     </tr>
+    <br>
     <tr>
         <td colspan="12">
             <?= $result['isi'] ?>
         </td>
     </tr>
+    <br>
     <tr>
         <td></td>
         <td></td>
@@ -89,6 +94,7 @@ ob_start();
             </p>
         </td>
     </tr>
+    <br>
     <tr>
         <td colspan="9">
             <p><?= $result['tembusan'] ?></p>
