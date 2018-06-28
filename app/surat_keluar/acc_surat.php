@@ -27,11 +27,11 @@ ob_start();
 <!-- start template -->
 <table>
     <tr>
-        <td colspan="1" class="text-center">
+        <td colspan="1" style="text-align:center">
             <img src="<?= $logo ?>" width="100px" height="100px">
         </td>
-        <td colspan="11" class="text-center">
-        <?= $kop ?>
+        <td colspan="11" style="text-align:center">
+            <b><?= $kop ?></b>
         </td>
     </tr>
     <tr>
@@ -49,12 +49,13 @@ ob_start();
             <br>
             <p>Lampiran : <?= $result['lampiran'] ?></p>
             <br>
-            <p>Perihal :<?= $result['jenis_surat']?> </p>
+            <p>Perihal : <b><u><?= $result['jenis_surat']?></u></b></p>
 
         </td>
         <td colspan="6">
-            <b>Kepada</b>
-            <p>Yth</p>
+            <p>Kepada</p>
+            Yth
+            <br>
                 <?php
                 $result1 = $crud->view(" SELECT * FROM `tb_detail_surat_keluar` INNER JOIN tb_user ON tb_user.id_user = tb_detail_surat_keluar.id_user WHERE id_surat_keluar='$id_surat_keluar'");
                 $no = 1;
@@ -78,7 +79,7 @@ ob_start();
         <td></td>
         <td></td>
         <td></td>
-        <td colspan="9" class="text-center pull-right">
+        <td colspan="9" style="text-align:center">
             <p>
                 <?php 
                 $data = explode("-",$result['atas_nama']);
@@ -97,6 +98,7 @@ ob_start();
     <br>
     <tr>
         <td colspan="9">
+            <p><b>Tembusan </b> : disampaikan dengan hormat kepada :</p>
             <p><?= $result['tembusan'] ?></p>
         </td>
         <td></td>
@@ -109,7 +111,7 @@ ob_start();
 $html = ob_get_contents();
 ob_end_clean();
 $stylesheet = file_get_contents('../assets/plugins/bootstrap/css/bootstrap.min.css'); // external css
-$mpdf->WriteHTML($stylesheet,1);
+// $mpdf->WriteHTML($stylesheet,1);
 $mpdf->WriteHTML($html,2);
 
 $post_file = "../file/surat_keluar/".$id_surat_keluar.".pdf";

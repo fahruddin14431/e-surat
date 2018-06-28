@@ -26,11 +26,11 @@ ob_start();
 <!-- start template -->
 <table>
     <tr>
-        <td colspan="1" class="text-center">
+        <td colspan="1" style="text-align:center">
             <img src="<?= $logo ?>" width="100px" height="100px">
         </td>
-        <td colspan="11" class="text-center">
-            <?= $kop ?>
+        <td colspan="11" style="text-align:center">
+            <b><?= $kop ?></b>
         </td>
     </tr>
     <tr>
@@ -48,12 +48,13 @@ ob_start();
             <br>
             <p>Lampiran : <?= $_POST['lampiran'] ?></p>
             <br>
-            <p>Perihal :<?= $get_jenis_surat['jenis_surat']?> </p>
+            <p>Perihal : <b><u><?= $get_jenis_surat['jenis_surat']?></u></b>  </p>
 
         </td>
         <td colspan="6">
-            <b>Kepada</b>
-            <p>Yth</p>
+            <p>Kepada</p> 
+            Yth
+            <br>
                 <?php
                 foreach ($dinas as $key => $value) {
                     $key++;
@@ -77,7 +78,7 @@ ob_start();
         <td></td>
         <td></td>
         <td></td>
-        <td colspan="9" class="text-center">
+        <td colspan="9" style="text-align:center">
             <p>                
                 <?php 
                     $data = explode("-",$_POST['atas_nama']);
@@ -93,6 +94,7 @@ ob_start();
     <br>
     <tr>
         <td colspan="9">
+            <p><b>Tembusan </b> : disampaikan dengan hormat kepada :</p>
             <p><?= $_POST['tembusan'] ?></p>
         </td>
         <td></td>
@@ -108,7 +110,7 @@ $id_surat_keluar = $crud->makeId("tb_surat_keluar", "id_surat_keluar", "SUK");
 $html = ob_get_contents();
 ob_end_clean();
 $stylesheet = file_get_contents('../../assets/plugins/bootstrap/css/bootstrap.min.css'); // external css
-$mpdf->WriteHTML($stylesheet,1);
+// $mpdf->WriteHTML($stylesheet,1);
 $mpdf->WriteHTML($html,2);
 $post_file = "../../file/surat_keluar/".$id_surat_keluar.".pdf";
 $mpdf->Output($post_file,"F");
