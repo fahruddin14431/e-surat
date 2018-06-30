@@ -15,7 +15,7 @@
                 </div>
             </div>
 
-                <table class="table table-stripped table-bordered" id="data_table_filter">
+                <table class="table table-stripped table-bordered" id="data_table">
                     <thead>
                         <tr>
                             <th>No</th>
@@ -63,7 +63,7 @@
                             <td><?= $value['tanggal_surat'] ?></td>
                             <td><?= $value['jabatan'] ?></td>
                             <td>
-                                <a href="../file/surat_masuk/<?= $value['file_surat'] ?>" class="btn btn-info">Unduh File</a>
+                                <!-- <a href="../file/surat_masuk/<?= $value['file_surat'] ?>" class="btn btn-info">Unduh File</a> -->
                                 <a href="../file/surat_masuk/<?= $value['scan_surat'] ?>" class="btn btn-primary">Unduh Scan 1</a>
                                 <?php if(!empty($value['scan_surat2'])):?>
                                 <a href="../file/surat_masuk/<?= $value['scan_surat2'] ?>" class="btn btn-primary">Unduh Scan 2</a>

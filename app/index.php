@@ -94,7 +94,9 @@ if (empty($_SESSION['sess_user'])) {
 						<!--End Logo icon -->
 						<!-- Logo text --><span>						 
 						 <!-- Light Logo text -->    
-						 <img src="../assets/images/logo-light-text.png" class="light-logo" alt="homepage" /></span> </a>
+						 <!-- <img src="../assets/images/logo-light-text.png" class="light-logo" alt="homepage" /></span> </a> -->
+						 <b style="font-size:15px;color:white">Korespondensi Digital</b>
+						 
 				</div>			   
 				<!-- End Logo -->			   
 				<div class="navbar-collapse">				   
@@ -103,10 +105,10 @@ if (empty($_SESSION['sess_user'])) {
 						<!-- This is  -->
 						<li class="nav-item"> <a class="nav-link nav-toggler hidden-md-up text-muted waves-effect waves-dark" href="javascript:void(0)"><i class="mdi mdi-menu"></i></a> </li>					   
 						<!-- Search -->					   
-						<li class="nav-item hidden-sm-down search-box"> <a class="nav-link hidden-sm-down text-muted waves-effect waves-dark" href="javascript:void(0)"><i class="ti-search"></i></a>
-							<form class="app-search">
-								<input type="text" class="form-control" placeholder="Search & enter"> <a class="srh-btn"><i class="ti-close"></i></a> </form>
-						</li>
+						<!-- <li class="nav-item hidden-sm-down search-box"> <a class="nav-link hidden-sm-down text-muted waves-effect waves-dark" href="javascript:void(0)"><i class="ti-search"></i></a> -->
+							<!-- <form class="app-search">
+								<input type="text" class="form-control" placeholder="Search & enter"> <a class="srh-btn"><i class="ti-close"></i></a> </form> -->
+						<!-- </li> -->
 					</ul>
 				   
 					<!-- User profile and search -->
@@ -390,7 +392,25 @@ if (empty($_SESSION['sess_user'])) {
 
 	$(document).ready(function() {
 		$('#data_table').DataTable({
-			responsive: true
+			responsive: true,
+			"language": {
+				"sEmptyTable":   "Tidak ada data yang tersedia pada tabel ini",
+				"sProcessing":   "Sedang memproses...",
+				"sLengthMenu":   "Tampilkan _MENU_ entri",
+				"sZeroRecords":  "Tidak ditemukan data yang sesuai",
+				"sInfo":         "Menampilkan _START_ sampai _END_ dari _TOTAL_ entri",
+				"sInfoEmpty":    "Menampilkan 0 sampai 0 dari 0 entri",
+				"sInfoFiltered": "(disaring dari _MAX_ entri keseluruhan)",
+				"sInfoPostFix":  "",
+				"sSearch":       "Cari:",
+				"sUrl":          "",
+				"oPaginate": {
+					"sFirst":    "Pertama",
+					"sPrevious": "Sebelumnya",
+					"sNext":     "Selanjutnya",
+					"sLast":     "Terakhir"
+				}
+        	}
 		});
 	});
 	</script>
