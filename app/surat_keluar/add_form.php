@@ -25,11 +25,6 @@
                     <div class="form-group">
                         <h5>Tanggal Surat Dibuat</h5>
                         <input type="date" name="tanggal_surat_dibuat" required class="form-control">
-                    </div>  
-
-                    <div class="form-group">
-                        <h5>Lampiran</h5>
-                        <input type="text" name="lampiran" required class="form-control" placeholder="Lampiran">
                     </div>   
 
                     <div class="form-group">
@@ -116,6 +111,11 @@
                         <textarea required name="tembusan" id="editor1" cols="30" rows="10" class="form-control"></textarea>
                     </div>
 
+                    <div class="form-group">
+                        <h5>Lampiran</h5>
+                        <textarea required name="lampiran" id="editor2" cols="30" rows="10" class="form-control"></textarea>
+                    </div>
+
                     <div class="form-group">                    
                         <input required type="submit" value="SIMPAN" class="btn btn-success form-control"/> 
                     </div>                        
@@ -134,6 +134,9 @@ CKEDITOR.replace( 'editor', {
 CKEDITOR.replace( 'editor1', {
     height: 400
 });
+CKEDITOR.replace( 'editor2', {
+    height: 400
+});
 $(document).ready(function() {
     // ajax change isi surat
     $("#id_jenis_surat").change(function(){
@@ -146,10 +149,13 @@ $(document).ready(function() {
             success: function(data){
                 $("#no_surat").val(data.data.no_surat);
                 CKEDITOR.instances["editor"].setData(data.data.isi_surat);
+                CKEDITOR.instances["editor2"].setData(data.data.lampiran);
                 
             },
             error: function (xhr, ajaxOptions, thrownError) {
                 alert(thrownError); 
+                console.log(thrownError);
+                
             }
         });
     });

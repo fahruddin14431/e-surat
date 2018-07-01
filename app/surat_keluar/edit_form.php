@@ -37,10 +37,10 @@ $result2         = $crud->view(" SELECT * FROM tb_detail_surat_keluar
                         <input type="date" name="tanggal_surat_dibuat" value='<?= $result1['tanggal'] ?>'  required class="form-control">
                     </div>  
 
-                    <div class="form-group">
+                    <!-- <div class="form-group">
                         <h5>Lampiran</h5>
                         <input value='<?= $result1['lampiran'] ?>' type="text" name="lampiran" required class="form-control" placeholder="Lampiran">
-                    </div>   
+                    </div>    -->
 
                     <div class="form-group">
                         <h5>Perihal</h5>
@@ -81,7 +81,6 @@ $result2         = $crud->view(" SELECT * FROM tb_detail_surat_keluar
                             ?>
                             <option value="<?= $value['nama']."-".$value['nip'] ?>"><?= $value['nama']." - ".$value['jabatan'] ?></option>
                             <?php endforeach ?>
-                            <option value="AGUSTINUS CH.DULA - XXX XXX XXX">AGUSTINUS CH.DULA - BUPATI</option>
                         </select>
 
                     </div>  
@@ -89,6 +88,11 @@ $result2         = $crud->view(" SELECT * FROM tb_detail_surat_keluar
                     <div class="form-group">
                         <h5>Tembusan</h5>
                         <textarea required name="tembusan" id="editor1" cols="30" rows="10" class="form-control"><?= $result1['tembusan'] ?></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <h5>Lampiran</h5>
+                        <textarea required name="lampiran" id="editor2" cols="30" rows="10" class="form-control"><?= $result1['lampiran'] ?></textarea>
                     </div>
 
                     <div class="form-group">                    
@@ -114,6 +118,10 @@ CKEDITOR.replace( 'editor1', {
     height: 400
 });
 
+CKEDITOR.replace( 'editor2', {
+    height: 400
+});
+
 $(document).ready(function() {
 
     // ajax change isi surat
@@ -127,6 +135,7 @@ $(document).ready(function() {
             success: function(data){
                 $("#no_surat").val(data.data.no_surat);
                 CKEDITOR.instances["editor"].setData(data.data.isi_surat);
+                CKEDITOR.instances["editor"].setData(data.data.lampiran);
                 
             },
             error: function (xhr, ajaxOptions, thrownError) {

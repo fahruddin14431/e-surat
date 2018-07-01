@@ -17,7 +17,6 @@
                             <th>No</th>
                             <th>Tanggal</th>
                             <th>No Surat</th>
-                            <th>Lampiran</th>
                             <th>Perihal</th>
                             <th>Kepada</th>
                             <th>Status</th>
@@ -48,7 +47,6 @@
                             <td><?= $no++."." ?></td>
                             <td><?= $value['tanggal'] ?></td>
                             <td><?= $value['fix_no_surat'] ?></td>
-                            <td><?= $value['lampiran'] ?></td>
                             <td><?= $value['jenis_surat'] ?></td>
                             <td><?= $value['nama'] ?></td>
                             <td><?= $value['status']==0?"Pending":"Acc" ?></td>
@@ -58,7 +56,7 @@
                                 <a href="index.php?page=acc_surat_keluar&id_surat_keluar=<?= $value['id_surat_keluar'] ?>" onClick="return confirm('Acc Surat Keluar !')" class="btn btn-primary">ACC</a>
                                 <?php endif ?>
                                 <?php if($auth->isTU() && $value['status']==0 ):?>
-                                <a href="index.php?page=edit_surat_keluar&id_surat_keluar=<?= $value['id_surat_keluar'] ?>" class="btn btn-warning">Ubah</a>
+                                <!-- <a href="index.php?page=edit_surat_keluar&id_surat_keluar=<?= $value['id_surat_keluar'] ?>" class="btn btn-warning">Ubah</a> -->
                                 <?php endif ?>
                                 <?php if(!$auth->isBidang()):?>
                                 <a href="index.php?page=delete_surat_keluar&id_surat_keluar=<?= $value['id_surat_keluar'] ?>" onClick="return confirm('Data Akan Dihapus !')" class="btn btn-danger">Hapus</a>
