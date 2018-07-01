@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: 01 Jul 2018 pada 08.04
+-- Generation Time: 01 Jul 2018 pada 12.01
 -- Versi Server: 10.1.26-MariaDB
 -- PHP Version: 7.1.9
 
@@ -42,7 +42,8 @@ CREATE TABLE `tb_detail_surat_keluar` (
 INSERT INTO `tb_detail_surat_keluar` (`id`, `id_surat_keluar`, `id_user`, `id_jabatan`) VALUES
 (1, 'SUK1001', 'PEG1010', 6),
 (2, 'SUK1002', 'PEG1006', 6),
-(5, 'SUK1003', 'PEG1006', 6);
+(5, 'SUK1003', 'PEG1006', 6),
+(6, 'SUK1004', 'PEG1006', 6);
 
 -- --------------------------------------------------------
 
@@ -225,7 +226,8 @@ CREATE TABLE `tb_surat_keluar` (
 INSERT INTO `tb_surat_keluar` (`id_surat_keluar`, `id_jenis_surat`, `id_format_surat`, `lampiran`, `no_surat`, `isi`, `tembusan`, `tanggal`, `file_surat`, `atas_nama`, `status`, `dari`) VALUES
 ('SUK1001', 20, 1, '<h5>NOMINATIF USULAN PENETAPAN KARTU PEGAWAI</h5>\r', 'BKPPD.841', '<table align=\"center\" border=\"1\" cellspacing=\"0\" class=\"MsoTableGrid\" style=\"border-collapse:collapse; border:solid windowtext 1.0pt\">\r\n	<tbody>\r\n		<tr>\r\n			<td style=\"vertical-align:top; width:33.75pt\">\r\n			<p style=\"margin-left:0cm; margin-right:0cm; text-align:center\"><span style=\"font-size:14px\"><span style=\"color:black\">No</span></span></p>\r\n			</td>\r\n			<td style=\"vertical-align:top; width:205.65pt\">\r\n			<p style=\"margin-left:0cm; margin-right:0cm; text-align:center\"><span style=\"font-size:14px\"><span style=\"color:black\">Jenis Surat yang dikirim</span></span></p>\r\n			</td>\r\n			<td style=\"vertical-align:top; width:119.7pt\">\r\n			<p style=\"margin-left:0cm; margin-right:0cm; text-align:center\"><span style=\"font-size:14px\"><span style=\"color:black\">Banyaknya</span></span></p>\r\n			</td>\r\n			<td style=\"vertical-align:top; width:119.7pt\">\r\n			<p style=\"margin-left:0cm; margin-right:0cm; text-align:center\"><span style=\"font-size:14px\"><span style=\"color:black\">Keterangan</span></span></p>\r\n			</td>\r\n		</tr>\r\n		<tr>\r\n			<td style=\"vertical-align:top; width:33.75pt\">&nbsp;</td>\r\n			<td style=\"vertical-align:top; width:205.65pt\">&nbsp;</td>\r\n			<td style=\"vertical-align:top; width:119.7pt\">&nbsp;</td>\r\n			<td style=\"vertical-align:top; width:119.7pt\">&nbsp;</td>\r\n		</tr>\r\n	</tbody>\r\n</table>\r\n', '<p>asdfasdf</p>\r\n', '2018-12-31', 'SUK1001.pdf', 'IR. Sebastianus Wantung-19650804 199703 1 002', 1, 'asdf'),
 ('SUK1002', 5, 1, '<p>asdf</p>\r\n', 'BKPPD.890', '<p><span style=\"font-size:14px\"><span style=\"font-family:Times New Roman,Times,serif\">Sesuai Perihal Surat Edaran diatas, maka dengan ini disampaikan bhwa sertifikat Pendidikan dan Pelatihan Teknis Tugas dan Fungsi PNS Lingkup Pemerintah Kabupaten Manggarai Barat sudah ada, oleh karena itu diminta bantuan pimpinan OPD agar menyampaikan kepada staf untuk segera mengambil sertifikat di Badan Kepegawaian Pendidikan dan Pelatihan Daerah Kabupaten Mangarai Barat cq. Bidang Perencanaan dan Diklat BKPPD Kabupaten Manggarai Barat setiap jam kerja.</span></span></p>\r\n\r\n<p><span style=\"font-size:14px\"><span style=\"font-family:Times New Roman,Times,serif\">Demikian untuk maklum dan atas kerjasamamya diucapkan terima kasih.</span></span></p>\r\n', '<p>asdf</p>\r\n', '2018-12-31', 'SUK1002.pdf', 'IR. Sebastianus Wantung-19650804 199703 1 002', 1, 'asdf'),
-('SUK1003', 5, 1, '<p>asdf</p>\r\n', 'BKPPD.890', '<p><span style=\"font-size:14px\"><span style=\"font-family:Times New Roman,Times,serif\">Sesuai Perihal Surat Edaran diatas, maka dengan ini disampaikan bhwa sertifikat Pendidikan dan Pelatihan Teknis Tugas dan Fungsi PNS Lingkup Pemerintah Kabupaten Manggarai Barat sudah ada, oleh karena itu diminta bantuan pimpinan OPD agar menyampaikan kepada staf untuk segera mengambil sertifikat di Badan Kepegawaian Pendidikan dan Pelatihan Daerah Kabupaten Mangarai Barat cq. Bidang Perencanaan dan Diklat BKPPD Kabupaten Manggarai Barat setiap jam kerja.</span></span></p>\r\n\r\n<p><span style=\"font-size:14px\"><span style=\"font-family:Times New Roman,Times,serif\">Demikian untuk maklum dan atas kerjasamamya diucapkan terima kasih.</span></span></p>\r\n', '<p>asdf</p>\r\n', '2018-12-31', 'SUK1003.pdf', 'IR. Sebastianus Wantung-19650804 199703 1 002', 0, 'asdf');
+('SUK1003', 5, 1, '<p>asdf</p>\r\n', 'BKPPD.890', '<p><span style=\"font-size:14px\"><span style=\"font-family:Times New Roman,Times,serif\">Sesuai Perihal Surat Edaran diatas, maka dengan ini disampaikan bhwa sertifikat Pendidikan dan Pelatihan Teknis Tugas dan Fungsi PNS Lingkup Pemerintah Kabupaten Manggarai Barat sudah ada, oleh karena itu diminta bantuan pimpinan OPD agar menyampaikan kepada staf untuk segera mengambil sertifikat di Badan Kepegawaian Pendidikan dan Pelatihan Daerah Kabupaten Mangarai Barat cq. Bidang Perencanaan dan Diklat BKPPD Kabupaten Manggarai Barat setiap jam kerja.</span></span></p>\r\n\r\n<p><span style=\"font-size:14px\"><span style=\"font-family:Times New Roman,Times,serif\">Demikian untuk maklum dan atas kerjasamamya diucapkan terima kasih.</span></span></p>\r\n', '<p>asdf</p>\r\n', '2018-12-31', 'SUK1003.pdf', 'IR. Sebastianus Wantung-19650804 199703 1 002', 0, 'asdf'),
+('SUK1004', 5, 1, '<p>asd</p>\r\n', 'BKPPD.890', '<p><span style=\"font-size:14px\"><span style=\"font-family:Times New Roman,Times,serif\">Sesuai Perihal Surat Edaran diatas, maka dengan ini disampaikan bhwa sertifikat Pendidikan dan Pelatihan Teknis Tugas dan Fungsi PNS Lingkup Pemerintah Kabupaten Manggarai Barat sudah ada, oleh karena itu diminta bantuan pimpinan OPD agar menyampaikan kepada staf untuk segera mengambil sertifikat di Badan Kepegawaian Pendidikan dan Pelatihan Daerah Kabupaten Mangarai Barat cq. Bidang Perencanaan dan Diklat BKPPD Kabupaten Manggarai Barat setiap jam kerja.</span></span></p>\r\n\r\n<p><span style=\"font-size:14px\"><span style=\"font-family:Times New Roman,Times,serif\">Demikian untuk maklum dan atas kerjasamamya diucapkan terima kasih.</span></span></p>\r\n', '<p>asd</p>\r\n', '2018-12-31', 'SUK1004.pdf', 'IR. Sebastianus Wantung-19650804 199703 1 002', 0, 'assd');
 
 -- --------------------------------------------------------
 
@@ -408,7 +410,7 @@ ALTER TABLE `tb_user`
 -- AUTO_INCREMENT for table `tb_detail_surat_keluar`
 --
 ALTER TABLE `tb_detail_surat_keluar`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `tb_format_surat`
@@ -454,3 +456,25 @@ ALTER TABLE `tb_login`
 
 --
 -- Ketidakleluasaan untuk tabel `tb_surat_keluar`
+--
+ALTER TABLE `tb_surat_keluar`
+  ADD CONSTRAINT `tb_surat_keluar_ibfk_1` FOREIGN KEY (`id_jenis_surat`) REFERENCES `tb_jenis_surat` (`id_jenis_surat`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `tb_surat_keluar_ibfk_2` FOREIGN KEY (`id_format_surat`) REFERENCES `tb_format_surat` (`id_format_surat`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Ketidakleluasaan untuk tabel `tb_surat_masuk`
+--
+ALTER TABLE `tb_surat_masuk`
+  ADD CONSTRAINT `tb_surat_masuk_ibfk_1` FOREIGN KEY (`id_jabatan`) REFERENCES `tb_jabatan` (`id_jabatan`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `tb_surat_masuk_ibfk_2` FOREIGN KEY (`id_user`) REFERENCES `tb_user` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Ketidakleluasaan untuk tabel `tb_user`
+--
+ALTER TABLE `tb_user`
+  ADD CONSTRAINT `tb_user_ibfk_1` FOREIGN KEY (`id_jabatan`) REFERENCES `tb_jabatan` (`id_jabatan`) ON DELETE CASCADE ON UPDATE CASCADE;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
