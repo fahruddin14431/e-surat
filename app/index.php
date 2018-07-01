@@ -411,6 +411,7 @@ if (empty($_SESSION['sess_user'])) {
 					"sLast":     "Terakhir"
 				}
         	}
+			<?= $_GET['page']=="view_format_surat"?",searching: false":"" ?>
 		});
 	});
 	</script>

@@ -23,12 +23,13 @@ $tembusan       = $_POST['tembusan'];
 $get_jenis_surat = $crud->view("SELECT * FROM tb_jenis_surat WHERE id_jenis_surat='$id_jenis_surat'")[0];
 ob_start();
 
+// 11 = usulan karpeg
 // 20 = laporan keuangan
 
-if($id_jenis_surat=="20"):
+if($id_jenis_surat=="20" || $id_jenis_surat=="11"):
 ?>
 
-<!-- start template keuangan-->
+<!-- start template keuangan dan karpeg-->
 <div style="width:100%;">
 
     <div style="width:100%;">
@@ -124,8 +125,26 @@ if($id_jenis_surat=="20"):
 <div style="width:100%;">
     <?= $lampiran ?>
 </div>
+<div style="width:100%;">
+    <div style="width:60%; float:left">
+       
+    </div>
+    <div style="width:40%">
+        <br><br>
+        <p>                
+            <?php 
+                $data = explode("-",$_POST['atas_nama']);
+            ?>
+            <?= $data[0]=="IR. Sebastianus Wantung"?"":"A.n " ?>Kepala Badan Kepegawaian Pendidikan dan Pelatihan<br>
+            Daerah Kabupaten Manggarai Barat <br><br>               
+            <b><u><?= $data[0] ?></u></b><br>
+            Pembina Utama Muda <br>
+            NIP. <?= $data[1] ?>
+        </p>
+    </div>
+</div>
 <!-- end lampiran -->
-<!-- end template keuangan-->
+<!-- end template keuangan dan karpeg-->
 
 <?php  else:  ?>
 

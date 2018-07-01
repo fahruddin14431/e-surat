@@ -26,7 +26,7 @@ ob_start();
 
 // 20 = laporan keuangan
 
-if($result['id_jenis_surat']=="20"):
+if($result['id_jenis_surat']=="20" || $result['id_jenis_surat']=="11"):
 ?>
     
     <!-- start template keuangan-->
@@ -127,6 +127,27 @@ if($result['id_jenis_surat']=="20"):
     <p>Lampiran Surat</p>
     <div style="width:100%;">
         <?= $result['fix_lampiran'] ?>
+    </div>
+    <div style="width:100%;">
+        <div style="width:60%; float:left">
+        
+        </div>
+        <div style="width:40%">
+            <br><br>
+            <p>                
+                <?php 
+                    $data = explode("-",$result['atas_nama']);
+                ?>
+                <?= $data[0]=="IR. Sebastianus Wantung"?"":"A.n " ?>Kepala Badan Kepegawaian Pendidikan dan Pelatihan<br>
+                Daerah Kabupaten Manggarai Barat 
+                <br>
+                <img src="../assets/ttd/<?= $data[0]=="IR. Sebastianus Wantung"?"ttd_kepala.jpeg":"ttd_bupati.jpeg" ?>" width="160px" height="160px">
+                <br>               
+                <b><u><?= $data[0] ?></u></b><br>
+                Pembina Utama Muda <br>
+                NIP. <?= $data[1] ?>
+            </p>
+        </div>
     </div>
     <!-- end lampiran -->
     <!-- end template keuangan-->
