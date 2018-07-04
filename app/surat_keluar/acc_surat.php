@@ -60,11 +60,20 @@ if($result['id_jenis_surat']=="20" || $result['id_jenis_surat']=="11"):
             <p>Kepada</p>
             Yth
             <br>
-                <?php
+                <?php 
+                $arr_nama_dinas = [];
                 $result1 = $crud->view(" SELECT * FROM `tb_detail_surat_keluar` INNER JOIN tb_user ON tb_user.id_user = tb_detail_surat_keluar.id_user WHERE id_surat_keluar='$id_surat_keluar'");
-                $no = 1;
                 foreach ($result1 as $value) {
-                    echo $no++.".".$value['nama']."<br>";
+                    $arr_nama_dinas[] = $value['nama'];
+                }
+        
+                if(count($arr_nama_dinas)>1){
+                    foreach ($arr_nama_dinas as $key => $value) {
+                        $key++;
+                        echo $key.".".$value."<br>";
+                    }
+                }else{
+                    echo $arr_nama_dinas[0];
                 }
                 ?>
                 <br>
@@ -190,10 +199,19 @@ if($result['id_jenis_surat']=="20" || $result['id_jenis_surat']=="11"):
             Yth
             <br>
                 <?php
+                $arr_nama_dinas = [];
                 $result1 = $crud->view(" SELECT * FROM `tb_detail_surat_keluar` INNER JOIN tb_user ON tb_user.id_user = tb_detail_surat_keluar.id_user WHERE id_surat_keluar='$id_surat_keluar'");
-                $no = 1;
                 foreach ($result1 as $value) {
-                    echo $no++.".".$value['nama']."<br>";
+                    $arr_nama_dinas[] = $value['nama'];
+                }
+        
+                if(count($arr_nama_dinas)>1){
+                    foreach ($arr_nama_dinas as $key => $value) {
+                        $key++;
+                        echo $key.".".$value."<br>";
+                    }
+                }else{
+                    echo $arr_nama_dinas[0];
                 }
                 ?>
                 <br>
@@ -239,6 +257,9 @@ if($result['id_jenis_surat']=="20" || $result['id_jenis_surat']=="11"):
     
     </div>
     
+    <!-- 6 : kenaikan gaji berkala -->
+    <!-- 17 : undangan -->
+    <?php if($result['id_jenis_surat']!="6" AND $result['id_jenis_surat']!="17"): ?>
     <!-- lampiran -->
     <pagebreak />
     <p>Lampiran Surat</p>
@@ -246,6 +267,7 @@ if($result['id_jenis_surat']=="20" || $result['id_jenis_surat']=="11"):
         <?= $result['fix_lampiran'] ?>
     </div>
     <!-- end lampiran -->
+    <?php endif ?>
     
     <!-- end template public-->
     

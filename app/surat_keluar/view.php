@@ -31,7 +31,8 @@
                             $sql = "SELECT *, tb_surat_keluar.no_surat as fix_no_surat FROM tb_surat_keluar
                                     INNER JOIN tb_jenis_surat ON tb_surat_keluar.id_jenis_surat = tb_jenis_surat.id_jenis_surat
                                     INNER JOIN tb_detail_surat_keluar ON tb_surat_keluar.id_surat_keluar = tb_detail_surat_keluar.id_surat_keluar
-                                    INNER JOIN tb_user ON tb_user.id_user = tb_detail_surat_keluar.id_user";
+                                    INNER JOIN tb_user ON tb_user.id_user = tb_detail_surat_keluar.id_user
+                                    GROUP BY tb_surat_keluar.id_surat_keluar";
                             // condition bidang
                             // ambil data dari session bidang
                             $sess_id_jabatan = $_SESSION['sess_user']['sess_id_user'];

@@ -3,7 +3,7 @@
 <?php 
 include "../helper/crud.php";
 include "../../assets/mpdf/mpdf.php";
-$mpdf = new mPDF();
+$mpdf = new mPDF('utf-8', "LEGAL");
 $mpdf->debug = true;
 $mpdf->allow_output_buffering = true;
 $mpdf->$keep_table_proportions = true;
@@ -61,10 +61,18 @@ if($id_jenis_surat=="20" || $id_jenis_surat=="11"):
         Yth
         <br>
         <?php
+        $arr_nama_dinas = [];
         foreach ($dinas as $key => $value) {
-            $key++;
-            $get_nama_dinas = $crud->view("SELECT nama FROM tb_user WHERE id_user='$value'")[0];
-            echo $key.".".$get_nama_dinas['nama']."<br>";
+            $arr_nama_dinas[] = $crud->view("SELECT nama FROM tb_user WHERE id_user='$value'")[0]['nama'];
+        }
+
+        if(count($arr_nama_dinas)>1){
+            foreach ($arr_nama_dinas as $key => $value) {
+                $key++;
+                echo $key.".".$value."<br>";
+            }
+        }else{
+            echo $arr_nama_dinas[0];
         }
         ?>
         <br>
@@ -184,10 +192,18 @@ if($id_jenis_surat=="20" || $id_jenis_surat=="11"):
         Yth
         <br>
         <?php
+        $arr_nama_dinas = [];
         foreach ($dinas as $key => $value) {
-            $key++;
-            $get_nama_dinas = $crud->view("SELECT nama FROM tb_user WHERE id_user='$value'")[0];
-            echo $key.".".$get_nama_dinas['nama']."<br>";
+            $arr_nama_dinas[] = $crud->view("SELECT nama FROM tb_user WHERE id_user='$value'")[0]['nama'];
+        }
+
+        if(count($arr_nama_dinas)>1){
+            foreach ($arr_nama_dinas as $key => $value) {
+                $key++;
+                echo $key.".".$value."<br>";
+            }
+        }else{
+            echo $arr_nama_dinas[0];
         }
         ?>
         <br>
@@ -230,6 +246,9 @@ if($id_jenis_surat=="20" || $id_jenis_surat=="11"):
 
 </div>
 
+<!-- 6 : kenaikan gaji berkala -->
+<!-- 17 : undangan -->
+<?php if($id_jenis_surat!=="6" AND $id_jenis_surat!=="17"): ?>
 <!-- lampiran -->
 <pagebreak />
 <p>Lampiran Surat</p>
@@ -237,6 +256,7 @@ if($id_jenis_surat=="20" || $id_jenis_surat=="11"):
     <?= $lampiran ?>
 </div>
 <!-- end lampiran -->
+<?php endif ?>
 
 <!-- end template public-->
 
