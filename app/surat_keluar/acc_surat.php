@@ -129,10 +129,10 @@ if($result['id_jenis_surat']=="20" || $result['id_jenis_surat']=="11"):
         <?= $result['fix_lampiran'] ?>
     </div>
     <div style="width:100%;">
-        <div style="width:60%; float:left">
+        <div style="width:60%">
         
         </div>
-        <div style="width:40%">
+        <div style="width:40%; float:right">
             <br><br>
             <p>                
                 <?php 
