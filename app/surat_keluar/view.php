@@ -59,8 +59,8 @@
                                 <?php if($auth->isTU() && $value['status']==0 ):?>
                                 <!-- <a href="index.php?page=edit_surat_keluar&id_surat_keluar=<?= $value['id_surat_keluar'] ?>" class="btn btn-warning">Ubah</a> -->
                                 <?php endif ?>
-                                <?php if(!$auth->isBidang()):?>
-                                <a href="index.php?page=delete_surat_keluar&id_surat_keluar=<?= $value['id_surat_keluar'] ?>" onClick="return confirm('Data Akan Dihapus !')" class="btn btn-danger">Hapus</a>
+                                <?php if(!$auth->isBidang() ):?>
+                                <!-- <a href="index.php?page=delete_surat_keluar&id_surat_keluar=<?= $value['id_surat_keluar'] ?>" onClick="return confirm('Data Akan Dihapus !')" class="btn btn-danger">Hapus</a> -->
                                 <?php endif ?>
                             </td>
                         </tr>

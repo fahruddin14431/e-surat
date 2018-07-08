@@ -33,7 +33,6 @@
                             <th>No</th>
                             <th>Tanggal</th>
                             <th>No Surat</th>
-                            <th>Lampiran</th>
                             <th>Perihal</th>
                             <th>Kepada</th>
                             <th>Status</th>
@@ -73,7 +72,6 @@
                             <td><?= $no++."." ?></td>
                             <td><?= $value['tanggal'] ?></td>
                             <td><?= $value['fix_no_surat'] ?></td>
-                            <td><?= $value['lampiran'] ?></td>
                             <td><?= $value['jenis_surat'] ?></td>
                             <td><?= $value['nama'] ?></td>
                             <td><?= $value['status']==0?"Pending":"Acc" ?></td>
