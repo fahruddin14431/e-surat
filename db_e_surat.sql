@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: 04 Jul 2018 pada 17.02
+-- Generation Time: 11 Jul 2018 pada 16.00
 -- Versi Server: 10.1.26-MariaDB
 -- PHP Version: 7.1.9
 
@@ -259,7 +259,8 @@ CREATE TABLE `tb_surat_masuk` (
 
 INSERT INTO `tb_surat_masuk` (`id_surat_masuk`, `id_user`, `no_surat`, `no_agenda`, `indeks_masalah`, `perihal`, `tanggal_surat`, `tanggal_surat_penerimaan`, `file_surat`, `scan_surat`, `scan_surat2`, `id_jabatan`, `status`, `instruksi`) VALUES
 ('SUM1001', 'PEG1006', 'BKPPD.823', 'test 1 surat', 'asdf', 'asdf', '2018-12-31', '2018-12-31', 'SUM1001.pdf', 'SUM1001-1.jpeg', '', 6, 0, 'asdf'),
-('SUM1002', 'PEG1006', 'asdf', 'test 2 surat', 'asdf', 'asdf', '2018-12-31', '2018-12-31', 'SUM1002.pdf', 'SUM1002-1.jpeg', 'SUM1002-2.png', 6, 0, 'asdf');
+('SUM1002', 'PEG1006', 'asdf', 'test 2 surat', 'asdf', 'asdf', '2018-12-31', '2018-12-31', 'SUM1002.pdf', 'SUM1002-1.jpeg', 'SUM1002-2.png', 6, 0, 'asdf'),
+('SUM1003', 'PEG1017', 'asdf', 'no agenda', 'asdf', 'perihal', '2018-12-31', '2018-12-31', 'SUM1003.pdf', 'SUM1003-1.jpg', 'SUM1003-2.jpg', 6, 0, 'asdf');
 
 -- --------------------------------------------------------
 

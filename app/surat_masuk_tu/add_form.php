@@ -66,7 +66,23 @@
                             <option value="<?= $value['id_jabatan'] ?>"><?= $value['jabatan'] ?></option>
                             <?php endforeach ?>
                         </select>
-                    </div>                    
+                    </div>    
+
+                    <div class="form-group">
+                        <h5>Distribusi</h5>
+
+                        <select required class="js-example-basic-multiple" multiple="multiple" class="form-control">                            
+                            <?php 
+                                $sess_dinas = $_SESSION['sess_user']['sess_id_user'];
+                                $crud   = new Crud();
+                                $result = $crud->view("SELECT * FROM tb_jabatan WHERE id_jabatan IN(6,7,8,9,10)");          
+                                foreach ($result as  $value):
+                            ?>
+                            <option value="<?= $value['id_jabatan'] ?>"><?= $value['jabatan'] ?></option>
+                            <?php endforeach ?>
+                        </select>
+
+                    </div>                
 
                     <div class="form-group">
                         <h5>Perihal</h5>
@@ -93,3 +109,9 @@
         </div>
     </div>
 </div>
+<script>
+ $('.js-example-basic-multiple').select2({
+        placeholder:"-- Distribusi --",
+        width: '100%'
+    });
+</script>
