@@ -25,7 +25,6 @@
                             <th>Perihal</th>
                             <th>Dari</th>
                             <th>Tanggal Surat</th>
-                            <th>Disposisi Kepada</th>
                             <th>Aksi</th>
                         </tr>
                     </thead>
@@ -35,9 +34,9 @@
                             $crud   = new Crud();
 
                             $sql = "SELECT * FROM tb_surat_masuk
-                                    INNER JOIN tb_jabatan ON tb_surat_masuk.id_jabatan = tb_jabatan.id_jabatan 
                                     INNER JOIN tb_user ON tb_surat_masuk.id_user = tb_user.id_user
-                                    WHERE status='0'";     
+                                    INNER JOIN tb_detail_surat_masuk ON tb_detail_surat_masuk.id_surat_masuk = tb_surat_masuk.id_surat_masuk
+                                    WHERE status = '0'";     
 
                             // condition bidang
                             // ambil data dari session bidang
@@ -45,8 +44,10 @@
                             $id_jabatan      = $crud->view("SELECT id_jabatan FROM tb_user WHERE id_user='$sess_id_jabatan'")[0]['id_jabatan'];
                             
                             if($auth->isBidang()){
-                                $sql .= " AND tb_surat_masuk.id_jabatan = '$id_jabatan' ";
+                                $sql .= " AND tb_detail_surat_masuk.id_jabatan = '$id_jabatan' ";
                             }
+
+                            $sql .= "GROUP by tb_surat_masuk.id_surat_masuk";
                             
 
                             $result = $crud->view($sql);                     
@@ -61,7 +62,6 @@
                             <td><?= $value['perihal'] ?></td>
                             <td><?= $value['nama'] ?></td>
                             <td><?= $value['tanggal_surat'] ?></td>
-                            <td><?= $value['jabatan'] ?></td>
                             <td>
                                 <!-- <a href="../file/surat_masuk/<?= $value['file_surat'] ?>" class="btn btn-info">Unduh File</a> -->
                                 <a href="../file/surat_masuk/<?= $value['scan_surat'] ?>" class="btn btn-primary">Unduh Scan 1</a>

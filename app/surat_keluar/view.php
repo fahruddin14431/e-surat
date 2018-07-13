@@ -36,9 +36,9 @@
                             // ambil data dari session bidang
                             $sess_id_jabatan = $_SESSION['sess_user']['sess_id_user'];
                             $id_jabatan      = $crud->view("SELECT id_jabatan FROM tb_user WHERE id_user='$sess_id_jabatan'")[0]['id_jabatan'];
-                            // if($auth->isBidang()){
-                            //     $sql .=" WHERE tb_detail_surat_keluar.id_jabatan = '$id_jabatan'";
-                            // }
+                            if($auth->isBidang()){
+                                $sql .=" WHERE tb_detail_surat_keluar.id_jabatan = '$id_jabatan'";
+                            }
                             $sql .=" GROUP BY tb_surat_keluar.id_surat_keluar";
                             
                             $result = $crud->view($sql);            

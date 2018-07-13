@@ -121,7 +121,6 @@ if (move_uploaded_file($scan_surat, $target_file)) {
         'tanggal_surat_penerimaan'  => $_POST['tgl_penerimaan'],
         'tanggal_surat'             => $_POST['tgl_surat'],        
         'instruksi'                 => $_POST['instruksi'],        
-        'id_jabatan'                => $_POST['id_jabatan'],        
         'file_surat'                => $id_surat_masuk.".pdf",        
         'scan_surat'                => $id_surat_masuk."-1.".strtolower(pathinfo(basename($_FILES["scan_surat"]["name"]),PATHINFO_EXTENSION)),        
     );    
@@ -131,7 +130,21 @@ if (move_uploaded_file($scan_surat, $target_file)) {
 }
 $res = $crud->insert("tb_surat_masuk", $data);
 
-if ($res) {
+$res2;
+foreach ($_POST['distribusi'] as $value) {
+    $data = array(
+        "id_surat_masuk"    => $id_surat_masuk,
+        "id_jabatan"        => $value
+    );
+    $res2 = $crud->insert("tb_detail_surat_masuk", $data);
+}
+
+$res3 = $crud->insert("tb_detail_surat_masuk", array(
+                                                    "id_surat_masuk"    => $id_surat_masuk,
+                                                    "id_jabatan"        => $_POST['id_jabatan']
+                                                ));
+
+if ($res & $res2 & $res3) {
     header("location:../index.php?page=view_surat_masuk_tu");
 }
 ?>

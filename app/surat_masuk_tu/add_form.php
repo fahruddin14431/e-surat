@@ -50,7 +50,7 @@
 
                     <div class="form-group">
                         <h5>Instruksi</h5>
-                        <input type="text" name="instruksi" required class="form-control" placeholder="Instruksi">
+                        <input type="text" name="instruksi" id="instruksi" required class="form-control" placeholder="Instruksi">
                     </div>
 
                     <div class="form-group">
@@ -71,7 +71,7 @@
                     <div class="form-group">
                         <h5>Distribusi</h5>
 
-                        <select required class="js-example-basic-multiple" multiple="multiple" class="form-control">                            
+                        <select required class="js-example-basic-multiple" id="distribusi" name="distribusi[]" multiple="multiple" class="form-control">                            
                             <?php 
                                 $sess_dinas = $_SESSION['sess_user']['sess_id_user'];
                                 $crud   = new Crud();
@@ -110,8 +110,20 @@
     </div>
 </div>
 <script>
- $('.js-example-basic-multiple').select2({
-        placeholder:"-- Distribusi --",
-        width: '100%'
-    });
+$('.js-example-basic-multiple').select2({
+    placeholder:"-- Distribusi --",
+    width: '100%'
+});
+
+$('#distribusi').attr('disabled', 'disabled');
+$("#instruksi").keyup(function(){
+    var instruksi = this.value;
+    if(instruksi.includes("distribusi")){
+        console.log('enabled');        
+        $('#distribusi').removeAttr('disabled');
+    }else{
+        console.log('disabled');        
+        $('#distribusi').attr('disabled', 'disabled');
+    }
+});
 </script>

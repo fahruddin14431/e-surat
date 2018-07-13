@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: 11 Jul 2018 pada 16.00
+-- Generation Time: 13 Jul 2018 pada 09.29
 -- Versi Server: 10.1.26-MariaDB
 -- PHP Version: 7.1.9
 
@@ -45,6 +45,29 @@ INSERT INTO `tb_detail_surat_keluar` (`id`, `id_surat_keluar`, `id_user`, `id_ja
 (48, 'SUK1002', 'PEG1010', 6),
 (54, 'SUK1003', 'PEG1006', 6),
 (55, 'SUK1004', 'PEG1006', 6);
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `tb_detail_surat_masuk`
+--
+
+CREATE TABLE `tb_detail_surat_masuk` (
+  `id` int(11) NOT NULL,
+  `id_surat_masuk` varchar(11) NOT NULL,
+  `id_jabatan` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `tb_detail_surat_masuk`
+--
+
+INSERT INTO `tb_detail_surat_masuk` (`id`, `id_surat_masuk`, `id_jabatan`) VALUES
+(4, 'SUM1001', 7),
+(5, 'SUM1001', 8),
+(6, 'SUM1001', 9),
+(7, 'SUM1001', 10),
+(8, 'SUM1001', 6);
 
 -- --------------------------------------------------------
 
@@ -248,7 +271,6 @@ CREATE TABLE `tb_surat_masuk` (
   `file_surat` varchar(100) DEFAULT NULL,
   `scan_surat` varchar(100) NOT NULL,
   `scan_surat2` varchar(100) NOT NULL,
-  `id_jabatan` int(11) NOT NULL,
   `status` int(11) NOT NULL DEFAULT '0',
   `instruksi` text
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -257,10 +279,8 @@ CREATE TABLE `tb_surat_masuk` (
 -- Dumping data untuk tabel `tb_surat_masuk`
 --
 
-INSERT INTO `tb_surat_masuk` (`id_surat_masuk`, `id_user`, `no_surat`, `no_agenda`, `indeks_masalah`, `perihal`, `tanggal_surat`, `tanggal_surat_penerimaan`, `file_surat`, `scan_surat`, `scan_surat2`, `id_jabatan`, `status`, `instruksi`) VALUES
-('SUM1001', 'PEG1006', 'BKPPD.823', 'test 1 surat', 'asdf', 'asdf', '2018-12-31', '2018-12-31', 'SUM1001.pdf', 'SUM1001-1.jpeg', '', 6, 0, 'asdf'),
-('SUM1002', 'PEG1006', 'asdf', 'test 2 surat', 'asdf', 'asdf', '2018-12-31', '2018-12-31', 'SUM1002.pdf', 'SUM1002-1.jpeg', 'SUM1002-2.png', 6, 0, 'asdf'),
-('SUM1003', 'PEG1017', 'asdf', 'no agenda', 'asdf', 'perihal', '2018-12-31', '2018-12-31', 'SUM1003.pdf', 'SUM1003-1.jpg', 'SUM1003-2.jpg', 6, 0, 'asdf');
+INSERT INTO `tb_surat_masuk` (`id_surat_masuk`, `id_user`, `no_surat`, `no_agenda`, `indeks_masalah`, `perihal`, `tanggal_surat`, `tanggal_surat_penerimaan`, `file_surat`, `scan_surat`, `scan_surat2`, `status`, `instruksi`) VALUES
+('SUM1001', 'PEG1006', 'no surat', 'asdf', 'asdf', 'asdf', '2018-12-31', '2018-12-31', 'SUM1001.pdf', 'SUM1001-1.jpg', 'SUM1001-2.jpg', 0, 'distribusi');
 
 -- --------------------------------------------------------
 
@@ -358,6 +378,14 @@ ALTER TABLE `tb_detail_surat_keluar`
   ADD KEY `id_jabatan` (`id_jabatan`);
 
 --
+-- Indexes for table `tb_detail_surat_masuk`
+--
+ALTER TABLE `tb_detail_surat_masuk`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_surat_masuk` (`id_surat_masuk`),
+  ADD KEY `id_jabatan` (`id_jabatan`);
+
+--
 -- Indexes for table `tb_format_surat`
 --
 ALTER TABLE `tb_format_surat`
@@ -395,7 +423,6 @@ ALTER TABLE `tb_surat_keluar`
 --
 ALTER TABLE `tb_surat_masuk`
   ADD PRIMARY KEY (`id_surat_masuk`),
-  ADD KEY `id_jabatan` (`id_jabatan`),
   ADD KEY `id_pegawai` (`id_user`);
 
 --
@@ -414,6 +441,12 @@ ALTER TABLE `tb_user`
 --
 ALTER TABLE `tb_detail_surat_keluar`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
+
+--
+-- AUTO_INCREMENT for table `tb_detail_surat_masuk`
+--
+ALTER TABLE `tb_detail_surat_masuk`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `tb_format_surat`
@@ -452,6 +485,13 @@ ALTER TABLE `tb_detail_surat_keluar`
   ADD CONSTRAINT `tb_detail_surat_keluar_ibfk_4` FOREIGN KEY (`id_jabatan`) REFERENCES `tb_jabatan` (`id_jabatan`);
 
 --
+-- Ketidakleluasaan untuk tabel `tb_detail_surat_masuk`
+--
+ALTER TABLE `tb_detail_surat_masuk`
+  ADD CONSTRAINT `tb_detail_surat_masuk_ibfk_1` FOREIGN KEY (`id_surat_masuk`) REFERENCES `tb_surat_masuk` (`id_surat_masuk`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `tb_detail_surat_masuk_ibfk_2` FOREIGN KEY (`id_jabatan`) REFERENCES `tb_jabatan` (`id_jabatan`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
 -- Ketidakleluasaan untuk tabel `tb_login`
 --
 ALTER TABLE `tb_login`
@@ -468,7 +508,6 @@ ALTER TABLE `tb_surat_keluar`
 -- Ketidakleluasaan untuk tabel `tb_surat_masuk`
 --
 ALTER TABLE `tb_surat_masuk`
-  ADD CONSTRAINT `tb_surat_masuk_ibfk_1` FOREIGN KEY (`id_jabatan`) REFERENCES `tb_jabatan` (`id_jabatan`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `tb_surat_masuk_ibfk_2` FOREIGN KEY (`id_user`) REFERENCES `tb_user` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
